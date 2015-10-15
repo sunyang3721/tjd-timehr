@@ -1,0 +1,1 @@
+当前目录UploadFile.class.php是已经修改过了，用来截图的类 也包括上传gif  png jpg 等 和ThinkImage文件一起使用。  在Net文件夹内的UploadFile.class.php 是普通上传类
