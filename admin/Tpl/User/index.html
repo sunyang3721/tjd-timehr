@@ -1,0 +1,209 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <!-- Page Head -->
+    <ul class="shortcut-buttons-set">
+		<li><a class="shortcut-button" href="__APP__/User/add"><span><img src="__PUBLIC__/admin/images/icons/1.png"><br/>注册员工</span></a>
+		</li>
+		<li><a class="shortcut-button" href="__APP__/User/index"><span><img src="__PUBLIC__/admin/images/icons/5.png"><br/>查询员工</span></a>
+		</li>
+		<li><a class="shortcut-button" href="__APP__/User/zaizhi"><span><img src="__PUBLIC__/admin/images/icons/20.png"><br/>在职员工</span></a>
+		</li>
+		<li>
+		<a class="shortcut-button" href="__APP__/User/lizhi">
+			<span><img src="__PUBLIC__/admin/images/icons/19.png"><br/>离职员工</span></a>
+		</li>
+		<li>
+		<a class="shortcut-button" href="__APP__/User/delhome">
+			<span><img src="__PUBLIC__/admin/images/icons/10.png"><br/>回收站</span></a>
+		</li>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>用户管理</h4>
+      </div>
+      <!-- End .content-box-header -->
+<script type="text/javascript">
+		$(document).ready(function(){
+				$('select[name=classif]').val('{$classif}');
+				$('.status').bind('click',function(){
+						var numid = $(this).attr("num");
+				$.post('__URL__/status/'+numid,function(jdata){
+						//if(confirm("<?php echo $confirm?>")){
+						if(jdata.status==1){
+										if(jdata.data!=''){
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(100).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('.status[num='+numid+']').html(jdata.data);
+										}else{
+											alert('数据有误，请联系管理员！');
+										}
+								}else{
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(100).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('.status[num='+numid+']').html(jdata.data);
+										}
+						//}
+				});
+		});
+		$('.openjob').bind('click',function(){
+						var numid = $(this).attr("num");
+				$.post('__URL__/openjob/'+numid,function(jdata){
+						//if(confirm("<?php echo $confirm?>")){
+						if(jdata.status==1){
+										if(jdata.data!=''){
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(100).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('.openjob[num='+numid+']').html(jdata.data);
+										}else{
+											alert('数据有误，请联系管理员！');
+										}
+								}else{
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(100).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('.openjob[num='+numid+']').html(jdata.data);
+										}
+						//}
+				});
+		});
+		$('.listpdf').bind('click',function(){
+						var numid = $(this).attr("num");
+				$.post('__URL__/listpdf/'+numid,function(jdata){
+						//if(confirm("<?php echo $confirm?>")){
+						if(jdata.status==1){
+										if(jdata.data!=''){
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(100).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('.listpdf[num='+numid+']').html(jdata.data);
+										}else{
+											alert('数据有误，请联系管理员！');
+										}
+								}else{
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(100).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('.listpdf[num='+numid+']').html(jdata.data);
+										}
+						//}
+				});
+		});
+				$('.del').bind('click',function(){
+					if(confirm("注意！删除后设备统计和资料也会同时删除！确定删除到回收站吗？")){
+						var numid = $(this).attr("delnum");
+				$.post('__URL__/del/'+numid,function(jdata){
+						//if(confirm("<?php echo $confirm?>")){
+						if(jdata.status==3){
+										if(jdata.data!=''){
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(300).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('tr[delnum='+numid+']').remove();
+										}else{
+											alert('数据有误，请联系管理员！');
+										}
+								}else{
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(300).animate({'margin-top':'-5px'}).fadeOut(500);
+												//$('<?php echo $button?>[num='+numid+']').html(jdata.data);
+										}
+						//}
+				});
+					} //confirm end
+		});
+				$('.hide{$Think.session.id}').hide();
+		});
+</script>
+<div id="ajax" class="notification" style="width:20%;margin-left:22%; position: absolute;top:10%;background-color:#99ff00;display:none;position:fixed;z-index:50;"></div>
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+         <div class="notification information">
+      <div>
+				<form method="post" action="__APP__/User/{$moshu}">
+					<div id="soso">
+                    <select name="classif">
+                      <option value="0">&nbsp;全&nbsp;部</option>
+					  <option value="1">员工账号</option>
+                      <option value="2">员工姓名</option>
+                    </select>
+					<input type="text" name="text" value="{$soso}">
+					<input type="submit" value="开始搜索">
+				</div>
+				</form>
+	 </div>
+    </div>
+          <table border="0" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>员工编号</th>
+                <th>员工姓名</th>
+				<th>猎头等级</th>
+                <th>IP登录</th>
+				<th>最后一次登录</th>
+				<th>状态</th>
+				<th>发布职位</th>
+				<!-- <th>List上传</th> -->
+				<th>所属用户组</th>
+				<th>操作处理</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="6">
+                  <div class="bulk-actions align-left">
+				  </div>
+                  <div class="pagination"><a href="#" class="number current">{$page}{$empty}</a> 
+				  </div>
+                  <!-- End .pagination -->
+                  <div class="clear"></div>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+			<foreach name="list" item="vo">
+              <tr delnum="{$vo.id}" class="hide{$vo.id}">
+                <td>{$vo.username}</td>
+                <td>{$vo.yourname}</td>
+				<td>
+						<switch name="vo.statuspdf">
+							<case value="0">入门</case>
+							<case value="1">中级</case>
+							<case value="2">高级</case>
+							<case value="3">资深</case>
+						</switch>
+				</td>
+                <td>{$vo.last_ip}</td>
+				<td>{$vo.last_time|date='Y-m-d',###}</td>
+			    <td><switch name="vo.status">
+						<case value="1"><span class="status" num="{$vo.id}" style="color:#33cc00;cursor: pointer;">启用（在职）</case>
+						<case value="2"><span style="color:#808080;cursor: pointer;" class="status" num="{$vo.id}">禁用（离职）</span></case>
+					</switch></td>
+				 <td><switch name="vo.openjob">
+						<case value="1"><span class="openjob" num="{$vo.id}" style="color:#33cc00;cursor: pointer;">允许</case>
+						<case value="0"><span style="color:#808080;cursor: pointer;" class="openjob" num="{$vo.id}">禁用</span></case>
+					</switch></td>
+				<!-- <td><switch name="vo.listpdf">
+						<case value="1"><span class="listpdf" num="{$vo.id}" style="color:#33cc00;cursor: pointer;">允许</case>
+						<case value="0"><span style="color:#808080;cursor: pointer;" class="listpdf" num="{$vo.id}">禁用</span></case>
+					</switch></td> -->
+				<td><empty name="vo['Role'][0]['name']">未分组<else /> {$vo['Role'][0]['name']}</empty> </td>
+                <td>
+                  <a href="__APP__/User/username/{$vo.id}" title="修改姓名"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" />修改姓名</a>&nbsp;&nbsp;| <a href="__APP__/User/edit/{$vo.id}" title="修改密码"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" />修改密码</a>&nbsp;&nbsp;| <a href="__APP__/User/editpdf/{$vo.id}" title="修改权限"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" />修改等级</a>&nbsp;&nbsp;| <a href="__APP__/User/editRole/{$vo.id}" title="修改用户组"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" />修改用户组</a>&nbsp;&nbsp;<if condition="$vo['status'] eq 2 "><a href="#" class="del" delnum="{$vo.id}"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" />删除</a> <else /></if></td>
+              </tr>
+			 </foreach>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169;腾驹达后台 2013| Powered by <a href="#">admin</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

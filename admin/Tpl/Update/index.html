@@ -1,0 +1,96 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content" style="padding-top:30px;">
+    <ul class="shortcut-buttons-set">
+	<h4>企业服务</h4>
+	<foreach name="list" item="vo">	
+	<switch name="vo.id">
+    <case value="2"><li><a class="shortcut-button" href="__APP__/Update/edit/2"><span>品味猎头</span></a></li></case>
+    <case value="3"><li><a class="shortcut-button" href="__APP__/Update/edit/3"><span>擅长职位类别与级别</span></a></li></case>
+	<case value="4"><li><a class="shortcut-button" href="__APP__/Update/edit/4"><span>人才库数据</span></a></li></case>
+    <case value="5"><li><a class="shortcut-button" href="__APP__/Update/edit/5"><span>服务模式</span></a></li></case>
+	<case value="6"><li><a class="shortcut-button" href="__APP__/Update/edit/6"><span>直通车</span></a></li></case>
+    <case value="7"><li><a class="shortcut-button" href="__APP__/Update/edit/7"><span>投诉与建议</span></a></li></case>
+</switch>	
+	</foreach>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+	<hr/>
+	 <ul class="shortcut-buttons-set">
+		<h4>人才服务</h4>
+	<foreach name="list" item="vo">	
+	<switch name="vo.id">
+    <case value="8"><li><a class="shortcut-button" href="__APP__/Update/edit/8"><span>品味猎头</span></a></li></case>
+    <case value="9"><li><a class="shortcut-button" href="__APP__/Update/edit/9"><span>人才为什么选择猎头</span></a></li></case>
+	<case value="10"><li><a class="shortcut-button" href="__APP__/Update/edit/10"><span>专业服务</span></a></li></case>
+    <case value="11"><!-- <li><a class="shortcut-button" href="__APP__/Update/edit/11"><span>更换猎头顾问服务</span></a></li> --></case>
+	<case value="12"><li><a class="shortcut-button" href="__APP__/Update/edit/12"><span>直通车</span></a></li></case>
+</switch>	
+	</foreach>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+	<hr/>
+	 <ul class="shortcut-buttons-set">
+		<h4>公益活动</h4>
+	<foreach name="list" item="vo">	
+	<switch name="vo.id">
+    <case value="13"><li><a class="shortcut-button" href="__APP__/Update/edit/13"><span>奖学金</span></a></li></case>
+    <case value="14"><li><a class="shortcut-button" href="__APP__/Update/edit/14"><span>赞助校友会</span></a></li></case>
+	<case value="15"><li><a class="shortcut-button" href="__APP__/Update/edit/15"><span>捐助汶川地震</span></a></li></case>
+    <case value="16"><li><a class="shortcut-button" href="__APP__/Update/edit/16"><span>公益植树</span></a></li></case>
+	<case value="17"><li><a class="shortcut-button" href="__APP__/Update/edit/17"><span>义务大学生职业辅导</span></a></li></case>
+</switch>	
+	</foreach>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+	<hr/>
+	<ul class="shortcut-buttons-set">
+		<h4>加入我们</h4>
+	<foreach name="list" item="vo">	
+	<switch name="vo.id">
+    <case value="18"><li><a class="shortcut-button" href="__APP__/Update/edit/18"><span>猎头顾问招聘</span></a></li></case>
+    <case value="19"><li><a class="shortcut-button" href="__APP__/Update/edit/19"><span>猎头助理招聘</span></a></li></case>
+	<case value="20"><li><a class="shortcut-button" href="__APP__/Update/edit/20"><span>直通车</span></a></li></case>
+    <case value="21"><!-- <li><a class="shortcut-button" href="__APP__/Update/edit/21"><span>投诉与建议</span></a></li> --></case>
+</switch>	
+	</foreach>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+	<hr/>
+	<ul class="shortcut-buttons-set">
+		<h4>关于腾驹达</h4>
+	<foreach name="list" item="vo">	
+	<switch name="vo.id">
+    <case value="22"><li><a class="shortcut-button" href="__APP__/Update/edit/22"><span>公司简介</span></a></li></case>
+    <case value="23"><li><a class="shortcut-button" href="__APP__/Update/edit/23"><span>公司发展历程</span></a></li></case>
+	<case value="24"><!-- <li><a class="shortcut-button" href="__APP__/Update/edit/24"><span>组织架构</span></a></li> --></case>
+    <case value="25"><li><a class="shortcut-button" href="__APP__/Update/edit/25"><span>企业文化</span></a></li></case>
+	<case value="26"><li><a class="shortcut-button" href="__APP__/Update/edit/26"><span>公司荣誉</span></a></li></case>
+    <case value="27"><li><a class="shortcut-button" href="__APP__/Update/edit/27"><span>公司资质</span></a></li></case>
+    <case value="29"><li><a class="shortcut-button" href="__APP__/Update/edit/29"><span>联系我们</span></a></li></case>
+</switch>	
+	</foreach>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+	<hr/>
+    <!-- End .clear -->
+    <!-- <div class="content-box"></div> -->
+
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

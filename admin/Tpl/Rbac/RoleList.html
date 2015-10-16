@@ -1,0 +1,59 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <style type="text/css">
+	body{color:#000;}
+  </style>
+  <div id="main-content">
+   <include file="Public:rbac-nav"/>
+	 <div class="clear"></div>
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>角色管理</h4>
+      </div>
+
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+          <table>
+            <thead>
+              <tr>
+				<th>序号</th>
+                <th>角色名称</th>
+				<th>角色描述</th>
+                <th>开启状态</th>
+                <th>操作处理</th>
+              </tr>
+            </thead>
+            <tbody>
+			<volist name="role" id="vo">
+			<tr>
+                <td>{$vo.id}</td>
+				<td>{$vo.name}</td>
+				<td>{$vo.remark|default="<i style='color:#888;'>未填写</i>"}</td>
+				<td><if condition="$vo.status eq 1 "><span style="color:blue;">开启<else /> <span style="color:#888">关闭</if></td>
+				<td><a href="{:U('Rbac/access',array('rid'=>$vo['id']))}">配置权限</a> | <a href="{:U('Rbac/editRole',array('rid'=>$vo['id']))}">修改角色</a></td>
+              </tr>
+			  </volist>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169;腾驹达后台 2013| Powered by <a href="#">admin</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

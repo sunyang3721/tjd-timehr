@@ -1,0 +1,85 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <style type="text/css">
+	body{color:#000;}
+  </style>
+  <div id="main-content">
+    
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>编辑PDF&nbsp;&nbsp;&nbsp;<a href="__URL__/index">返回PDF管理</a></h4>
+      </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$('select[name=pid]').val('{$list.pid}');
+			$('select[name=status]').val('{$list.status}');
+			$('select[name=pid]').change(function(){
+			var val = $(this).attr('value');
+			if(val == '6'){
+				$('#show').show();
+			}else{
+				$('#show').hide();
+			}
+			})
+			if({$list.pid}=='6'){
+			$('#show').show();
+			}else{
+				$('#show').hide();
+			}
+	});
+</script>
+<div id="ajax" class="notification" style="width:20%;margin-left:22%; position: absolute;top:10%;background-color:#99ff00;display:none;position:fixed;z-index:999;"></div>
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+    <div class="notification information">
+      <div>
+		  <form method="post" action="__URL__/save">
+				<INPUT type="hidden" name="id" value="{$list.id}">
+				PDF标题：<input type="text" name="title" size="40" value="{$list.title}"/><br />
+				PDF分类：<SELECT name="pid">
+					<OPTION value="1">内部期刊
+					<!-- <OPTION value="2">List表 -->
+					<OPTION value="3">客户信息资料
+					<!-- <OPTION value="4">公司制度 -->
+					<OPTION value="6">人力资源报告
+					<OPTION value="5">猎头讲堂
+				</SELECT><br />
+				<div id="show" style="display:none;">
+							所属行业：<input type="text" name="hangye" value="{$list.hangye}" style="font-size:16px;" size="20" /><br />
+							权限访问：
+								<SELECT name="status">
+									<OPTION value="0">入门 中级 高级 资深
+									<OPTION value="1">中级 高级 资深
+									<OPTION value="2">高级 资深
+									<OPTION value="3">资深
+									<OPTION value="4">不公开
+								</SELECT>
+								<br />
+						</div>
+				<input type="submit" value="提交" style="width:150px;height:30px;margin-left:5%;"/>
+		  </form>
+	 </div>
+    </div>
+          
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169;腾驹达后台| Powered by <a href="#">admin</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

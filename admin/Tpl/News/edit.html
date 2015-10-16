@@ -1,0 +1,103 @@
+<include file="Public:head" />
+<!-- <script type="text/javascript" src="__PUBLIC__/admin/scripts/ThinkBox/jquery.ThinkBox.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/scripts/ThinkBox/CSS/ThinkBox.css" media="all"> -->
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <script type="text/javascript" src="__ROOT__/ueditor/editor_config.js"></script>
+<script type="text/javascript" src="__ROOT__/ueditor/editor_all_min.js"></script>
+  <div id="main-content">
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4><a href="__APP__/News">返回新闻动态管理</a></h4>
+      </div>
+      <!-- End .content-box-header -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('select[name=classif]').change(function(){
+			var val = $(this).attr('value');
+			if(val == '3'){
+				$('#show').show();
+				$('#upshow').hide();
+			}else{
+				$('#show').hide();
+			}
+
+		});
+		if({$list.classif}==3){
+		$('#show').show();
+		}
+		$('#upload').click(function(){
+			$('#show').hide();
+			$('#upshow').show();
+		});
+		$('select[name=classif]').val({$list.classif});
+		$('select[name=status]').val({$list.status});
+	});
+</script>
+<div class="content-box-content">
+		<form method="post" action="__URL__/updata" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="{$list.id}">
+		 <div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="margin-bottom:10px;display:block;"><b>标题：</b><input type="text" size="40" name="title" value="{$list.title}"></span><br>
+				<span style="margin-bottom:10px;display:block;"><b>分类：</b>
+								<select name="classif">
+									<option value="1" >公司要闻
+									<option value="2">最新动态
+									<option value="3">专题活动
+									<option value="4">有关媒体与机构报道
+									<option value="5">公司公告
+								</select></span>
+				<div id="show" style="margin-bottom:10px;display:none;"> <IMG src="__PUBLIC__/images/img/{$list.imgpath}" onerror="javascript:this.src='__PUBLIC__/images/news_hd.jpg'" width="180" height="120"><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="upload">上传最新图片</a>
+				</div>
+				<div id="upshow" style="margin-bottom:10px;display:none;">			
+					<input type="hidden" name="id" value="{$list.id}">
+					<input type="file" name="file" style="font-size:18px;"></br>
+				</div>
+								<br>
+        </div>
+        <div class="tab-content default-tab">
+					<input type="hidden" name="id" value="{$list.id}">
+					<div style="border:1px solid #808080;width:720px;margin:0 auto;height:50%;">
+								<div id="myEditor" >
+								<script type="text/javascript">
+									var editor = new baidu.editor.ui.Editor({
+										initialContent: '{$list.content}'
+									});
+									editor.render("myEditor");
+								</script>
+								</div>
+					</div>
+				
+        </div>
+		<div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="margin-bottom:10px;display:block;"><b>状态：</b>
+								<select name="status">
+									<option value="1" >开启发布
+									<option value="2">关闭发布
+								</select><br>
+				<span style="margin-bottom:10px;display:block;"><b>备注：</b><input type="text" size="40" name="remark" value="{$list.remark}">（可选）</span><br>
+				<input type="submit" value="确定修改" style="font-size:18px;">
+        </div>
+		</form>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169; Copyright 2010 Your Company | Powered by <a href="#">admin templates</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

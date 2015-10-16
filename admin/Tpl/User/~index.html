@@ -1,0 +1,222 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+      <!-- End #main-nav -->
+      <div id="messages" style="display: none">
+        <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+        <h3>3 Messages</h3>
+        <p> <strong>17th May 2009</strong> by Admin<br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. <small><a href="#" class="remove-link" title="Remove message">Remove</a></small> </p>
+        <p> <strong>2nd May 2009</strong> by Jane Doe<br />
+          Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est. <small><a href="#" class="remove-link" title="Remove message">Remove</a></small> </p>
+        <p> <strong>25th April 2009</strong> by Admin<br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. <small><a href="#" class="remove-link" title="Remove message">Remove</a></small> </p>
+        <form action="#" method="post">
+          <h4>New Message</h4>
+          <fieldset>
+          <textarea class="textarea" name="textfield" cols="79" rows="5"></textarea>
+          </fieldset>
+          <fieldset>
+          <select name="dropdown" class="small-input">
+            <option value="option1">Send to...</option>
+            <option value="option2">Everyone</option>
+            <option value="option3">Admin</option>
+            <option value="option4">Jane Doe</option>
+          </select>
+          <input class="button" type="submit" value="Send" />
+          </fieldset>
+        </form>
+      </div>
+      <!-- End #messages -->
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <!-- Main Content Section with everything -->
+    <noscript>
+    <!-- Show a notification if the user has disabled javascript -->
+    <div class="notification error png_bg">
+      <div> Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+        Download From <a href="http://www.exet.tk">exet.tk</a></div>
+    </div>
+    </noscript>
+    <!-- Page Head -->
+    <!-- <h2>欢迎!孙洋</h2>
+    <p id="page-intro"><a href="#messages" rel="modal" title="3 Messages">弹窗</a></p> -->
+    <ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="#"><span>修改内容</span></a></li>
+		 <li><a class="shortcut-button" href="#"><span> <img src="__PUBLIC__/admin/images/icons/24.png" alt="icon" /><br />
+        修改内容</span></a></li>
+      <li><a class="shortcut-button" href="#"><span> <img src="__PUBLIC__/admin/images/icons/paper_content_pencil_48.png" alt="icon" /><br />
+        创建内容</span></a></li>
+      <li><a class="shortcut-button" href="#"><span> <img src="__PUBLIC__/admin/images/icons/image_add_48.png" alt="icon" /><br />
+        上传图片 </span></a></li>
+      <li><a class="shortcut-button" href="#"><span> <img src="__PUBLIC__/admin/images/icons/clock_48.png" alt="icon" /><br />
+        Add an Event </span></a></li>
+      <li><a class="shortcut-button" href="#messages" rel="modal"><span> <img src="__PUBLIC__/admin/images/icons/comment_48.png" alt="icon" /><br />
+       打开留言</span></a></li>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>用户查询</h4>
+      </div>
+      <!-- End .content-box-header -->
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+         <div class="notification information">
+      <div><div id="soso">
+                    <select name="soso">
+                      <option value="option1">&nbsp;&nbsp;&nbsp;全&nbsp;部</option>
+					  <option value="option2">&nbsp;&nbsp;ID编号</option>
+                      <option value="option2">用户帐号</option>
+                      <option value="option3">用户名称</option>
+					  <option value="option3">团队名称</option>
+					  <option value="option3">座机电话</option>
+					  <option value="option3">移动电话</option>
+                    </select>
+					<input type="text" name="text">
+                    <a class="button" href="#">开始搜索</a> 
+					</div>
+				</div>
+    </div>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <input class="check-all" type="checkbox" />ID编号
+                </th>
+                <th>用户帐号</th>
+                <th>用户姓名</th>
+                <th>用户授权</th>
+                <th>工位</th>
+				<th>团队名称</th>
+				<th>座机电话</th>
+				<th>移动电话</th>
+				<th>操作</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="6">
+                  <div class="bulk-actions align-left">
+                    <select name="dropdown">
+                      <option value="option2">启用</option>
+                      <option value="option3">禁用</option>
+					  <option value="option1">删除</option>
+                    </select> 
+                    <!-- <a class="button" href="#">删除</a>  --></div>
+                  <div class="pagination"> <a href="#" title="First Page">主页</a><a href="#" title="Previous Page">上一页</a> <a href="#" class="number" title="1">1</a> <a href="#" class="number" title="2">2</a> <a href="#" class="number current" title="3">3</a> <a href="#" class="number" title="4">4</a> <a href="#" title="Next Page">下一页</a><a href="#" title="Last Page">最后一页</a> 
+				  </div>
+                  <!-- End .pagination -->
+                  <div class="clear"></div>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="checkbox" />1023342
+                </td>
+                <td>sunyang</td>
+                <td><a href="#user" rel="modal">孙洋</a></td>
+                <td>管理员</td>
+                <td>093</td>
+				<td>技术部</td>
+				<td>010-62609597</td>
+				<td>13911709781</td>
+                <td>
+                  <a href="#" title="编辑用户"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="删除用户"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" /></a> </td>
+              </tr>
+			  <tr>
+                <td>
+                  <input type="checkbox" />564563
+                </td>
+                <td>sunyang</td>
+                <td><a href="#" title="title">孙洋</a></td>
+                <td>启用</td>
+                <td>093</td>
+				<td>技术部</td>
+				<td>010-62609597</td>
+				<td>13911709781</td>
+                <td>
+                  <a href="#" title="编辑用户"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="删除用户"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" /></a></td>
+              </tr>
+			  <tr>
+                <td>
+                  <input type="checkbox" />7658635
+                </td>
+                <td>sunyang</td>
+                <td><a href="#" title="title">孙洋</a></td>
+                <td>启用</td>
+                <td>093</td>
+				<td>技术部</td>
+				<td>010-62609597</td>
+				<td>13911709781</td>
+                <td>
+                  <a href="#" title="编辑用户"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="删除用户"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" /></a></td>
+              </tr>
+			  <tr>
+                <td>
+                  <input type="checkbox" />4523564
+                </td>
+                <td>sunyang</td>
+                <td><a href="#" title="title">孙洋</a></td>
+                <td>1207</td>
+                <td>093</td>
+				<td>技术部</td>
+				<td>010-62609597</td>
+				<td>13911709781</td>
+                <td>
+                  <a href="#" title="编辑用户"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="删除用户"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" /></a></td>
+              </tr>
+			  <tr>
+                <td>
+                  <input type="checkbox" />432432
+                </td>
+                <td>sunyang</td>
+                <td><a href="#" title="title">孙洋</a></td>
+                <td>启用</td>
+                <td>093</td>
+				<td>技术部</td>
+				<td>010-62609597</td>
+				<td>13911709781</td>
+                <td>
+                  <a href="#" title="编辑用户"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="删除用户"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" /></a> </td>
+              </tr>
+			  <tr>
+                <td>
+                  <input type="checkbox" />3454365
+                </td>
+                <td>sunyang</td>
+                <td><a href="#" title="title">孙洋</a></td>
+                <td><red>禁用</red></td>
+                <td>093</td>
+				<td>技术部</td>
+				<td>010-62609597</td>
+				<td>13911709781</td>
+                <td>
+                  <a href="#" title="编辑用户"><img src="__PUBLIC__/admin/images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="删除用户"><img src="__PUBLIC__/admin/images/icons/cross.png" alt="Delete" /></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169; Copyright 2010 Your Company | Powered by <a href="#">admin templates</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

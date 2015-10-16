@@ -1,0 +1,57 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+
+<script type="text/javascript" src="__PUBLIC__/admin/scripts/jquery-ui-datepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/css/jquery-ui.css" media="all">
+<script type="text/javascript">
+$(function(){
+	$("#date_2").datepicker({
+			//navigationAsDateFormat: true,
+			dateFormat: 'yy年mm月dd日'
+		});
+});
+</script>
+  <div id="main-content">
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4><a href="{:U('Ziliao/index')}">返回资料管理</a></h4>
+      </div>
+      <!-- End .content-box-header -->
+<div class="content-box-content" style="font-size:16px;">
+		<form method="post" action="__URL__/save">
+		<input type="hidden" name="id" value="{$list.uid}">
+		<div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="display:block;margin-bottom:5px;padding:5px;"><b>员工编号：{$list.username}</b></span>
+				<span style="display:block;margin-bottom:5px;padding:5px;"><b>员工姓名：{$list.yourname}</b></span>
+				<span style="display:block;margin-bottom:5px;padding:5px;"><b>所属导师组：</b><input type="text" name="tuandui" style="font-family:'微软雅黑';font-size:16px;" value="{$list.tuandui}">例如：第4组</span>
+				<span style="display:block;margin-bottom:5px;padding:5px"><b>擅长行业：</b><input type="text"name="hangye" style="font-family:'微软雅黑';font-size:16px;" value="{$list.hangye}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px;"><b>主做职位：</b><input type="text" name="markjob" style="font-family:'微软雅黑';font-size:16px;" value="{$list.markjob}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px"><b>座机电话：</b><input type="text"name="homeihone" style="font-family:'微软雅黑';font-size:16px;" value="{$list.homeihone}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px;"><b>移动电话：</b><input type="text" name="ihone" style="font-family:'微软雅黑';font-size:16px;" value="{$list.ihone}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px"><b>腾讯 QQ：</b><input type="text"name="qq" style="font-family:'微软雅黑';font-size:16px;" value="{$list.qq}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px"><b> E-Mail：  </b><input type="text"name="mail" style="font-family:'微软雅黑';font-size:16px;" value="{$list.mail}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px"><b>其他：</b><input type="text"name="other" style="font-family:'微软雅黑';font-size:16px;" value="{$list.other}"></span>
+				<span style="display:block;margin-bottom:5px;padding:5px"><b>入职日期：</b><input type="text"name="indate" style="font-family:'微软雅黑';font-size:16px;" value="{$list.indate}"  id="date_2" readonly />
+				</span>
+
+		</div>
+			<div class="tab-content default-tab" style="width:460px;margin:0 auto;">
+				<input type="submit" value="确定提交" style="font-size:18px;">
+			</div>
+		</form>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<STYLE type="text/css">
+	body{ font-family:"微软雅黑","宋体", arial;}
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+</STYLE>
+<div class="container">
+  <div class="row">
+	    <div class="col-md-10 col-md-offset-1">
+				<div class="col-md-12">
+					<div class="jumbotron">
+						<h3>
+								<switch name="list.status">
+									<case value="1"><span class="label label-success pull-right">目前状态：正在进行中</span><span class="clear"></span></case>
+									<case value="2"><span class="label label-info pull-right">目前状态：即将开始</span><span class="clear"></span></case>
+									<case value="3"><span class="label label-default pull-right">已结束或关闭</span><span class="clear"></span></case>
+								</switch>
+						</h3>
+						<dl class="dl-horizontal">
+								<dt><p class="text-muted">职位名称：</p></dt>
+								<dd>
+										<p>{$list.jobname}</p>										  
+								</dd>
+								<dt><p class="text-muted">客户名称：</p></dt>
+								<dd><p>{$kehulist.title} <a href="#" data-toggle="modal" data-target=".modal-1">【查看客户简介】</a></p></dd>
+								<dt><p class="text-muted">职位编号：</p></dt>
+								<dd><p>{$list.id}</p></dd>
+								<dt><p class="text-muted">薪酬：</p></p></dt>
+								<dd><p>{$list.moeny}万</p></dd>
+								<dt><p class="text-muted">招聘人数：</p></p></dt>
+								<dd><p>{$list.num}人</p></dd>
+								<dt><p class="text-muted">工作地点：</dt>
+								<dd><p>{$list.address}</p></dd>
+								<dt><p class="text-muted">职位更新时间：</p></dt>
+								<dd><p>{$list.newdate|date='Y-m-d',###}</p></dd>
+								<dt><p class="text-muted">预计截止时间：</p></dt>
+								<dd><p><empty name="list.enddate">
+													未填写
+													<else /> 
+													{$list.enddate}
+													</empty> 
+													</p></dd>
+								<dt><p class="text-muted">客户招聘对接人：</p></dt>
+								<dd><p>{$list.kehuname}</p></dd>
+								<div class="panel panel-warning">
+										<div class="panel-heading">
+												<table width="100%" border="1" cellspacing="0" cellpadding="0" class="table-foot table-td">
+													  <tr>
+														<td><b>对接人信息</b></td>
+														<td><b>所属导师组</b></td>
+														<td><b>移动电话</b></td>
+														<td><b>邮箱</b></td>
+														<td><b>QQ</b></td>
+														<td><b>其他</b></td>
+													  </tr>
+													  <tr>
+														<td>{$userlist.yourname}</td>
+														<td>{$testuser.tuandui}</td>
+														<td>{$testuser.ihone}</td>
+														<td>{$testuser.mail}</td>
+														<td>{$testuser.qq}</td>
+														<td>{$testuser.other}</td>
+													  </tr>
+												</table>
+										</div>
+									</div>
+								<dt><p class="text-muted">职位要点：</p></dt>
+								<dd><p>{$list.jobneed}</p>
+								</dd>
+								<dt><p class="text-muted">面试要点：</p></dt>
+								<dd><p>{$list.msneed}	</p></dd>
+								<dt><p class="text-muted">面试流程：</p></dt>
+								<dd><p>{$list.msliucheng}</p></dd>
+								<dt><p class="text-muted">参考选人方向：</dt>
+								<dd><p>{$list.cankao}</p></dd>
+								<dt><p class="text-muted">其它：</p></dt>
+								<dd><p>{$list.other}</p></dd>
+						</dl>
+					</div>
+				</div>
+		</div>
+	</div>	
+ </div>
+	  <!-- modal go -->
+						<div class="modal fade modal-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title">客户名称：{$kehulist.title}</h4>
+											  </div>
+										    <div class="modal-body">
+												<dl class="dl-horizontal">
+													<dt><b>客户简介：</b></dt>
+														<dd><p>{$kehulist.introduce}</p></dd>
+													<dt><b>客户组织架构：</b></dt>
+													  <dd><p><img src="__UPLOADKEHU__/m_{$kehulist.imgpath}"/></p></dd>
+													<dt><b>招聘人员：</b></dt>
+													  <dd><p>{$kehulist.jobnum}</p></dd>
+												</dl>
+											</div>
+										</div>
+								</div>
+						</div><!-- modal end -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

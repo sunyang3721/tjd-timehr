@@ -1,0 +1,88 @@
+<include file="Public:head" />
+<!-- <script type="text/javascript" src="__PUBLIC__/admin/scripts/ThinkBox/jquery.ThinkBox.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/scripts/ThinkBox/CSS/ThinkBox.css" media="all"> -->
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <!-- <script type="text/javascript" src="__ROOT__/ueditor/editor_config.js"></script>
+<script type="text/javascript" src="__ROOT__/ueditor/editor_all_min.js"></script> -->
+  <div id="main-content">
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4><a href="__APP__/Userdata">返回猎头在线管理</a></h4>
+      </div>
+      <!-- End .content-box-header -->
+<script type="text/javascript">
+/*
+	$(document).ready(function(){
+		$('select[name=classif]').change(function(){
+			var val = $(this).attr('value');
+			if(val == '3'){
+				$('#show').show();
+			}else{
+				$('#show').hide();
+			}
+
+		})
+	});
+	*/
+</script>
+<div class="content-box-content">
+		<form method="post" action="__URL__/adding" enctype="multipart/form-data">
+		 <div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="margin-bottom:5px;display:block;"><b>排序：</b><input type="text" size="40" name="time" style="font-family:'微软雅黑';"></span><br>
+				<span style="margin-bottom:5px;display:block;"><b>员工姓名：</b><input type="text" size="40" name="username" style="font-family:'微软雅黑';"></span><br>
+				<span style="margin-bottom:5px;display:block;"><b>擅长行业：</b><input type="text" size="40" name="industry" style="font-family:'微软雅黑';">例如：房地产、金融</span><br>
+				<span style="margin-bottom:5px;display:block;"><b>主做职位：</b><input type="text" size="40" name="dojob" style="font-family:'微软雅黑';">例如：首席技术官、销售总监</span><br>
+				<span style="margin-bottom:5px;display:block;"><b>QQ：</b><input type="text" size="40" name="ihone" style="font-family:'微软雅黑';">例如：5256325</span><br>
+				<span style="margin-bottom:5px;display:block;"><b>员工邮箱：</b><input type="text" size="40" name="email" style="font-family:'微软雅黑';">例如：tjd@timehr.com</span><br>
+				<span style="display:block;width:660px;"><b>qq留言模块：<a href="http://hi.baidu.com/sunyang3721/item/082a2cc0348dbf27e90f2e9c"  target="_blank">《添加留言模块方法教程》</a></b><textarea name="qqliuyan" rows="10" cols="0" style="font-family:'微软雅黑';"></textarea></span>
+				<br><br><br>
+				<span style="display:block;width:660px;"><b>新浪微博模块：<a href="http://hi.baidu.com/sunyang3721/item/3f3c4a2aadf32716087508a4"  target="_blank">《添加新浪微博模块方法教程》</a></b><textarea name="sinawb" rows="10" cols="0" style="font-family:'微软雅黑';"></textarea></span>
+				<br><br><br>
+				<span style="display:block;width:660px;"><b>腾讯微博模块：<a href="http://hi.baidu.com/sunyang3721/item/4e1fbb39636f31f42784f4b2"  target="_blank">《添加腾讯微博模块方法教程》</a></b><textarea name="qqwb" rows="10" cols="0" style="font-family:'微软雅黑';"></textarea></span>
+				</div>
+</div>
+        <!-- <div class="tab-content default-tab">
+					
+					<div style="border:1px solid #808080;width:720px;margin:0 auto;height:50%;">
+								<div id="myEditor" >
+								<script type="text/javascript">
+									var editor = new baidu.editor.ui.Editor({
+										initialContent: '{$list.content}'
+									});
+									editor.render("myEditor");
+								</script>
+								</div>
+					</div>
+				
+        </div> -->
+		<div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="margin-bottom:10px;display:block;"><b>状态：</b>
+								<select name="status">
+									<option value="1" >开启发布
+									<option value="2">关闭发布
+								</select><br><br>
+				<input type="submit" value="确定发布" style="font-size:18px;">
+        </div>
+		</form>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169; Copyright 2010 Your Company | Powered by <a href="#">admin templates</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

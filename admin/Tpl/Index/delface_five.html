@@ -1,0 +1,68 @@
+<include file="Public:head" />
+<script type="text/javascript" src="__PUBLIC__/admin/scripts/jQuery.autoIMG.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".content-box").autoIMG();
+	
+	var w = $(".content-box").width();
+	$(".content-box img").each(function(){
+		var img_w = $(this).width();
+	    var img_h = $(this).height();
+		if(img_w>w){
+			var height = (w*img_h)/img_w;
+			$(this).css({"width":w,"height":height});
+		}
+	});
+});
+</script>
+<style type="text/css">
+	.spanimg{
+		padding:10px 0px 0px 10px;
+		display:block;
+	}
+	.spanimg img{
+		width:400px;
+		border:1px solid #808080;
+	}
+	.spanimg p{
+	padding-left:10px;
+	}
+</style>
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+      <!-- End #main-nav -->
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <ul class="shortcut-buttons-set">
+	  <li><a class="shortcut-button" href="__URL__"><span>返回到图片管理 </span></a></li>
+    </ul>
+    <div class="clear"></div>
+    <div class="content-box">
+	<foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="5">
+				<switch name="vo.status">
+					<case value="0">
+     <span class="spanimg align-left"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="__URL__/huifu_five/{$vo.id}">恢复图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+	 <div class="clear"></div>
+    </div>
+    <div id="footer"> <small>
+      &#169; 腾驹达猎头后台管理 2013 | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

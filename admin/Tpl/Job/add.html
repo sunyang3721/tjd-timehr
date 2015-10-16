@@ -1,0 +1,140 @@
+<include file="Public:head" />
+<!-- <script type="text/javascript" src="__PUBLIC__/admin/scripts/ThinkBox/jquery.ThinkBox.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/scripts/ThinkBox/CSS/ThinkBox.css" media="all"> -->
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <!-- <script type="text/javascript" src="__ROOT__/ueditor/editor_config.js"></script>
+<script type="text/javascript" src="__ROOT__/ueditor/editor_all_min.js"></script> -->
+  <div id="main-content">
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4><a href="__APP__/Job">返回职位管理</a></h4>
+      </div>
+      <!-- End .content-box-header -->
+<script type="text/javascript">
+/*
+	$(document).ready(function(){
+		$('select[name=classif]').change(function(){
+			var val = $(this).attr('value');
+			if(val == '3'){
+				$('#show').show();
+			}else{
+				$('#show').hide();
+			}
+
+		})
+	});
+	*/
+</script>
+<div class="content-box-content">
+		<form method="post" action="__URL__/adding" enctype="multipart/form-data">
+		 <div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="margin-bottom:5px;display:block;"><b>职位名称：</b><input type="text" size="40" name="jobname" style="font-family:'微软雅黑';" value="{$list.jobname}"></span><br>
+				<span style="display:block;margin-bottom:5px;"><b>行业分类：</b>
+								<select  name="industry" id="industry">
+									<option value="1">金融业
+									<option value="2">房地产
+									<option value="3">商业连锁
+									<option value="4">IT/互联网/电子商务
+									<option value="5">制药/医疗
+									<option value="6">文化产业
+									<option value="7">广告/媒体
+									<option value="8">加工制造/仪表设备
+									<option value="9">交通/物流/运输
+									<option value="10">教育/培训
+									<option value="11">旅游/酒店/餐饮/休闲
+									<option value="12">能源/采掘/化工/环保
+									<option value="13">政府/农林牧渔/其他
+									<option value="14">消费品/贸易/批发/零售
+								</select></span>
+				<!-- <div id="show" style="display:none;"><b>自定义行业：</b><input type="text" name="text"></div>
+								<br> -->
+				<span style="display:block;margin-bottom:5px;"><b>工作地点：</b>
+								<select name="address" id="address">
+									<option value="1" selected>北京
+									<option value="2">上海
+									<option value="3">天津
+									<option value="4">深圳
+									<option value="5">重庆
+									<option value="6">广州
+									<option value="7">广东省
+									<option value="8">江苏省
+									<option value="9">浙江省
+									<option value="10">安徽省
+									<option value="11">福建省
+									<option value="12">甘肃省
+									<option value="14">贵州省
+									<option value="15">海南省
+									<option value="16">河北省
+									<option value="17">河南省
+									<option value="18">黑龙江省
+									<option value="19">湖北省
+									<option value="20">湖南省
+									<option value="21">吉林省
+									<option value="22">江西省
+									<option value="23">辽宁省
+									<option value="24">青海省
+									<option value="25">山东省
+									<option value="26">陕西省
+									<option value="27">山西省
+									<option value="28">四川省
+									<option value="29">云南省
+									<option value="30">广西自治区
+									<option value="31">内蒙古自治区
+									<option value="32">宁夏自治区
+									<option value="33">西藏自治区
+									<option value="34">新疆自治区
+								</select></span>
+				<!-- <div id="show" style="display:none;"><b>自定义地点：</b><input type="text" name="text"></div>
+								<br> -->
+				<span style="display:block;"><b>年薪：</b><input type="text" name="moeny" size="1" value="{$list.moeny}">万
+				<br><br><br>
+				<span style="display:block;width:660px;"><b>岗位职责：</b><textarea name="zhize" rows="10" cols="0" style="font-family:'微软雅黑';">{$list.zhize}</textarea></span>
+				<br><br><br>
+				<span style="display:block;width:660px;"><b>任职要求：</b><textarea name="yaoqiu" rows="10" cols="0" style="font-family:'微软雅黑';">{$list.yaoqiu}</textarea></span>
+				</div>
+</div>
+        <!-- <div class="tab-content default-tab">
+					
+					<div style="border:1px solid #808080;width:720px;margin:0 auto;height:50%;">
+								<div id="myEditor" >
+								<script type="text/javascript">
+									var editor = new baidu.editor.ui.Editor({
+										initialContent: '{$list.content}'
+									});
+									editor.render("myEditor");
+								</script>
+								</div>
+					</div>
+				
+        </div> -->
+		<div class="tab-content default-tab" style="width:720px;margin:0 auto;">
+				<span style="margin-bottom:10px;display:block;"><b>状态：</b>
+								<select name="status">
+									<option value="1" >开启发布
+									<option value="2">关闭发布
+								</select><br><br>
+				<input type="submit" value="确定发布" style="font-size:18px;">
+        </div>
+		</form>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169; Copyright 2010 Your Company | Powered by <a href="#">admin templates</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title>猎头在线上传图片</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+ <div style="margin-left:5%;;width:100%;margin-top:5%;">
+  <h3>请选择要上传的图片(要求高度与宽度都为：150px)</h3><br>
+			<div style="padding-left:30px;">
+				<form method="post" action="__URL__/uping" enctype="multipart/form-data">
+					<input type="hidden" name="id" value="{$list.id}">
+					<input type="file" name="file" style="font-size:18px;"></br>
+				<button style="font-size:18px;">确定上传</button>
+				</form>
+			</div>
+</div>
+ </body>
+</html>

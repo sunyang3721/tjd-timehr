@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <title>{$list.title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width" />
+    <style type="text/css" media="screen">
+        html, body{ height:99.5%;background-color:#808080; }
+        body { margin:0; padding:0; overflow:auto; }
+    </style>
+    <script type="text/javascript" src="__PUBLIC__/pdf/js/flexpaper_flash.js"></script>
+</head>
+<body>
+
+<a id="viewerPlaceHolder" ></a>
+	        <script type="text/javascript"> 
+				var fp = new FlexPaperViewer(	
+						 '__PUBLIC__/pdf/FlexPaperViewer',
+						 'viewerPlaceHolder', { config : {
+						 SwfFile : escape('__ROOT__/Upload/swf/{$list.pdfpath}.swf'),
+						 Scale : 0.6, 
+						 ZoomTransition : 'easeOut',
+						 ZoomTime : 0.5,
+						 ZoomInterval : 0.2,
+						 FitPageOnLoad : true,
+						 FitWidthOnLoad : false,
+						 PrintEnabled : false,
+						 FullScreenAsMaxWindow : false,
+						 ProgressiveLoading : true,
+						 MinZoomSize : 0.2,
+						 MaxZoomSize : 5,
+						 SearchMatchAll : false,
+						 InitViewMode : 'Portrait',
+						 ViewModeToolsVisible : true,
+						 ZoomToolsVisible : true,
+						 NavToolsVisible : true,
+						 CursorToolsVisible : false,
+						 SearchToolsVisible : false,
+  						 localeChain: 'zh_CN'
+						 }});
+	        </script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>腾驹达后台管理 </title>
+<!--                       CSS                       -->
+<!-- Reset Stylesheet -->
+<link rel="stylesheet" href="__PUBLIC__/admin/css/reset.css" type="text/css" media="screen" />
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="__PUBLIC__/admin/css/style.css" type="text/css" media="screen" />
+</head>
+<body id="login">
+<div id="login-wrapper" class="png_bg">
+  <div id="login-top">
+    <h1>Simpla Admin</h1>
+    <!-- Logo (221px width) -->
+    <a href="#"><img id="logo" src="__PUBLIC__/admin/images/logo.png" alt="腾驹达logo" /></a> </div>
+  <!-- End #logn-top -->
+  <div id="login-content">
+    <form action="__APP__/Login/doing" method="get">
+      <div class="notification information png_bg">
+        <div id="ajax"> 请输入正确的帐号和密码 </div>
+      </div>
+      <p>
+        <label>用户名:</label>
+        <input class="text-input" type="text" name="username"/>
+      </p>
+      <div class="clear"></div>
+      <p>
+        <label>密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+        <input class="text-input" type="password" name="password"/>
+      </p>
+      <div class="clear"></div>
+      <!-- <p id="remember-password">
+        <input type="checkbox" value="1" name="checkbox"/>
+        记住三天密码 </p> -->
+      <div class="clear"></div>
+      <p>
+        <input class="button" type="submit" value="开始登录" />
+      </p>
+		<input type="hidden" name="last_ip" value="<?php echo ($getIP); ?>">
+    </form>
+  </div>
+  <!-- End #login-content -->
+</div>
+<!-- End #login-wrapper -->
+</body>
+</html>

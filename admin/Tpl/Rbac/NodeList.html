@@ -1,0 +1,65 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <style type="text/css">
+	body{color:#000;}
+  </style>
+  <div id="main-content">
+   <include file="Public:rbac-nav"/>
+	 <div class="clear"></div>
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>权限管理</h4>
+      </div>
+
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+          <table>
+            <thead>
+              <tr>
+				<th>权限ID</th>
+                <th>权限结构</th>
+				<th>名称</th>
+                <th>排序</th>
+                <th>类型</th>
+				<th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+			<volist name="node" id="vo">
+			<tr>
+				<td>{$vo.id}</td>
+                <td>
+						<p style="text-indent:{$vo['level']*30}px;">{$vo.title}</p>
+				</td>
+				<td>{$vo.name}</td>
+                <td>{$vo.sort}</td>
+                <td>
+					<if condition="$vo['level'] eq 1">项目<elseif condition="$vo['level'] eq 2" /><span style="color:#006600;">模块</span><elseif condition="$vo['level'] eq 3" /><span style="color:blue;">操作</if>
+				</td>
+				<td><a  href="{:U('Rbac/deleteNode',array('rid'=>$vo['id']))}" onclick="return confirm('删除后不能恢复，确定删除吗?')">[  删除  ]</a></td>
+              </tr>
+			  </volist>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169;腾驹达后台 2013| Powered by <a href="#">admin</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

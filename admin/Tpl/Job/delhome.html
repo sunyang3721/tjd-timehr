@@ -1,0 +1,195 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <!-- Page Head -->
+    <ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="__APP__/Job/"><span><img src="__PUBLIC__/admin/images/icons/paper_content_pencil_48.png"><br/>返回到职位管理</span></a></li>
+    </ul>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>职位管理</h4>
+      </div>
+      <!-- End .content-box-header -->
+<script type="text/javascript">
+		$(document).ready(function(){
+				$('select[name=classif]').val('{$classif}');
+				$('.huifu').bind('click',function(){
+					if(confirm("确定要恢复吗？")){
+						var numid = $(this).attr("delnum");
+				$.post('__URL__/huanyuan/'+numid,function(jdata){
+						//if(confirm("<?php echo $confirm?>")){
+						if(jdata.status==3){
+										if(jdata.data!=''){
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(300).animate({'margin-top':'-5px'}).fadeOut(500);
+												$('tr[delnum='+numid+']').remove();
+										}else{
+											alert('数据有误，请联系管理员！');
+										}
+								}else{
+												$('#ajax').show().animate({'margin-top':'5px'}).html('<div><b>'+jdata.info+'</b></div>').delay(300).animate({'margin-top':'-5px'}).fadeOut(500);
+												//$('<?php echo $button?>[num='+numid+']').html(jdata.data);
+										}
+						//}
+				});
+					} //confirm end
+		});
+				$('.overtext').each(function(){
+					var maxwidth=10;
+					 if($(this).text().length>maxwidth){   
+						$(this).text($(this).text().substring(0,maxwidth));    
+						$(this).html($(this).html()+'...');    
+						}    
+				});
+		});
+</script><div id="ajax" class="notification" style="width:20%;margin-left:22%; position: absolute;top:10%;background-color:#99ff00;display:none;position:fixed;">
+      
+    </div>
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+         <div class="notification information">
+      <div>
+				<form method="post" action="__APP__/Job/delhome">
+					<div id="soso">
+                    <select name="classif">
+                      <option value="0">&nbsp;全&nbsp;部</option>
+					  <option value="1">职位编号</option>
+                      <option value="2">职位名称</option>
+                      <option value="3">发布人</option>
+                    </select>
+					<input type="text" name="text" value="{$soso}">
+					<input type="submit" value="开始搜索">
+                    <!-- <a class="button">开始搜索</a>  -->
+				</div>
+				</form>
+	 </div>
+    </div>
+          <table border="0" cellpadding="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th>
+                  编号
+                </th>
+                <th>职位名称</th>
+                <th>行业分类</th>
+                <th>更新日期</th>
+				<th>工作地点</th>
+				<th>年薪</th>
+				<th>状态</th>
+				<th>发布人</th>
+				<th>操作</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="6">
+                  <div class="bulk-actions align-left">
+						<!-- <button id="submit">批量删除</button> -->
+				  </div>
+                  <div class="pagination"><a href="#" class="number current">{$page}{$empty}</a> 
+				  </div>
+                  <!-- End .pagination -->
+                  <div class="clear"></div>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+			<foreach name="list" item="vo">
+              <tr delnum="{$vo.id}">
+                <td>
+                  <!-- <input type="checkbox" value="{$vo.id}" name='id[]'/> -->{$vo.id}
+                </td>
+                <td><a href="__APP__/Job/huishou/{$vo.id}"  target="_blank" class="overtext">{$vo.jobname}</a></td>
+                <td>
+				<switch name="vo['industry']">
+						<case value="1">金融业</case>
+						<case value="2">房地产</case>
+						<case value="3">商业连锁</case>
+						<case value="4">IT/互联网/电子商务</case>
+						<case value="5">制药/医疗</case>
+						<case value="6">文化产业</case>
+						<case value="7">广告/媒体</case>
+						<case value="8">加工制造/仪表设备</case>
+						<case value="9">交通/物流/运输</case>
+						<case value="10">教育/培训</case>
+						<case value="11">旅游/酒店/餐饮/休闲</case>
+						<case value="12">能源/采掘/化工/环保</case>
+						<case value="13">政府/农林牧渔/其他</case>
+						<case value="14">消费品/贸易/批发/零售</case>
+					<default />其他行业
+				</switch>
+				</td>
+                <td>{$vo.time|date='Y-m-d',###}</td>
+				<td>
+				<switch name="vo['address']">
+						<case value="1" >北京</case>
+						<case value="2">上海</case>
+						<case value="3">天津</case>
+						<case value="4">深圳</case>
+						<case value="5">重庆</case>
+						<case value="6">广州</case>
+						<case value="7">广东省</case>
+						<case value="8">江苏省</case>
+						<case value="9">浙江省</case>
+						<case value="10">安徽省</case>
+						<case value="11">福建省</case>
+						<case value="12">甘肃省</case>
+						<case value="14">贵州省</case>
+						<case value="15">海南省</case>
+						<case value="16">河北省</case>
+						<case value="17">河南省</case>
+						<case value="18">黑龙江省</case>
+						<case value="19">湖北省</case>
+						<case value="20">湖南省</case>
+						<case value="21">吉林省</case>
+						<case value="22">江西省</case>
+						<case value="23">辽宁省</case>
+						<case value="24">青海省</case>
+						<case value="25">山东省</case>
+						<case value="26">陕西省</case>
+						<case value="27">山西省</case>
+						<case value="28">四川省</case>
+						<case value="29">云南省</case>
+						<case value="30">广西自治区</case>
+						<case value="31">内蒙古自治区</case>
+						<case value="32">宁夏自治区</case>
+						<case value="33">西藏自治区</case>
+						<case value="34">新疆自治区</case>
+					<default />其他
+				</switch>
+				</td>
+				<td>{$vo.moeny}万</td>
+				<td><switch name="vo.status">
+						<case value="0"><span class="status" num="{$vo.id}" style="color:red;cursor: pointer;">已删除</case>
+					</switch></td>
+				<td>{$vo.yourname}</td>
+                <td>
+                  <a href="#" class="huifu" delnum="{$vo.id}">恢复</a> </td>
+              </tr>
+			 </foreach>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169;腾驹达后台 2013| Powered by <a href="#">admin</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

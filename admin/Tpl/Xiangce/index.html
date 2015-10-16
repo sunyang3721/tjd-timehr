@@ -1,0 +1,58 @@
+<include file="Public:head" />
+<!-- <script type="text/javascript" src="__PUBLIC__/admin/scripts/ThinkBox/jquery.ThinkBox.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/scripts/ThinkBox/CSS/ThinkBox.css" media="all"> -->
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <div id="main-content">
+    <!-- End .clear -->
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>公司相册</h4>
+      </div>
+      <!-- End .content-box-header -->
+	  <STYLE type="text/css">
+			.img{border:1px solid #808080;width:360px;text-align:center;padding:3px;float:left;margin-left:10px;margin-bottom:5px;}
+	  </STYLE>
+<div class="content-box-content">
+	<div style="border:1px solid #808080;padding:5px;width:45%;height:100px;margin:15px auto;">
+		<form method='post' action="__URL__/Upload" enctype="multipart/form-data">
+			<INPUT type="file" name="file" style="font-size:16px;"> （*上传图片容量不能超过3MB）
+			<textarea name="imgtitle" rows="1" style="font-size:16px;">填写图片内容~</textarea>
+			<input type="submit"  value="上传提交" style="float:right;"/>
+		</form>
+	</div>
+        <div class="tab-content default-tab">
+			<foreach item="vo" name="list">
+				<div class="img">
+					<span><img src="__UPLOAD__/m_{$vo.imgpath}" alt="{$vo.imgtitle}" width="340" /></span>
+					<p>{$vo.imgtitle}</p>
+					<p style="float:right">发布日期：{$vo.date|date='Y-m-d',###}</p>
+					<p style="float:right"><a href="__URL__/del/{$vo.id}"  onclick="return confirm('删除后不能恢复，确定要删除吗?')">删除图片</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div class="clear"></div>
+				</div>
+			</foreach>
+			<div class="clear"></div>
+			<div style="width:45%;margin:15px auto;font-size:16px;">
+				{$page}
+			</div>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169; Copyright 2010 Your Company | Powered by <a href="#">admin templates</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<include file="Public:head" />
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+    </div>
+  </div>
+  <!-- End #sidebar -->
+  <style type="text/css">
+	body{color:#000;}
+  </style>
+  <div id="main-content">
+    <include file="Public:rbac-nav"/>
+	 <div class="clear"></div>
+    <div class="content-box">
+      <!-- Start Content Box -->
+      <div class="content-box-header">
+        <h4>权限配置</h4>
+      </div>
+<STYLE type="text/css">
+	 td{text-align:right;}
+	.right{text-align:left;}
+</STYLE>
+<script type="text/javascript">
+$(function(){
+	$('input').click(function(){
+		var level = $(this).attr('level');
+		if(level==1){
+			var str = '_';
+			var inputs = $('input[value*='+str+']');
+			$(this).attr('checked')?inputs.attr('checked',true):inputs.removeAttr('checked');
+		}else if(level==2){
+			var id = $(this).attr('id');
+			var inputs = $('input[pid='+id+']');
+			$(this).attr('checked')?inputs.attr('checked',true):inputs.removeAttr('checked');
+		}else if(level==3){
+			if($(this).attr('checked')){
+			var pid = $(this).attr('pid');
+			$('input[id='+pid+']').attr('checked',true);
+
+			var ppid = $('input[id='+pid+']').attr('pid')
+			$('input[id='+ppid+']').attr('checked',true);
+			}
+		}
+	});
+})
+</script>
+<div class="content-box-content">
+        <div class="tab-content default-tab">
+		<p>您正在为用户组：<span style="color:blue;font-size:15px;font-weight:bold;">{$role}</span> 分配权限</p>
+		<form method="post" action="{:U('Rbac/setAccess')}">
+		<volist name="nodelist" id="vo">
+		<p style="text-indent:{$vo['level']*20}px;<if condition='$vo.level eq 3'>float:left;margin-right:-40px;<else />clear:both;</if>">
+				<input id="{$vo.id}" type="checkbox" name="access[]" value="{$vo.id}_{$vo.level}" pid="{$vo.pid}" level="{$vo.level}" <if condition="$vo[access] eq 1">checked="checked"</if>>
+				<if condition="$vo.level eq 1"><span style="font-weight:bold;">[ 项目 ]</span><elseif condition="$vo.level eq 2" /><span style="font-weight:bold;">[ 模块 ]</span></if>
+				<label name="name" value="{$vo.id}" style="display:inline;font-weight:normal;">{$vo.title}</label>
+		</p>
+		</volist> 
+		<BR><BR><BR>
+		<div><input type="submit" name="" value="确定修改" style="font-size:14px;padding:10px 30px;margin-left:20%;"/></div>
+		<input type="hidden" name="rid" value="{$rid}" />
+		</form>
+        </div>
+      </div>
+      <!-- End .content-box-content -->
+    </div>
+    <div id="footer"> <small>
+      &#169;腾驹达后台 2013| Powered by <a href="#">admin</a> | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>

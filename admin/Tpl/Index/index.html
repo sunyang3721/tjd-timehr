@@ -1,0 +1,291 @@
+<include file="Public:head" />
+<script type="text/javascript" src="__PUBLIC__/admin/scripts/jQuery.autoIMG.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".content-box").autoIMG();
+	
+	var w = $(".content-box").width();
+	$(".content-box img").each(function(){
+		var img_w = $(this).width();
+	    var img_h = $(this).height();
+		if(img_w>w){
+			var height = (w*img_h)/img_w;
+			$(this).css({"width":w,"height":height});
+		}
+	});
+});
+</script>
+<style type="text/css">
+	.spanimg{
+		padding:10px 0px 0px 10px;
+		display:block;
+	}
+	.spanimg img{
+		width:400px;
+		border:1px solid #808080;
+	}
+	.spanimg p{
+	padding-left:10px;
+	}
+	hr{border:3px solid #808080;}
+</style>
+<body>
+<div id="body-wrapper">
+  <div id="sidebar">
+    <div id="sidebar-wrapper">
+		<include file="Public:left-nav" />
+      <!-- End #main-nav -->
+<!-- 主页效果图 GO！ -->
+      <div id="messages" style="display: none">
+			<h3>请选择要上传的图片(主页效果图)</h3><br>
+			<div style="padding-left:30px;">
+				<form method="post" action="__URL__/Upload" enctype="multipart/form-data">
+					<input type="file" name="file" style="font-size:18px;"></br>
+				<button style="font-size:18px;">确定上传</button>
+				</form>
+			</div>
+      </div>
+      <!-- End #messages -->
+    </div>
+  </div>
+  <div id="main-content">
+    <ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页效果图</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_one"><span>查看已删图片 </span></a></li>
+	  <li><a class="shortcut-button" href="#messages" rel="modal"><span>新增图片 </span></a></li>
+    </ul><p>图片大小为 宽954像素：高380像素</p>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+    <div class="content-box">
+	<foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="1">
+				<switch name="vo.status">
+					<case value="1">
+					<span class="spanimg align-left">
+						<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1">
+						<p><a href="__URL__/del/{$vo.id}">删除图片</a></p>
+					</span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+	 <div class="clear"></div>
+    </div>
+	<hr/>
+
+ <!-- 主页最新关注 GO！ -->
+	<div id="upload_two" style="display: none">
+			<h3>请选择要上传的图片(主页最新关注)</h3><br>
+			<div style="padding-left:30px;">
+				<form method="post" action="__URL__/upload_two" enctype="multipart/form-data">
+					浏览文件：<input type="file" name="file" style="font-size:18px;"></br>
+					链接URL：<input type="text" name="href" size="40" style="font-size:14px;" > 例如：http://www.timehr.cn<br/>
+				<button style="font-size:18px;">确定上传</button>
+				</form>
+			</div>
+      </div>
+      <!-- End #messages -->
+
+	<ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页最新关注</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_two"><span>查看已删图片</span></a></li>
+    </ul><p>图片大小为 宽454像素：高200像素</p>
+    <div class="clear"></div>
+	<div class="content-box">
+	<foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="2">
+				<switch name="vo.status">
+					<case value="1">
+     <span class="spanimg"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="#upload_two" rel="modal">上传新图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+    </div>
+	<hr/>
+
+<!-- 主页新闻动态 go！ -->
+		<div id="upload_there" style="display: none">
+				<h3>请选择要上传的图片(主页新闻动态)</h3><br>
+				<div style="padding-left:30px;">
+					<form method="post" action="__URL__/upload_there" enctype="multipart/form-data">
+					浏览文件：<input type="file" name="file" style="font-size:18px;"></br>
+					链接URL：<input type="text" name="href" size="40" style="font-size:14px;" > 例如：http://www.timehr.cn<br/>
+					<button style="font-size:18px;">确定上传</button>
+					</form>
+				</div>
+		  </div>
+      <!-- End #messages -->
+	<ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页新闻动态</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_there"><span>查看已删图片 </span></a></li>
+    </ul><p>图片大小为 宽454像素：高150像素</p>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+	<div class="content-box">
+	 <foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="3">
+				<switch name="vo.status">
+					<case value="1">
+						     <span class="spanimg"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="#upload_there" rel="modal">上传新图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+    </div>
+	<hr/>
+
+<!-- 主页公司活动 go！ -->
+	<div id="upload_four" style="display: none">
+				<h3>请选择要上传的图片(主页公司活动)</h3><br>
+				<div style="padding-left:30px;">
+					<form method="post" action="__URL__/upload_four" enctype="multipart/form-data">
+					浏览文件：<input type="file" name="file" style="font-size:18px;"></br>
+					链接URL：<input type="text" name="href" size="40" style="font-size:14px;" > 例如：http://www.timehr.cn<br/>
+					<button style="font-size:18px;">确定上传</button>
+					</form>
+				</div>
+		  </div>
+      <!-- End #messages -->
+	<ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页公司活动</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_four"><span>查看已删图片 </span></a></li>
+    </ul><p>图片大小为 宽454像素：高150像素</p>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+	<div class="content-box">
+	 <foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="4">
+				<switch name="vo.status">
+					<case value="1">
+						     <span class="spanimg"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="#upload_four" rel="modal">上传新图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+    </div>
+	<hr/>
+
+
+<!-- 主页宣传图A GO! -->
+	<div id="upload_five" style="display: none">
+				<h3>请选择要上传的图片(主页宣传图A)</h3><br>
+				<div style="padding-left:30px;">
+					<form method="post" action="__URL__/upload_five" enctype="multipart/form-data">
+					浏览文件：<input type="file" name="file" style="font-size:18px;"></br>
+					链接URL：<input type="text" name="href" size="40" style="font-size:14px;" > 例如：http://www.timehr.cn<br/>
+					<button style="font-size:18px;">确定上传</button>
+					</form>
+				</div>
+		  </div>
+      <!-- End #messages -->
+	<ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页宣传图A</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_five"><span>查看已删图片 </span></a></li>
+    </ul><p>图片大小为 宽452像素：高77像素</p>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+	<div class="content-box">
+	 <foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="5">
+				<switch name="vo.status">
+					<case value="1">
+						     <span class="spanimg"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="#upload_five" rel="modal">上传新图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+    </div>
+	<hr/>
+
+<!-- 主页宣传图B GO! -->
+	<div id="upload_six" style="display: none">
+				<h3>请选择要上传的图片(主页宣传图B)</h3><br>
+				<div style="padding-left:30px;">
+					<form method="post" action="__URL__/upload_six" enctype="multipart/form-data">
+					浏览文件：<input type="file" name="file" style="font-size:18px;"></br>
+					链接URL：<input type="text" name="href" size="40" style="font-size:14px;" > 例如：http://www.timehr.cn<br/>
+					<button style="font-size:18px;">确定上传</button>
+					</form>
+				</div>
+		  </div>
+      <!-- End #messages -->
+	<ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页宣传图B</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_six"><span>查看已删图片 </span></a></li>
+    </ul><p>图片大小为 宽452像素：高77像素</p>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+	<div class="content-box">
+	 <foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="6">
+				<switch name="vo.status">
+					<case value="1">
+						     <span class="spanimg"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="#upload_six" rel="modal">上传新图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+    </div>
+	<hr/>
+
+<!-- 主页董事长头像 GO! -->
+	<div id="upload_seven" style="display: none">
+				<h3>请选择要上传的图片(主页董事长头像)</h3><br>
+				<div style="padding-left:30px;">
+					<form method="post" action="__URL__/upload_seven" enctype="multipart/form-data">
+						<input type="file" name="file" style="font-size:18px;"></br>
+					<button style="font-size:18px;">确定上传</button>
+					</form>
+				</div>
+		  </div>
+      <!-- End #messages -->
+	<ul class="shortcut-buttons-set">
+      <li><a class="shortcut-button" href="{$Think.config.Index}"  target="_blank"><span>主页董事长头像</span></a></li>
+	  <li><a class="shortcut-button" href="__URL__/delface_seven"><span>查看已删图片 </span></a></li>
+    </ul><p>图片大小为 宽200像素：高200像素</p>
+    <!-- End .shortcut-buttons-set -->
+    <div class="clear"></div>
+    <!-- End .clear -->
+	<div class="content-box">
+	 <foreach name="list" item="vo">
+		<switch name="vo.pid">
+			<case value="7">
+				<switch name="vo.status">
+					<case value="1">
+						     <span class="spanimg"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="1"><p><a href="#upload_seven" rel="modal">上传新图片</a></p></span>
+					</case>
+				</switch>
+			</case>
+		</switch>
+	 </foreach>
+    </div>
+	<hr/>
+
+    <div id="footer"> <small>
+      &#169; 腾驹达猎头后台管理 2013 | <a href="#">Top</a> </small> 
+	  </div>
+    <!-- End #footer -->
+  </div>
+  <!-- End #main-content -->
+</div>
+<!-- End #body-wrapper-->
+</body>
+</html>
