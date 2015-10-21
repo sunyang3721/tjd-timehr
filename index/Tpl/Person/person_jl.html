@@ -1,0 +1,87 @@
+<include file="Public:header" title="{$Think.config.Person_jl.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/person/person_jl.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	$('#mynav').smohanfixednav(-6,999); 
+		$('#buttom').bind('click',function(){
+			$('#form').submit();
+		});
+});
+
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">人才服务</span><span class="lianjie">首页 > 人才服务 > {$Think.config.Person_jl.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li><a href="{$Think.config.Person.1}">{$Think.config.Person.2}</a></li>
+						<li><a href="{$Think.config.person_zx.1}">{$Think.config.person_zx.2}</a></li>
+						<li><a href="{$Think.config.Person_lt.1}">{$Think.config.Person_lt.2}</a></li>
+						<li><a href="{$Think.config.Person_rc.1}">{$Think.config.Person_rc.2}</a></li>
+						<li><a href="{$Think.config.person_fw.1}">{$Think.config.person_fw.2}</a></li>
+						<li class="btn"><a href="{$Think.config.person_jl.1}">{$Think.config.person_jl.2}</a></li>
+						<li><a href="{$Think.config.Person_gh.1}">{$Think.config.Person_gh.2}</a></li>
+						<li><a href="{$Think.config.Person_ztc.1}">{$Think.config.Person_ztc.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Person_jl.2}</h1>
+				<div class="con">
+						<div class="warp">
+								<div id="one">
+										<ul>
+												<li>投递简历前，请仔细阅读本页“腾驹达提示”；</li>
+												<li>投递方法：输入有效邮箱，上传附件简历，然后点击‘投递简历’按钮即可；</li>
+												<li>只支持doc，docx，txt，xls等格式，其他格式恕不接受；</li>
+												<li>文件大小在<red>1MB</red>以内，如果有照片，敬请缩小文件大小附在简历内，再发送；</li>
+												<li><FORM METHOD=get ACTION="http://www.ip138.com/ips1388.asp" name="ipform" target="_blank">
+													<tr><td align="center">目前您的IP地址：<input value="{$getIP}" type="text" name="ip" size="16"> 
+													<input type="submit" value="可查询地理位置"><INPUT TYPE="hidden" name="action" value="2">
+													</td></tr></FORM>
+												</li>
+										</ul>
+								</div>
+								<div id="two">
+										<img src="__PUBLIC__/images/logo.png" border="0" alt=""></br>
+										<form id="form" method="post" action="__URL__/Upload" enctype="multipart/form-data"> 
+											<table cellpadding="0" cellspacing="0" border="0">
+										<tr  class="tr_two">
+											<td align="right">您的E-mail：</td>
+											<td align="left"><input type="text" name="email" size="20" id="email" style="color:#005BAC;font-size:16px;"></td>
+										</tr>
+										<input type="hidden" name="ip" value="{$getIP}">
+										<tr  class="tr_two">
+											<td align="right">选择简历文档：</td>
+											<td align="left"><input type="file" name="doc"></td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center" style="padding-top:15px;"><span id="buttom">投递简历</span></td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center" style="padding-top:15px;"><h1 id="show"></h1></td>
+										</tr>
+										</table>
+										</form>
+								</div>
+								<div id="there">
+										<span>腾驹达提示：</span>
+								</div>
+								<div id="four">
+										<ul>
+												<li>一、请阅读本网站“关于腾驹达”网页http://www.timehr.cn/person_jl，您的投递本人简历行为，表示认同腾驹达的使命、愿景与社会价值，以及我们的服务，并愿意将您的个人信息托付给腾驹达。</li>
+												<li>二、腾驹达将一如既往地履行承诺，建立并维护好三级保密体系，您的信息仅用于本网站承诺之用途，并为您的信息严格保密。</li>
+												<li>三、我们将根据您的个人情况与岗位机会的匹配程度，确定与您沟通的时机。如果我们未与您沟通、未取得您的许可而将您的个人资料发给合作单位，会受到合作单位的责罚，并认为我们这种做法不专业。这对一家专业机构，是致命的。所以，敬请放心地投递简历，不用担心您的资料会转到您不认可的用人单位。 </li>
+												<li>四、附件中的简历内容尽量详尽，标准化，以便我们为您推荐职位。</li>
+												<li>五、也可以直接发邮件投简历: hrm@timehr.com。</li>
+												<li>六、如果以邮件方式发送职位申请简历，为方便您的资料尽快得到顾问检索查阅，请将简历内容粘贴在邮件正文文本框里，同时将简历以附件方式发送。</li>
+												<li> 七、您还有问题？请联系我们，我们的职业顾问将竭诚为您服务。 </li>
+										</ul>
+								</div>
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

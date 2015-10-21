@@ -1,0 +1,195 @@
+<include file="Public:header" title="{$Think.config.Person.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/person/person.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$('#address').val({$address});
+			$('#industry').val({$industry});
+			$('#in').val({$in});
+			$('#two').click(function(){
+				$('form').submit();
+			});
+	});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">人才服务</span><span class="lianjie">首页 > 人才服务 > {$Think.config.Person.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li class="btn"><a href="{$Think.config.Person.1}">{$Think.config.Person.2}</a></li>
+						<li><a href="{$Think.config.person_zx.1}">{$Think.config.person_zx.2}</a></li>
+						<li><a href="{$Think.config.Person_lt.1}">{$Think.config.Person_lt.2}</a></li>
+						<li><a href="{$Think.config.Person_rc.1}">{$Think.config.Person_rc.2}</a></li>
+						<li><a href="{$Think.config.person_fw.1}">{$Think.config.person_fw.2}</a></li>
+						<li><a href="{$Think.config.person_jl.1}">{$Think.config.person_jl.2}</a></li>
+						<li><a href="{$Think.config.Person_gh.1}">{$Think.config.Person_gh.2}</a></li>
+						<li><a href="{$Think.config.Person_ztc.1}">{$Think.config.Person_ztc.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Person.2}<span style="float:right;font-size:14px;color:#808080;"><a href="http://www.timehr.com/position-index"  target="_blank">更多转到人力资本网</a></span><div class="clear"></div></h1>
+				<div class="con">
+						<div class="warp">
+						<form method="post" action="__URL__">
+						<div id="soso">
+						<span class="align-left">
+						<h1 style="display:block;width:80px;float:left;">行业分类：</h1>
+						<select name="industry" id="industry" style="border:1px solid #ccc;color:#005BAC;font-size:18px;width:340px;float:left;">
+									<option value="0" selected>不限
+									<option value="1">金融业
+									<option value="2">房地产
+									<option value="3">商业连锁
+									<option value="4">IT/互联网/电子商务
+									<option value="5">制药/医疗
+									<option value="6">文化产业
+									<option value="7">广告/媒体
+									<option value="8">加工制造/仪表设备
+									<option value="9">交通/物流/运输
+									<option value="10">教育/培训
+									<option value="11">旅游/酒店/餐饮/休闲
+									<option value="12">能源/采掘/化工/环保
+									<option value="13">政府/农林牧渔/其他
+									<option value="14">消费品/贸易/批发/零售
+						</select>
+						<div class="clear"></div>
+						<h1 style="display:block;width:80px;float:left;">工作地点：</h1>
+						<select name="address" id="address" style="border:1px solid #ccc;color:#005BAC;font-size:18px;width:120px;float:left;">
+									<option value="0" selected>不限
+									<option value="1">北京
+									<option value="2">上海
+									<option value="3">天津
+									<option value="4">深圳
+									<option value="5">重庆
+									<option value="6">广州
+									<option value="7">广东省
+									<option value="8">江苏省
+									<option value="9">浙江省
+									<option value="10">安徽省
+									<option value="11">福建省
+									<option value="12">甘肃省
+									<option value="14">贵州省
+									<option value="15">海南省
+									<option value="16">河北省
+									<option value="17">河南省
+									<option value="18">黑龙江省
+									<option value="19">湖北省
+									<option value="20">湖南省
+									<option value="21">吉林省
+									<option value="22">江西省
+									<option value="23">辽宁省
+									<option value="24">青海省
+									<option value="25">山东省
+									<option value="26">陕西省
+									<option value="27">山西省
+									<option value="28">四川省
+									<option value="29">云南省
+									<option value="30">广西自治区
+									<option value="31">内蒙古自治区
+									<option value="32">宁夏自治区
+									<option value="33">西藏自治区
+									<option value="34">新疆自治区
+						</select>
+						<h1 style="display:block;width:100px;float:left;">&nbsp;&nbsp;&nbsp;发布时间：</h1>
+						<select name="in" id="in" style="border:1px solid #ccc;color:#005BAC;font-size:18px;width:120px;float:left;">
+							<option value="1">不限
+							<option value="2">一天内
+							<option value="3">三天内
+							<option value="4">一周内
+							<option value="5" selected>一月内
+						</select>
+						<div class="clear"></div>
+						<h1 style="display:block;width:80px;float:left;">职位名称：</h1>
+						<input type="text" name="title" value="{$soso}" style="border:1px solid #ccc;color:#005BAC;font-size:18px;width:338px;float:left;">
+						<div class="clear"></div>
+						<div id="two" class="center"><span>搜索职位</span></div>
+						</span>
+						<span class="align-right">
+						<img src="__PUBLIC__/images/job.jpg" width="220" height="120" border="0">
+						</span>
+						<div class="clear"></div>
+						</div>
+						</form>
+						<foreach name="list" item="vo">						
+						<a href="__URL__/job_show/{$vo.id}"  target="_blank">
+							<div class="job">
+								<h2>{$vo.jobname}</h2>
+								<ul>
+								<li>所属行业：
+								<switch name="vo['industry']">
+										<case value="1">金融业</case>
+										<case value="2">房地产</case>
+										<case value="3">商业连锁</case>
+										<case value="4">IT/互联网/电子商务</case>
+										<case value="5">制药/医疗</case>
+										<case value="6">文化产业</case>
+										<case value="7">广告/媒体</case>
+										<case value="8">加工制造/仪表设备</case>
+										<case value="9">交通/物流/运输</case>
+										<case value="10">教育/培训</case>
+										<case value="11">旅游/酒店/餐饮/休闲</case>
+										<case value="12">能源/采掘/化工/环保</case>
+										<case value="13">政府/农林牧渔/其他</case>
+										<case value="14">消费品/贸易/批发/零售</case>
+									<default />其他行业
+								</switch>
+								</li>
+								<li>地点：
+								<switch name="vo['address']">
+										<case value="1" >北京</case>
+										<case value="2">上海</case>
+										<case value="3">天津</case>
+										<case value="4">深圳</case>
+										<case value="5">重庆</case>
+										<case value="6">广州</case>
+										<case value="7">广东省</case>
+										<case value="8">江苏省</case>
+										<case value="9">浙江省</case>
+										<case value="10">安徽省</case>
+										<case value="11">福建省</case>
+										<case value="12">甘肃省</case>
+										<case value="14">贵州省</case>
+										<case value="15">海南省</case>
+										<case value="16">河北省</case>
+										<case value="17">河南省</case>
+										<case value="18">黑龙江省</case>
+										<case value="19">湖北省</case>
+										<case value="20">湖南省</case>
+										<case value="21">吉林省</case>
+										<case value="22">江西省</case>
+										<case value="23">辽宁省</case>
+										<case value="24">青海省</case>
+										<case value="25">山东省</case>
+										<case value="26">陕西省</case>
+										<case value="27">山西省</case>
+										<case value="28">四川省</case>
+										<case value="29">云南省</case>
+										<case value="30">广西自治区</case>
+										<case value="31">内蒙古自治区</case>
+										<case value="32">宁夏自治区</case>
+										<case value="33">西藏自治区</case>
+										<case value="34">新疆自治区</case>
+									<default />其他
+								</switch>
+								</li>
+								<li>更新日期：{$vo.time|date='Y-m-d',###}</li>
+								<li>年薪：{$vo.moeny}万</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+						</a>
+						</foreach><br>
+								<div class="center">
+								{$page}{$empty}
+								</div> 
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

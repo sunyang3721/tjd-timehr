@@ -1,0 +1,38 @@
+<include file="Public:header" title="{$Think.config.Enter_lt.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/enter/enter_ys.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">企业服务</span><span class="lianjie">首页 > 企业服务 > {$Think.config.Enter_lt.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li><a href="{$Think.config.Enter.1}">{$Think.config.Enter.2}</a></li>
+						<li><a href="{$Think.config.Enter_ys.1}">{$Think.config.Enter_ys.2}</a></li>
+						<li><a href="{$Think.config.Enter_kh.1}">{$Think.config.Enter_kh.2}</a></li>
+						<li class="btn"><a href="{$Think.config.Enter_lt.1}">{$Think.config.Enter_lt.2}</a></li>
+						<li><a href="{$Think.config.Enter_zw.1}">{$Think.config.Enter_zw.2}</a></li>
+						<li><a href="{$Think.config.Enter_rc.1}">{$Think.config.Enter_rc.2}</a></li>
+						<li><a href="{$Think.config.Enter_fw.1}">{$Think.config.Enter_fw.2}</a></li>
+						<li><a href="{$Think.config.Enter_ztc.1}">{$Think.config.Enter_ztc.2}</a></li>
+						<li><a href="{$Think.config.Enter_ts.1}">{$Think.config.Enter_ts.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Enter_lt.2}</h1>
+				<div class="con">
+						<div class="warp">
+								<div>
+										{$list.content}
+								</div>
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

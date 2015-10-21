@@ -1,0 +1,95 @@
+<include file="Public:header" title="{$list.jobname}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/news/show.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+<style type="text/css">
+	.warp{font-size:16px;}
+</style>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">
+		{$list.jobname}</span>
+		<span class="lianjie">首页 > 人才服务 > 热招职位 > {$list.jobname}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="right-nav margin">
+				<h1><!-- 《{$list.title}》 -->&nbsp;<span style="color:#808080;float:right;font-size:14px;font-weight:normal;">更新日期：<switch name="list.status">
+								<case value="1">{$list.time|date='Y-m-d',###}</case>
+								<case value="2">已结束</case>
+								<default />已删除
+								</switch>&nbsp;</span></h1>
+				<div class="con">
+						<div class="warp">
+							<p><b>行业分类：</b><switch name="list['industry']">
+										<case value="1">金融业</case>
+										<case value="2">房地产</case>
+										<case value="3">商业连锁</case>
+										<case value="4">IT/互联网/电子商务</case>
+										<case value="5">制药/医疗</case>
+										<case value="6">文化产业</case>
+										<case value="7">广告/媒体</case>
+										<case value="8">加工制造/仪表设备</case>
+										<case value="9">交通/物流/运输</case>
+										<case value="10">教育/培训</case>
+										<case value="11">旅游/酒店/餐饮/休闲</case>
+										<case value="12">能源/采掘/化工/环保</case>
+										<case value="13">政府/农林牧渔/其他</case>
+										<case value="14">消费品/贸易/批发/零售</case>
+									<default />其他行业
+								</switch>
+								</p>
+								<p>
+								<b>工作地点：</b>
+								<switch name="list['address']">
+										<case value="1" >北京</case>
+										<case value="2">上海</case>
+										<case value="3">天津</case>
+										<case value="4">深圳</case>
+										<case value="5">重庆</case>
+										<case value="6">广州</case>
+										<case value="7">广东省</case>
+										<case value="8">江苏省</case>
+										<case value="9">浙江省</case>
+										<case value="10">安徽省</case>
+										<case value="11">福建省</case>
+										<case value="12">甘肃省</case>
+										<case value="14">贵州省</case>
+										<case value="15">海南省</case>
+										<case value="16">河北省</case>
+										<case value="17">河南省</case>
+										<case value="18">黑龙江省</case>
+										<case value="19">湖北省</case>
+										<case value="20">湖南省</case>
+										<case value="21">吉林省</case>
+										<case value="22">江西省</case>
+										<case value="23">辽宁省</case>
+										<case value="24">青海省</case>
+										<case value="25">山东省</case>
+										<case value="26">陕西省</case>
+										<case value="27">山西省</case>
+										<case value="28">四川省</case>
+										<case value="29">云南省</case>
+										<case value="30">广西自治区</case>
+										<case value="31">内蒙古自治区</case>
+										<case value="32">宁夏自治区</case>
+										<case value="33">西藏自治区</case>
+										<case value="34">新疆自治区</case>
+									<default />其他
+								</switch>
+								</p>
+								<p><b>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪：</b>{$list.moeny}万</p>
+								<br>
+								<p><b>岗位职责：</b><pre>{$list.zhize}</pre></p>
+								<p><b>任职要求：</b>
+								<pre>{$list.yaoqiu}</pre></p>
+								<div id="upload"><a href="__APP__/Person/person_jl">投递简历</a></div>
+						</div>
+						
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

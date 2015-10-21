@@ -1,0 +1,559 @@
+<include file="Public:header" title="腾驹达猎头首页"/>
+<!-- 首页效果图 -->
+<script src="__PUBLIC__/js/jquery.seven.min.js"></script>
+<script src="__PUBLIC__/js/jquery.easing.min.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<link href="__PUBLIC__/css/sevenslider.css" rel="stylesheet" />
+<link href="__PUBLIC__/css/skins/clean.css" rel="stylesheet" />
+<!-- 首页效果图 end -->
+<!--首页右边 tab选项卡-->
+<script src="__PUBLIC__/js/tab.js"></script>
+<!---首页右边 tab选项卡end-->
+<link rel="stylesheet" href="__PUBLIC__/css/index.css" type="text/css" media="screen" />
+<script type="text/javascript" language="javascript">
+//首页效果图js
+	$(document).ready(function(){
+		var tb=$(".seven_container").sevenslider({
+			width:954,
+			height:380,
+			fullwidth:false,animation:3,automation:true,autointerval:4,progress:false,progresstype:"linear",bullet:true,carousel:false,circular:true,responsive:true,swipe:true,keyboard:false,skin:"clean",lightbox:true});
+			
+			$('.overtext').each(function(){
+				var maxwidth=18;
+				 if($(this).text().length>maxwidth){   
+					$(this).text($(this).text().substring(0,maxwidth));    
+					$(this).html($(this).html()+'...');    
+					}    
+			});
+			
+	});
+</script>   
+<!-- 首页效果图 -->
+<div class="seven_container">
+            <div id="seven_viewport">
+                <div class="seven_slider">
+					<foreach name="list" item="vo">
+						<switch name="vo.pid">
+							<case value="1">
+								<switch name="vo.status">
+									<case value="1">
+					 <div class="seven_slide"><a class="seven_slide_title"></a><img src="__PUBLIC__/images/img/{$vo.imgpath}" /></div>
+									</case>
+								</switch>
+							</case>
+						</switch>
+					 </foreach>
+                    
+                </div>
+            </div>
+            <a id="left_btn" class="seven_nav">上一图</a>
+            <a id="right_btn" class="seven_nav right_btn">下一图</a>
+</div>
+<!-- 首页效果图 end -->
+ <div class="w960 margin m-top" id="left">
+		<div class="w465 align-left">
+				<div class="w462 align-left">
+						<h2><span>最新关注</span></h2>
+						<div class="left-gg">
+						<foreach name="list" item="vo">
+							<switch name="vo.pid">
+								<case value="2">
+									<switch name="vo.status">
+										<case value="1">
+										<a href="<empty name='vo.href'>#<else />{$vo.href}</empty>"  target="_blank">
+						<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="0" alt="加载中...">
+										</a>
+										</case>
+									</switch>
+								</case>
+							</switch>
+						 </foreach>
+						
+						</div>
+				</div>
+				<div class="w462 align-left">
+						<h2><span>新闻动态</span><a href="__APP__/News" class="align-right"  target="_blank">更多</a></h2>
+						<div class="left-gg">
+						<foreach name="list" item="vo">
+							<switch name="vo.pid">
+								<case value="3">
+									<switch name="vo.status">
+										<case value="1">
+											<a href="<empty name='vo.href'>#<else />{$vo.href}</empty>"  target="_blank">
+						<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="0" alt="加载中...">				</a>
+										</case>
+									</switch>
+								</case>
+							</switch>
+						 </foreach>
+						</div>
+				</div>
+				<div class="w462 align-left">
+						<ul class="ul">
+						<foreach name='new' item='vo'>
+							<li><switch name="vo.classif">
+							<case value="1"><a href="__APP__/News" style="color:#808080;"  target="_blank">【公司要闻】</a></case>
+							<case value="2"><a href="__APP__/News/news_dt" style="color:#808080;"  target="_blank">【最新动态】</a></case>
+							</switch>
+							<a href="__APP__/News/index_show/{$vo.id}"  target="_blank" class="overtext">{$vo.title}</a><span>{$vo.last_time|date='Y-m-d',###}</span></li>
+						</foreach>
+						</ul>
+				</div>
+				<div class="w462 align-left">
+						<h2><span>专题活动</span><a href="__APP__/News/news_hd" class="align-right"  target="_blank">更多</a></h2>
+						<div class="left-gg">
+						<foreach name="list" item="vo">
+							<switch name="vo.pid">
+								<case value="4">
+									<switch name="vo.status">
+										<case value="1">
+											<a href="<empty name='vo.href'>#<else />{$vo.href}</empty>"  target="_blank">
+						<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="0" alt="加载中...">				</a>
+										</case>
+									</switch>
+								</case>
+							</switch>
+						 </foreach>
+						</div>
+				</div>
+				<div class="w462 align-left">
+						<ul class="ul">
+							<foreach name='newthere' item='vo'>
+							<li>
+							<a href="__APP__/News/index_show/{$vo.id}"  target="_blank" class="overtext">{$vo.title}</a><span>{$vo.last_time|date='Y-m-d',###}</span></li>
+						</foreach>
+						</ul>
+				</div>
+				<div class="clear"></div>
+	</div>
+	<div id="right" class="w462 align-right">
+				<h2><span>最新行业发布</span><a href="__APP__/Person/" class="align-right"  target="_blank">更多</a></h2>
+				<div id="tab">
+						<ul class="tabbtn">
+								<li class="current" id="tab1" style="width:150px;">500万以上</li>
+								<li id="tab2"  style="width:150px;">200万~500万</li>
+								<li id="tab3"  style="width:150px;">100万~200万</li>
+								<!-- <li id="tab4">30~50万</li>
+								<li id="tab5">30万以下</li> -->
+						</ul>
+						<!--tab1-->
+						<div class="tablist tab1" >
+								<ul>
+										<li class="one">
+												<ul class="tablist-left">
+														<li class="w150">最新职位</li><li class="w60">年薪</li><li class="w60">地点</li><li class="w110">发布日期</li>
+												</ul>
+										</li>
+										<foreach name="job" item="vo">
+										<li class="two">
+												<ul class="tablist-left">
+														<li class="w150"><a href="__APP__/Person/job_show/{$vo.id}"  target="_blank">{$vo.jobname}</a></li><li class="w60">{$vo.moeny}万</li><li class="w60">
+														<switch name="vo['address']">
+																<case value="1" >北京</case>
+																<case value="2">上海</case>
+																<case value="3">天津</case>
+																<case value="4">深圳</case>
+																<case value="5">重庆</case>
+																<case value="6">广州</case>
+																<case value="7">广东省</case>
+																<case value="8">江苏省</case>
+																<case value="9">浙江省</case>
+																<case value="10">安徽省</case>
+																<case value="11">福建省</case>
+																<case value="12">甘肃省</case>
+																<case value="14">贵州省</case>
+																<case value="15">海南省</case>
+																<case value="16">河北省</case>
+																<case value="17">河南省</case>
+																<case value="18">黑龙江省</case>
+																<case value="19">湖北省</case>
+																<case value="20">湖南省</case>
+																<case value="21">吉林省</case>
+																<case value="22">江西省</case>
+																<case value="23">辽宁省</case>
+																<case value="24">青海省</case>
+																<case value="25">山东省</case>
+																<case value="26">陕西省</case>
+																<case value="27">山西省</case>
+																<case value="28">四川省</case>
+																<case value="29">云南省</case>
+																<case value="30">广西自治区</case>
+																<case value="31">内蒙古自治区</case>
+																<case value="32">宁夏自治区</case>
+																<case value="33">西藏自治区</case>
+																<case value="34">新疆自治区</case>
+															<default />其他
+														</switch>
+														</li><li class="w110">{$vo.time|date="Y-m-d",###}</li>
+												</ul>
+										</li>
+										</foreach>
+											
+										<li class="two">
+												<ul class="tablist-left">
+														<span><a href="#">查看更多转到国际资本网</a></span>
+												</ul>
+										</li>
+								</ul>
+						</div>
+						<!--tab2-->
+						<div class="tablist none tab2" >
+								<ul>
+										<li class="one">
+												<ul class="tablist-left">
+														<li class="w150">最新职位</li><li class="w60">年薪</li><li class="w60">地点</li><li class="w110">发布日期</li>
+												</ul>
+										</li>
+										<foreach name="jobone" item="vo">
+										<li class="two">
+												<ul class="tablist-left">
+														<li class="w150"><a href="__APP__/Person/job_show/{$vo.id}"  target="_blank">{$vo.jobname}</a></li><li class="w60">{$vo.moeny}万</li><li class="w60">
+														<switch name="vo['address']">
+																<case value="1" >北京</case>
+																<case value="2">上海</case>
+																<case value="3">天津</case>
+																<case value="4">深圳</case>
+																<case value="5">重庆</case>
+																<case value="6">广州</case>
+																<case value="7">广东省</case>
+																<case value="8">江苏省</case>
+																<case value="9">浙江省</case>
+																<case value="10">安徽省</case>
+																<case value="11">福建省</case>
+																<case value="12">甘肃省</case>
+																<case value="14">贵州省</case>
+																<case value="15">海南省</case>
+																<case value="16">河北省</case>
+																<case value="17">河南省</case>
+																<case value="18">黑龙江省</case>
+																<case value="19">湖北省</case>
+																<case value="20">湖南省</case>
+																<case value="21">吉林省</case>
+																<case value="22">江西省</case>
+																<case value="23">辽宁省</case>
+																<case value="24">青海省</case>
+																<case value="25">山东省</case>
+																<case value="26">陕西省</case>
+																<case value="27">山西省</case>
+																<case value="28">四川省</case>
+																<case value="29">云南省</case>
+																<case value="30">广西自治区</case>
+																<case value="31">内蒙古自治区</case>
+																<case value="32">宁夏自治区</case>
+																<case value="33">西藏自治区</case>
+																<case value="34">新疆自治区</case>
+															<default />其他
+														</switch>
+														</li><li class="w110">{$vo.time|date="Y-m-d",###}</li>
+												</ul>
+										</li>
+										</foreach>
+										<li class="two">
+												<ul class="tablist-left">
+														<span><a href="#">查看更多转到国际资本网</a></span>
+												</ul>
+										</li>
+								</ul>
+						</div>
+						<!--tab3-->
+						<div class="tablist none tab3" >
+								<ul>
+										<li class="one">
+												<ul class="tablist-left">
+														<li class="w150">最新职位</li><li class="w60">年薪</li><li class="w60">地点</li><li class="w110">发布日期</li>
+												</ul>
+										</li>
+										<foreach name="jobtwo" item="vo">
+										<li class="two">
+												<ul class="tablist-left">
+														<li class="w150"><a href="__APP__/Person/job_show/{$vo.id}"  target="_blank">{$vo.jobname}</a></li><li class="w60">{$vo.moeny}万</li><li class="w60">
+														<switch name="vo['address']">
+																<case value="1" >北京</case>
+																<case value="2">上海</case>
+																<case value="3">天津</case>
+																<case value="4">深圳</case>
+																<case value="5">重庆</case>
+																<case value="6">广州</case>
+																<case value="7">广东省</case>
+																<case value="8">江苏省</case>
+																<case value="9">浙江省</case>
+																<case value="10">安徽省</case>
+																<case value="11">福建省</case>
+																<case value="12">甘肃省</case>
+																<case value="14">贵州省</case>
+																<case value="15">海南省</case>
+																<case value="16">河北省</case>
+																<case value="17">河南省</case>
+																<case value="18">黑龙江省</case>
+																<case value="19">湖北省</case>
+																<case value="20">湖南省</case>
+																<case value="21">吉林省</case>
+																<case value="22">江西省</case>
+																<case value="23">辽宁省</case>
+																<case value="24">青海省</case>
+																<case value="25">山东省</case>
+																<case value="26">陕西省</case>
+																<case value="27">山西省</case>
+																<case value="28">四川省</case>
+																<case value="29">云南省</case>
+																<case value="30">广西自治区</case>
+																<case value="31">内蒙古自治区</case>
+																<case value="32">宁夏自治区</case>
+																<case value="33">西藏自治区</case>
+																<case value="34">新疆自治区</case>
+															<default />其他
+														</switch>
+														</li><li class="w110">{$vo.time|date="Y-m-d",###}</li>
+												</ul>
+										</li>
+										</foreach>
+										<li class="two">
+												<ul class="tablist-left">
+														<span><a href="#">查看更多转到国际资本网</a></span>
+												</ul>
+										</li>
+								</ul>
+						</div>
+						<!--tab4-->
+						<div class="tablist none tab4" >
+								<ul>
+										<li class="one">
+												<ul class="tablist-left">
+														<li class="w150">最新职位</li><li class="w60">年薪</li><li class="w60">地点</li><li class="w110">发布日期</li>
+												</ul>
+										</li>
+										<foreach name="jobthere" item="vo">
+										<li class="two">
+												<ul class="tablist-left">
+														<li class="w150"><a href="#">{$vo.jobname}</a></li><li class="w60">{$vo.moeny}万</li><li class="w60">
+														<switch name="vo['address']">
+																<case value="1" >北京</case>
+																<case value="2">上海</case>
+																<case value="3">天津</case>
+																<case value="4">深圳</case>
+																<case value="5">重庆</case>
+																<case value="6">广州</case>
+																<case value="7">广东省</case>
+																<case value="8">江苏省</case>
+																<case value="9">浙江省</case>
+																<case value="10">安徽省</case>
+																<case value="11">福建省</case>
+																<case value="12">甘肃省</case>
+																<case value="14">贵州省</case>
+																<case value="15">海南省</case>
+																<case value="16">河北省</case>
+																<case value="17">河南省</case>
+																<case value="18">黑龙江省</case>
+																<case value="19">湖北省</case>
+																<case value="20">湖南省</case>
+																<case value="21">吉林省</case>
+																<case value="22">江西省</case>
+																<case value="23">辽宁省</case>
+																<case value="24">青海省</case>
+																<case value="25">山东省</case>
+																<case value="26">陕西省</case>
+																<case value="27">山西省</case>
+																<case value="28">四川省</case>
+																<case value="29">云南省</case>
+																<case value="30">广西自治区</case>
+																<case value="31">内蒙古自治区</case>
+																<case value="32">宁夏自治区</case>
+																<case value="33">西藏自治区</case>
+																<case value="34">新疆自治区</case>
+															<default />其他
+														</switch>
+														</li><li class="w110">{$vo.time|date="Y-m-d",###}</li>
+												</ul>
+										</li>
+										</foreach>
+										<li class="two">
+												<ul class="tablist-left">
+														<span><a href="#">查看更多转到国际资本网</a></span>
+												</ul>
+										</li>
+								</ul>
+						</div>
+						<!--tab5-->
+						<div class="tablist none tab5" >
+								<ul>
+										<li class="one">
+												<ul class="tablist-left">
+														<li class="w150">最新职位</li><li class="w60">年薪</li><li class="w60">地点</li><li class="w110">发布日期</li>
+												</ul>
+										</li>
+										<foreach name="jobfour" item="vo">
+										<li class="two">
+												<ul class="tablist-left">
+														<li class="w150"><a href="#">{$vo.jobname}</a></li><li class="w60">{$vo.moeny}万</li><li class="w60">
+														<switch name="vo['address']">
+																<case value="1" >北京</case>
+																<case value="2">上海</case>
+																<case value="3">天津</case>
+																<case value="4">深圳</case>
+																<case value="5">重庆</case>
+																<case value="6">广州</case>
+																<case value="7">广东省</case>
+																<case value="8">江苏省</case>
+																<case value="9">浙江省</case>
+																<case value="10">安徽省</case>
+																<case value="11">福建省</case>
+																<case value="12">甘肃省</case>
+																<case value="14">贵州省</case>
+																<case value="15">海南省</case>
+																<case value="16">河北省</case>
+																<case value="17">河南省</case>
+																<case value="18">黑龙江省</case>
+																<case value="19">湖北省</case>
+																<case value="20">湖南省</case>
+																<case value="21">吉林省</case>
+																<case value="22">江西省</case>
+																<case value="23">辽宁省</case>
+																<case value="24">青海省</case>
+																<case value="25">山东省</case>
+																<case value="26">陕西省</case>
+																<case value="27">山西省</case>
+																<case value="28">四川省</case>
+																<case value="29">云南省</case>
+																<case value="30">广西自治区</case>
+																<case value="31">内蒙古自治区</case>
+																<case value="32">宁夏自治区</case>
+																<case value="33">西藏自治区</case>
+																<case value="34">新疆自治区</case>
+															<default />其他
+														</switch>
+														</li><li class="w110">{$vo.time|date="Y-m-d",###}</li>
+												</ul>
+										</li>
+										</foreach>
+										<li class="two">
+												<ul class="tablist-left">
+														<span><a href="#">查看更多转到国际资本网</a></span>
+												</ul>
+										</li>
+								</ul>
+						</div>
+						<div class="clear"></div>
+				</div>
+				<div>
+						<h2><span>服务过行业分类</span><!-- <a href="__APP__/Person/person_zx" class="align-right">更多</a> --><a href="http://www.timehr.cn/Person/person_zx" class="align-right" target="_blank">更多</a></h2>
+						<div>
+								<ul class="tabbtn">
+										<!-- <a href="__APP__/Person/person_zx/industry/1"  target="_blank"><li>金融业</li></a>
+										<a href="__APP__/Person/person_zx/industry/2"  target="_blank"><li>房地产</li></a>
+										<a href="__APP__/Person/person_zx/industry/3"  target="_blank"><li>商业连锁</li></a>
+										<a href="__APP__/Person/person_zx/industry/4"  target="_blank"><li>电子商务</li></a>
+										<a href="__APP__/Person/person_zx/industry/6"  target="_blank"><li>文化产业</li></a> -->
+
+										<a href="http://www.timehr.cn/Person/person_zx"><li>金融业</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>房地产</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>商业连锁</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>电子商务</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>文化产业</li></a>
+								</ul>
+								<div class="clear"></div>
+						</div>
+				</div>
+				<div>
+						<h2><span>服务过职位类别</span><!-- <a href="__APP__/Person/person_zx" class="align-right">更多</a> --><a href="http://www.timehr.cn/Person/person_zx" class="align-right" target="_blank">更多</a></h2>
+						<div>
+								<ul class="tabbtn">
+										<!-- <a href="__APP__/Person/person_zx/jobname/CEO" target="_blank"><li>CEO</li></a>
+										<a href="__APP__/Person/person_zx/jobname/COO" target="_blank"><li>COO</li></a>
+										<a href="__APP__/Person/person_zx/jobname/CFO" target="_blank"><li>CFO</li></a>
+										<a href="__APP__/Person/person_zx/jobname/CTO" target="_blank"><li>CTO</li></a>
+										<a href="__APP__/Person/person_zx/jobname/CIO" target="_blank"><li>CIO</li></a> -->
+
+										<a href="http://www.timehr.cn/Person/person_zx"><li>CEO</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>COO</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>CFO</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>CTO</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li>CIO</li></a>
+								</ul>
+								<div class="clear"></div>
+						</div>
+				</div>
+				<div>
+						<h2><span>服务过年薪分类</span><!-- <a href="__APP__/Person/person_zx" class="align-right">更多</a> --><a href="http://www.timehr.cn/Person/person_zx" class="align-right" target="_blank">更多</a></h2>
+						<div>
+								<ul class="tabbtn">
+										<!-- <a href="__APP__/Person/person_zx/moeny/500" target="_blank"><li class="current" id="tab1" style="width:150px;">500万以上</li></a>
+										<a href="__APP__/Person/person_zx/moeny/200" target="_blank"><li id="tab2"  style="width:150px;">200万~500万</li></a>
+										<a href="__APP__/Person/person_zx/moeny/100" target="_blank"><li id="tab3"  style="width:150px;">100万~200万</li></a> -->
+
+										<a href="http://www.timehr.cn/Person/person_zx"><li class="current" id="tab1" style="width:150px;">500万以上</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li id="tab2"  style="width:150px;">200万~500万</li></a>
+										<a href="http://www.timehr.cn/Person/person_zx"><li id="tab3"  style="width:150px;">100万~200万</li></a>
+								</ul>
+								<div class="clear"></div>
+						</div>
+				</div>
+				<div class="img left-gg">
+				<foreach name="list" item="vo">
+							<switch name="vo.pid">
+								<case value="5">
+									<switch name="vo.status">
+										<case value="1">
+						<a href="<empty name='vo.href'>http://www.timehr.com<else />{$vo.href}</empty>"  target="_blank"><img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" style="border:solid #808080 1px;" alt="加载中..."></a>
+										</case>
+									</switch>
+								</case>
+							</switch>
+						 </foreach>
+				</div>
+				<div class="img left-gg">
+				<foreach name="list" item="vo">
+							<switch name="vo.pid">
+								<case value="6">
+									<switch name="vo.status">
+										<case value="1">
+											<a href="<empty name='vo.href'>#<else />{$vo.href}</empty>"  target="_blank">
+						<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" style="border:solid #808080 1px;" alt="加载中...">
+											</a>
+										</case>
+									</switch>
+								</case>
+							</switch>
+						 </foreach>
+				</div>
+				<h2><span>董事长的个人信息</span></h2>
+				<div class="img"><span class="boss align-left center">
+				<foreach name="list" item="vo">
+							<switch name="vo.pid">
+								<case value="7">
+									<switch name="vo.status">
+										<case value="1">
+						<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/img/{$vo.imgpath}" border="0" alt="加载中...">
+										</case>
+									</switch>
+								</case>
+							</switch>
+						 </foreach>
+				<br/><center><wb:follow-button uid="1355262161" type="red_1" width="67" height="24" ></wb:follow-button></center></span>
+				<span class="boss align-right">
+						<ul>
+								<li><a href="http://www.timehr.com"  target="_blank">* 国际人力资本网</a></li>
+								<!-- <li><a href="#"  target="_blank">* 腾驹达商学院</a></li> -->
+								<li><a href="http://weibo.com/u/1496811763"  target="_blank">* 卓越职场</a></li>
+								<li><a href="http://weibo.com/u/2295944951"  target="_blank">* 职场大助手</a></li>
+								<li><a href="http://weibo.com/timehr"  target="_blank">* 腾驹达的微博</a></li>
+								<li><a href="http://blog.sina.com.cn/jingsuqi2008"  target="_blank">* 董事长的博客</a></li>
+								<li><a href="http://weibo.com/jingsuqi"  target="_blank">* 董事长的微博</a></li>
+								<li><a href="http://www.timehr.com/club"  target="_blank">* 奇正管理沙龙</a></li>
+						</ul>
+				</span>
+				<div class="clear"></div>
+				</div>
+				<h2><span>关注二维码</span></h2>
+				<div class="img">
+						<span class="boss align-left center"><img width="200" height="200" src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/sxywx.jpg" border="0" alt="加载中..."><br/>
+						关注商学院
+						</span>
+						<span class="boss align-right center"><img width="200" height="200" src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/wxtjd.jpg" border="0" alt="加载中..."><br/>
+						关注腾驹达
+						</span>
+				<div class="clear"></div>
+				</div>
+	</div>
+	<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

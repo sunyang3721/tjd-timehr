@@ -1,0 +1,40 @@
+<include file="Public:header" title="{$list.title}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/news/show.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">
+		<switch name="list.classif">
+		<case value="1">公司要闻</case>
+		<case value="2">最新动态</case>
+		<case value="3">专题活动</case>
+		<case value="4">有关媒体与机构报道</case>
+		<case value="5">公司公告</case>
+		</switch></span>
+		<span class="lianjie">首页 > <if condition="$list.classif eq 5">关于腾驹达
+		<else />新闻动态
+		</if>
+		 > <switch name="list.classif">
+		<case value="1">公司要闻</case>
+		<case value="2">最新动态</case>
+		<case value="3">专题活动</case>
+		<case value="4">有关媒体与机构报道</case>
+		<case value="5">公司公告</case>
+		</switch> > {$list.title}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="right-nav margin">
+				<h1>《{$list.title}》<span style="color:#808080;float:right;font-size:14px;font-weight:normal;">更新日期：{$list.last_time|date="Y-m-d",###}</span></h1>
+				<div class="con">
+						<div class="warp">
+								<div>{$list.content}</div>
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

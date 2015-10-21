@@ -1,0 +1,46 @@
+<include file="Public:header" title="公司要闻"/>
+<link rel="stylesheet" href="__PUBLIC__/css/news/news.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);  
+ $('.overtext').each(function(){
+			var maxwidth=30;
+			 if($(this).text().length>maxwidth){   
+				$(this).text($(this).text().substring(0,maxwidth));    
+				$(this).html($(this).html()+'......');    
+				}    
+		});
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">新闻动态</span><span class="lianjie">首页 > 新闻动态 > 公司要闻</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li class="btn"><a href="{$Think.config.News}">公司要闻</a></li>
+						<li><a href="{$Think.config.News_dt}">最新动态</a></li>
+						<li><a href="{$Think.config.News_hd}">专题活动</a></li>
+						<li><a href="{$Think.config.News_bd}">有关媒体与机构报道</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>公司要闻</h1>
+				<div class="con">
+						<div class="warp">
+								<ul>
+										<foreach name="list" item="vo">
+											<a href="__APP__/News/index_show/{$vo.id}"  target="_blank"><li><span class="overtext">{$vo.title}</span><span class="align-right">{$vo.last_time|date="Y-m-d",###}</span></li></a>
+										</foreach>
+								</ul>
+								<hr/>
+								<div class="center">
+								{$page}
+								</div>
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

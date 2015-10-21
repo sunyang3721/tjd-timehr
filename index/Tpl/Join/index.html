@@ -1,0 +1,31 @@
+<include file="Public:header" title="{$Think.config.Join.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/enter/enter_ys.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">加入我们</span><span class="lianjie">首页 > 加入我们 > {$Think.config.Join.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li class="btn"><a href="{$Think.config.Join.1}">{$Think.config.Join.2}</a></li>
+						<li><a href="{$Think.config.Join_qt.1}">{$Think.config.Join_qt.2}</a></li>
+						<li><a href="{$Think.config.Join_ztc.1}">{$Think.config.Join_ztc.2}</a></li>
+						<li><a href="{$Think.config.Join_ts.1}">{$Think.config.Join_ts.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Join.2}</h1>
+				<div class="con">
+						<div class="warp">
+								{$list.content}
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

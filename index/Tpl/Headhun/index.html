@@ -1,0 +1,53 @@
+<include file="Public:header" title="{$Think.config.Headhun.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/headhun/headhun.css" type="text/css" media="screen" />
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">关于腾驹达</span><span class="lianjie">首页 > 关于腾驹达 > {$Think.config.Headhun.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li class="btn"><a href="{$Think.config.Headhun.1}">{$Think.config.Headhun.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Headhun.2}</h1>
+				<div class="con">
+						<div class="warp">
+						<!-- <b>擅长行业:</b><span><a href="#">IT/通讯/互联网</a></span><span><a href="#">地产/建筑</a></span><span><a href="#">制作/汽车/重工</a></span><span><a href="#">金融/证券/百货</a></span><span><a href="#">制药/生物/医疗</a></span><span><a href="#">教育/培训</a></span><span><a href="#">更多>></a></span>
+						<hr/> --> 
+						<foreach name="list" item="vo">
+						<div class="head">
+								<div class="img-left align-left">
+										<img src="__PUBLIC__/images/loading.gif" onerror="javascript:this.src='__PUBLIC__/images/head-img.jpg'" truesrc="__PUBLIC__/images/userdata/{$vo.imgpath}" width="150" height="150" border="0" alt="">
+										<empty name="vo.qqliuyan"><p class="liuyan">QQ留言关闭</p><else />{$vo.qqliuyan}</empty>
+								</div>
+								<div class="img-center align-left">
+										<p>昵称：{$vo.username}</p>
+										<p>ID编号：{$vo.cid}</p>
+										<p>擅长行业：{$vo.industry}</p>
+										<p>主做职位：{$vo.dojob}</p>
+										<p>QQ：<empty name="vo.ihone">不公开<else />{$vo.ihone}</empty></p>
+										<p>邮箱：{$vo.email}</p>
+										<p style="margin-top:15px;"><span class="align-left">{$vo.sinawb}</span> <span class="align-left">{$vo.qqwb}</span><span class="clear"></span></p>
+								</div>
+								<div class="img-right align-right">
+										<img src="__PUBLIC__/images/loading.gif" truesrc="__PUBLIC__/images/wxtjd.jpg" width="150" height="150" border="0" alt="">
+										<p>扫描关注微信</p>
+								</div>
+								<div class="clear"></div>
+						</div>
+						</foreach>
+						</div>
+						<h2 style="margin:0px 100px;">{$page}{$empty}</h2>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

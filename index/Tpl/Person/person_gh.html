@@ -1,0 +1,79 @@
+<include file="Public:header" title="{$Think.config.Person_gh.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/enter/enter_ys.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">人才服务</span><span class="lianjie">首页 > 人才服务 > {$Think.config.Person_gh.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li><a href="{$Think.config.Person.1}">{$Think.config.Person.2}</a></li>
+						<li><a href="{$Think.config.person_zx.1}">{$Think.config.person_zx.2}</a></li>
+						<li><a href="{$Think.config.Person_lt.1}">{$Think.config.Person_lt.2}</a></li>
+						<li><a href="{$Think.config.Person_rc.1}">{$Think.config.Person_rc.2}</a></li>
+						<li><a href="{$Think.config.person_fw.1}">{$Think.config.person_fw.2}</a></li>
+						<li><a href="{$Think.config.person_jl.1}">{$Think.config.person_jl.2}</a></li>
+						<li class="btn"><a href="{$Think.config.Person_gh.1}">{$Think.config.Person_gh.2}</a></li>
+						<li><a href="{$Think.config.Person_ztc.1}">{$Think.config.Person_ztc.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Person_gh.2}</h1>
+				<div class="con">
+						<div class="warp">
+								
+									<!-- {$list.content} -->
+									<span>腾驹达非常高兴为您提供服务，您的满意是对我们的最大鼓励，合作共赢是我们的最终目标。由于不同愿因或者某些意外的情况，对您造成的不便我们向您道歉。请将您的意见留给我们，我们会根据情况更换猎头顾问，或发送邮件至liwei@timehr.com。</span>
+								<div style="margin-top:10px;">
+								<form method="post" action="__APP__/Join/add">
+								<input type="hidden" name="ip" value="{$getIP}">
+									<table border="0"cellpadding="0" cellspacing="0" style="float:left;">
+								<tr>
+									<td class="align-right"><h2>您的姓名：</h2></td>
+									<td><input type="text" name="name" size="30"></td>
+									<td><p>可匿名</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>您的邮箱：</h2></td>
+									<td><input type="text" name="email" size="30"></td>
+									<td><p>可选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>您的QQ：</h2></td>
+									<td><input type="text" name="qq" size="30"></td>
+									<td><p>可选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>您的职位：</h2></td>
+									<td><input type="text" name="job" size="30"></td>
+									<td><p>可选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>投诉或建议：</h2></td>
+									<td><textarea name="tousu" rows="10" cols="30"></textarea></td>
+									<td><p>必选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right" style="padding-top:7px;"><h2>验证码：</h2></td>
+									<td colspan="2"><input type="text" name="verify"><img src="__APP__/Public/verify" onclick="this.src=this.src+'/'+Math.random()" style="position: relative;top:6px;"></td>
+								</tr>
+								<tr>
+									<td colspan="3" align="center"><button style="font-size:18px;">提交按钮</button></td>
+								</tr>
+								</table>
+								</form>
+								<div style="float:right;text-align:center;"><img src="__PUBLIC__/images/tousu.jpg" width="200"/><br/>扫描二维码投诉与建议</div>
+								<div class="clear"></div>
+								</div>
+								
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

@@ -1,0 +1,82 @@
+<include file="Public:header" title="{$Think.config.Enter_ts.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/enter/enter_ys.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+<style type="text/css">
+	.warp div table tr td p{color:#808080;}
+	.warp div table tr td img{position: relative;top:6px;}
+</style>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">企业服务</span><span class="lianjie">首页 > 企业服务 > {$Think.config.Enter_ts.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li><a href="{$Think.config.Enter.1}">{$Think.config.Enter.2}</a></li>
+						<li><a href="{$Think.config.Enter_ys.1}">{$Think.config.Enter_ys.2}</a></li>
+						<li><a href="{$Think.config.Enter_kh.1}">{$Think.config.Enter_kh.2}</a></li>
+						<li><a href="{$Think.config.Enter_lt.1}">{$Think.config.Enter_lt.2}</a></li>
+						<li><a href="{$Think.config.Enter_zw.1}">{$Think.config.Enter_zw.2}</a></li>
+						<li><a href="{$Think.config.Enter_rc.1}">{$Think.config.Enter_rc.2}</a></li>
+						<li><a href="{$Think.config.Enter_fw.1}">{$Think.config.Enter_fw.2}</a></li>
+						<li><a href="{$Think.config.Enter_ztc.1}">{$Think.config.Enter_ztc.2}</a></li>
+						<li class="btn"><a href="{$Think.config.Enter_ts.1}">{$Think.config.Enter_ts.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Enter_ts.2}</h1>
+				<div class="con">
+						<div class="warp">
+								<!-- {$list.content} -->
+								　　　<span>我们欢迎每位客户、每位人才对我们的服务提出投诉与建议。如果由于我们工作的疏忽造成了某些失误，给您带来了不便，或者您对我们的服务有更好的建议，请提交您的建议或投述，或发送邮件至advice@timehr.com。或拨打010-82659228-805</span>
+								<div style="margin-top:10px;">
+								<form method="post" action="__URL__/add">
+								<input type="hidden" name="ip" value="{$getIP}">
+									<table border="0"cellpadding="0" cellspacing="0" style="float:left;">
+								<tr>
+									<td class="align-right"><h2>您的姓名：</h2></td>
+									<td><input type="text" name="name" size="30"></td>
+									<td><p>可匿名</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>您的邮箱：</h2></td>
+									<td><input type="text" name="email" size="30"></td>
+									<td><p>可选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>您的QQ：</h2></td>
+									<td><input type="text" name="qq" size="30"></td>
+									<td><p>可选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>您的职位：</h2></td>
+									<td><input type="text" name="job" size="30"></td>
+									<td><p>可选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right"><h2>投诉或建议：</h2></td>
+									<td><textarea name="tousu" rows="10" cols="30"></textarea></td>
+									<td><p>必选</p></td>
+								</tr>
+								<tr>
+									<td class="align-right" style="padding-top:7px;"><h2>验证码：</h2></td>
+									<td colspan="2"><input type="text" name="verify"><img src="__APP__/Public/verify" onclick="this.src=this.src+'/'+Math.random()"></td>
+								</tr>
+								<tr>
+									<td colspan="3" align="center"><button style="font-size:18px;">提交按钮</button></td>
+								</tr>
+								</table>
+								</form>
+								<div style="float:right;text-align:center;"><img src="__PUBLIC__/images/tousu.jpg" width="200"/><br/>扫描二维码投诉与建议</div>
+								<div class="clear"></div>
+								</div>
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />

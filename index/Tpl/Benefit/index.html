@@ -1,0 +1,32 @@
+<include file="Public:header" title="{$Think.config.Benefit.2}"/>
+<link rel="stylesheet" href="__PUBLIC__/css/enter/enter_ys.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/js/smohan.fixednav.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+ $('#mynav').smohanfixednav(-6,999);    
+});
+</script>
+ <div class="w960 margin">
+		<div class="title"><span class="size28">公益活动</span><span class="lianjie">首页 > 公益活动 > {$Think.config.Benefit.2}</span></div>
+</div> 
+ <div class="w960 margin bg-left">
+		<div class="left-nav align-left" id="mynav">
+				<ul>
+						<li class="btn"><a href="{$Think.config.Benefit.1}">{$Think.config.Benefit.2}</a></li>
+						<!-- <li><a href="{$Think.config.Benefit_zz.1}">{$Think.config.Benefit_zz.2}</a></li> -->
+						<li><a href="{$Think.config.Benefit_jz.1}">{$Think.config.Benefit_jz.2}</a></li>
+						<li><a href="{$Think.config.Benefit_zs.1}">{$Think.config.Benefit_zs.2}</a></li>
+						<li><a href="{$Think.config.Benefit_yw.1}">{$Think.config.Benefit_yw.2}</a></li>
+				</ul>
+		</div>
+		<div class="right-nav align-right">
+				<h1>{$Think.config.Benefit.2}</h1>
+				<div class="con">
+						<div class="warp">
+								{$list.content}
+						</div>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div> 
+<include file="Public:footer" />
