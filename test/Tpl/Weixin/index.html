@@ -1,0 +1,219 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-user.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__TEMP__/Weixin/js/jquery.qrcode.min.js"></script>
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<include file="Public:test-nav"/>
+		</div>
+		<style type="text/css">
+		.img-yuanjiao{
+			border:2px solid #ccc;
+			-moz-border-radius: 5px;      /* Gecko browsers */
+		    -webkit-border-radius: 5px;   /* Webkit browsers */
+		    border-radius:5px;            /* W3C syntax */
+		}
+
+		</style>
+		<script type="text/javascript">
+		$(function(){
+			$('#qrcode').qrcode("http://tjd.timehr.com/cardname/#/home/"+{$Think.session.id});  //待改善
+		});
+		</script>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:10px;">
+						<tr>
+							<td colspan="2" style="border-bottom:1px solid #99ceff;">微信头像</td>
+						</tr>
+						<tr>
+							<td width="400" height="160" align="center"><img class="img-yuanjiao" src="__ROOT__/Upload/bopai/{$Think.session.id}.png" width="180" height="180" onerror="javascript:this.src='__PUBLIC__/test/images/touxiang.jpg'"></td>
+							<td align="center"><div id="qrcode"></div></td>
+						</tr>
+						<tr>
+							<td width="400" height="30" align="center"><!-- <a href="{:U('User/img_add')}"><button class="btn">上传头像</button> --><a href="__APP__/Upfile"><b class="btn btn-success">上传头像</b></a></td>
+							<td  align="center">扫描二维码查看个人信息与职位状态</td>
+						</tr>
+					</table>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:10px;">
+						<tr>
+							<td colspan="3" style="border-bottom:1px solid #99ceff;">微信员工资料<span class="align-right"><a href="#" data-toggle="modal" data-target="#userdata"><b style="color:#005BAC;">修改微信个人资料</b></a></span><span class="clear"></span></td>
+						</tr>
+						<tr>
+							<td width="150" align="right">英文昵称：</td>
+							<td>{$ulist.en_name}</td>
+							<td>个人微信二维码 <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#uploadweixin" >上传图片</button> </td>
+						</tr>
+						<tr>
+							<td width="150" align="right">团队职务：</td><td>{$ulist.tuandui|default='未填写'}</td>
+							<td rowspan="3">
+								<img width="100" class="img-yuanjiao" src="__ROOT__/Upload/erweima/thumb_{$list.user_img}" onerror="javascript:this.src='__ROOT__/Upload/bopai/no.jpg'">
+							</td>
+						</tr>
+						<!--
+						<tr>
+							<td align="right">E-mail：</td><td>{$tlist.mail|default='未填写'}</td>
+						</tr>
+						-->
+						<tr>
+							<td width="150" align="right">QQ 号码：</td><td>{$ulist.qq}</td>
+						</tr>
+						<!--
+						<tr>
+							<td width="150" align="right">座机电话：</td><td>{$tlist.homeihone|default='未填写'}</td>
+						</tr>
+						-->
+						<tr>
+							<td width="150" align="right">涉及领域：</td><td>{$ulist.hangye|default='未填写'}</td>
+						</tr>
+					</table>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:10px;">
+						<tr>
+							<td colspan="3" style="border-bottom:1px solid #99ceff;">我发布的职位信息<b>(共{$jobcount}条职位)</b><span class="align-right"><a href="#" data-toggle="modal" data-target="#userjob"><b style="color:#005BAC;">新增职位</b></a></span><span class="clear"></span></td>
+						</tr>
+					</table>
+					<hr/>
+					<volist name="joblist" id="vo">
+							<blockquote>
+							<p><b>职位编号 :</b>NO.{$vo.id} <a href="{:U('Weixin/edit_job',array('id'=>$vo[id]))}" class="btn btn-primary btn-xs">修改职位</a></p>
+							<p>
+								<b>职位状态 :</b> 
+								<switch name="vo.status">
+									<case value="0"><span class="text-danger">不公开</span></case>
+									<case value="1"><span class="text-success">公开</span></case>
+									<fadeult />出错了~
+								</switch>
+							</p>
+							<p><b>职位名称 :</b> <span class="text-primary">{$vo.jobtitle}</span></p>
+							<p><b>年薪范围 :</b> {$vo.moeny}</p>
+							<p><b>公司地点 :</b> {$vo.gongsi}</p>
+							<p><b>职位描述或要求:</b><br/>
+								<pre style="padding:15px;">{$vo.jobcontent}</pre>
+								</p>
+							<footer><b>更新日期:</b> {$vo.date|date='Y-m-d',###}</footer>
+							</blockquote>
+							</volist>
+							<blockquote>{$page}</blockquote>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<!-- Modal 修改个人资料 -->
+			<div class="modal fade" id="userdata" tabindex="-1" role="dialog" aria-labelledby="myuserdata">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myuserdata">修改微信个人资料</h4>
+			      </div>
+			      <script type="text/javascript"></script>
+			      <div class="modal-body">
+			      <form action="{:U('Weixin/saveUserdata')}" method="post">
+			      		<input type="hidden" value="{$ulist.id}" name="id">
+				       <dl class="dl-horizontal">
+						  <dt>英文昵称：</dt>
+						  <dd>  <input type="text" class="form-control" name="en_name" value="{$ulist.en_name}" > </dd>
+						  <dt >团队职务：</dt>
+						  <dd> 
+						  	<input type="text" class="form-control"  name="tuandui" placeholder="例如高级顾问、普通顾问、实习顾问" value="{$ulist.tuandui}" >
+						  </dd>
+						  <dt>QQ 号码：</dt>
+						  <dd>  <input type="text" class="form-control"  name="qq" value="{$ulist.qq}" > </dd>
+						  <dt>涉及领域：</dt>
+						  <dd style="padding-top:5px;">  <textarea class="form-control" name="hangye" rows="3">{$ulist.hangye}</textarea> </dd>
+						</dl>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				        <button type="submit" class="btn btn-primary">确定修改</button>
+				      </div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			<!--Modal end-->
+			<!--Modal 新增职位-->
+			<div  class="modal fade" id="userjob" tabindex="-1" role="dialog" aria-labelledby="myuserjob">
+				<div class="modal-content modal-dialog">
+				  <div class="modal-header">
+					<h4 class="modal-title" id="myuserjob"><span class="text-info">新增职位</span></h4>
+				  </div>
+				  <div class="modal-body">
+					<form method="post" action="{:U('Weixin/job_add')}">
+					<input type="hidden" name="pid" value="{$Think.session.id}">
+					<input type="hidden" name="date" value="<?php echo time();?>">
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">职位名称</span>
+								<input type="text" class="form-control" placeholder="请输入职位名称" autocomplete="off" name="jobtitle" >
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">年薪范围</span>
+								<input type="text" class="form-control" placeholder="例如:30-70万" autocomplete="off" name="moeny">
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">公司地点</span>
+								<input type="text" class="form-control" placeholder="例如:北京某知名房地产集团" autocomplete="off" name="gongsi">
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">职位描述<br/>和<br/>职位要求</span>
+								<textarea class="form-control" rows="3" name="jobcontent"></textarea>
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group" style="padding-left:10%;">
+								<label class="radio-inline">
+								  <input type="radio" name="status"  value="0"> 不公开
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="status" value="1" checked="checked"> 公开
+								</label><br/>
+								<small>注意：若选择不公开的话，微信里将不会显示职位信息</small>
+						</div>
+						<!--
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">日均客流量(万)</span>
+								<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="liuliang" value="">
+						</div>
+						-->
+				  </div>
+				  <div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="提交保存">
+				  </div>
+				 </form> 
+				</div>
+			  </div>
+			  <!--Modal end-->
+			  <!--Modal 上传个人二维码-->
+			<div  class="modal fade" id="uploadweixin" tabindex="-1" role="dialog" aria-labelledby="myuploadweixin">
+				<div class="modal-content modal-dialog">
+				  <div class="modal-header">
+					<h4 class="modal-title" id="myuploadweixin"><span class="text-info">上传个人二维码</span>格式要求: jpg、jpeg、png</h4>
+				  </div>
+				  <div class="modal-body">
+					<form method="post" action="__URL__/Upload" enctype="multipart/form-data">
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">上传二维码</span>
+								<input type="file" class="form-control"  name="upload">
+						</div>
+				  	
+				  </div>
+				  <div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="上传提交">
+				  </div>
+				  </form>
+				</div>
+			  </div>
+			  <!--Modal end-->
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

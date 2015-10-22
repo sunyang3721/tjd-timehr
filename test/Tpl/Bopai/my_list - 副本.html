@@ -1,0 +1,316 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+<STYLE type="text/css">
+	#nav-h26 span img{position:relative;top:-2px;}
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+	.border{border:1px solid #c0c0c0;}
+</STYLE>
+<div class="container-fluid">
+  <div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			 <div class="col-md-8">
+				<!-- Single button -->
+					<div class="btn-group">
+					  <a  href="__URL__/my_list"class="btn btn-default " >
+						查看我上传的信息
+					  </a>
+					</div>
+					<div class="btn-group">
+					  <a  href="__URL__/my_join"class="btn btn-default " >
+						查看我承接的信息
+					  </a>
+					</div>
+					<div class="btn-group">
+					  <a  href="__URL__/my_join"class="btn btn-default " >
+						查看我提交的信息
+					  </a>
+					</div>
+			 </div>
+		</div>
+		<div class="col-md-10 col-md-offset-1 none-padding">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+						<h4>我上传的信息</h4>
+						</div>
+					<div class="panel-body">
+						<div class="col-md-12">
+							<div class="col-md-6" style="padding:0px 20px 15px 20px;">
+								<form method="get" action="/sunyang/test.php/Lsku">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+										<input type="text" class="form-control" placeholder="请输入关键字" value="" name="title">
+										<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">开始搜索</button>
+									  </span>
+								</div>
+								</form>
+							 </div>
+						</div>
+						<table class="table  table-condensed" width="100%">
+								<tr class="active info">
+									<th class="border"><b>编号</b></th>
+									<th class="border"><b>人才姓名</b></th>
+									<th class="border"><b>年龄</b></th>
+									<th class="border" ><b>性别</b></th>
+									<th class="border"><b>职位</b></th>
+									<th class="border"><b>状态</b></th>
+									<th class="border"><b>所在公司分类</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" rowspan="5" align="center" style="vertical-align:middle;" >1</td>
+									<td class="border">aaa</td>
+									<td class="border">ddd</td>
+									<td class="border">fff</td>
+									<td class="border">ccc</td>
+									<td class="border">eee</td>
+									<td class="border"><a href="#">北京万达购物广场</a></td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="5"><b>沟通内容</b></th>
+									<th class="border"><b>上次日期</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="5">Sometimes emphasis classes cannot be  </td>
+									<td class="border">2014-09-07</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="2"><b>承接顾问</b></th>
+									<th class="border" colspan="3"><b>顾问沟通及状况</b></th>
+									<th class="border"><b>联系验证</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="2" > 
+													<!-- <div class="bfh-selectbox" data-name="username" data-value="1" data-filter="true" style="display: inline-flex;width:40%;">
+														  <div data-value="1">请选择承接顾问</div>
+														  <div data-value="2">提交给孙洋顾问</div>
+														  <div data-value="3">Option 3</div>
+														  <div data-value="4">Option 4</div>
+														  <div data-value="5">Option 5</div>
+														  <div data-value="6">Option 6</div>
+														  <div data-value="7">Option 7</div>
+														  <div data-value="8">Option 8</div>
+														  <div data-value="9">Option 9</div>
+														  <div data-value="10">Option 10</div>
+														  <div data-value="11">Option 11</div>
+														  <div data-value="12">Option 12</div>
+														  <div data-value="13">Option 13</div>
+														  <div data-value="14">Option 14</div>
+														  <div data-value="15">Option 15</div>
+													</div>
+													<span class="btn btn-success btn-xs">确定提交</span> -->
+													提交给孙洋顾问  接收状态:未接收
+													</td>
+									<td class="border" colspan="3">
+												暂时没有顾问承接
+												<!-- <p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		 -->
+									</td>
+									<td class="border">未验证</td>
+								 </tr>
+								 <tr>
+									<td colspan="7"><hr/ style="border:3px solid #808080;"></td>
+								 </tr>
+								 <tr class="active info">
+									<th class="border"><b>序号</b></th>
+									<th class="border"><b>人才姓名</b></th>
+									<th class="border"><b>年龄</b></th>
+									<th class="border" ><b>性别</b></th>
+									<th class="border"><b>职位</b></th>
+									<th class="border"><b>状态</b></th>
+									<th class="border"><b>寻访员</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" rowspan="5" align="center" style="vertical-align:middle;" >2</td>
+									<td class="border">aaa</td>
+									<td class="border">ddd</td>
+									<td class="border">fff</td>
+									<td class="border">ccc</td>
+									<td class="border">eee</td>
+									<td class="border">ww</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="5"><b>沟通内容</b></th>
+									<th class="border"><b>提交日期</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="5">Sometimes emphasis classes cannot be  </td>
+									<td class="border">2014-09-07</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="2"><b>承接顾问</b></th>
+									<th class="border" colspan="3"><b>顾问沟通及状况</b></th>
+									<th class="border"><b>联系验证</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="2" > 
+													<!-- <div class="bfh-selectbox" data-name="username" data-value="1" data-filter="true" style="display: inline-flex;width:40%;">
+														  <div data-value="1">请选择承接顾问</div>
+														  <div data-value="2">提交给孙洋顾问</div>
+														  <div data-value="3">Option 3</div>
+														  <div data-value="4">Option 4</div>
+														  <div data-value="5">Option 5</div>
+														  <div data-value="6">Option 6</div>
+														  <div data-value="7">Option 7</div>
+														  <div data-value="8">Option 8</div>
+														  <div data-value="9">Option 9</div>
+														  <div data-value="10">Option 10</div>
+														  <div data-value="11">Option 11</div>
+														  <div data-value="12">Option 12</div>
+														  <div data-value="13">Option 13</div>
+														  <div data-value="14">Option 14</div>
+														  <div data-value="15">Option 15</div>
+													</div>
+													<span class="btn btn-success btn-xs">确定提交</span> -->
+													提交给孙洋顾问  接收状态:已接收
+													</td>
+									<td class="border" colspan="3">
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>
+									</td>
+									<td class="border">未验证</td>
+								 </tr>
+								 <tr>
+									<td colspan="7"><hr/ style="border:3px solid #808080;"></td>
+								 </tr>
+								 <tr class="active info">
+									<th class="border"><b>序号</b></th>
+									<th class="border"><b>人才姓名</b></th>
+									<th class="border"><b>年龄</b></th>
+									<th class="border" ><b>性别</b></th>
+									<th class="border"><b>职位</b></th>
+									<th class="border"><b>状态</b></th>
+									<th class="border"><b>寻访员</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" rowspan="5" align="center" style="vertical-align:middle;" >3</td>
+									<td class="border">aaa</td>
+									<td class="border">ddd</td>
+									<td class="border">fff</td>
+									<td class="border">ccc</td>
+									<td class="border">eee</td>
+									<td class="border">ww</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="5"><b>沟通内容</b></th>
+									<th class="border"><b>提交日期</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="5">Sometimes emphasis classes cannot be  </td>
+									<td class="border">2014-09-07</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="2"><b>承接顾问</b></th>
+									<th class="border" colspan="3"><b>顾问沟通及状况</b></th>
+									<th class="border"><b>联系验证</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="2" > 
+													<!-- <div class="bfh-selectbox" data-name="username" data-value="1" data-filter="true" style="display: inline-flex;width:40%;">
+														  <div data-value="1">请选择承接顾问</div>
+														  <div data-value="2">提交给孙洋顾问</div>
+														  <div data-value="3">Option 3</div>
+														  <div data-value="4">Option 4</div>
+														  <div data-value="5">Option 5</div>
+														  <div data-value="6">Option 6</div>
+														  <div data-value="7">Option 7</div>
+														  <div data-value="8">Option 8</div>
+														  <div data-value="9">Option 9</div>
+														  <div data-value="10">Option 10</div>
+														  <div data-value="11">Option 11</div>
+														  <div data-value="12">Option 12</div>
+														  <div data-value="13">Option 13</div>
+														  <div data-value="14">Option 14</div>
+														  <div data-value="15">Option 15</div>
+													</div>
+													<span class="btn btn-success btn-xs">确定提交</span> -->
+													提交给孙洋顾问  接收状态:未接收
+													</td>
+									<td class="border" colspan="3">
+												暂时没有顾问承接
+												<!-- <p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		 -->
+									</td>
+									<td class="border">未验证</td>
+								 </tr>
+								 <tr>
+									<td colspan="7"><hr/ style="border:3px solid #808080;"></td>
+								 </tr>
+								 <tr class="active info">
+									<th class="border"><b>序号</b></th>
+									<th class="border"><b>人才姓名</b></th>
+									<th class="border"><b>年龄</b></th>
+									<th class="border" ><b>性别</b></th>
+									<th class="border"><b>职位</b></th>
+									<th class="border"><b>状态</b></th>
+									<th class="border"><b>寻访员</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" rowspan="5" align="center" style="vertical-align:middle;" >4</td>
+									<td class="border">aaa</td>
+									<td class="border">ddd</td>
+									<td class="border">fff</td>
+									<td class="border">ccc</td>
+									<td class="border">eee</td>
+									<td class="border">ww</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="5"><b>沟通内容</b></th>
+									<th class="border"><b>提交日期</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="5">Sometimes emphasis classes cannot be  </td>
+									<td class="border">2014-09-07</td>
+								 </tr>
+								 <tr class="info">
+									<th class="border" colspan="2"><b>承接顾问</b></th>
+									<th class="border" colspan="3"><b>顾问沟通及状况</b></th>
+									<th class="border"><b>联系验证</b></th>
+								 </tr>
+								 <tr>
+									<td class="border" colspan="2" > 
+													<div class="bfh-selectbox" data-name="username" data-value="1" data-filter="true" style="display: inline-flex;width:40%;">
+														  <div data-value="1">请选择承接顾问</div>
+														  <div data-value="2">提交给孙洋顾问</div>
+														  <div data-value="3">Option 3</div>
+														  <div data-value="4">Option 4</div>
+														  <div data-value="5">Option 5</div>
+														  <div data-value="6">Option 6</div>
+														  <div data-value="7">Option 7</div>
+														  <div data-value="8">Option 8</div>
+														  <div data-value="9">Option 9</div>
+														  <div data-value="10">Option 10</div>
+														  <div data-value="11">Option 11</div>
+														  <div data-value="12">Option 12</div>
+														  <div data-value="13">Option 13</div>
+														  <div data-value="14">Option 14</div>
+														  <div data-value="15">Option 15</div>
+													</div>
+													<span class="btn btn-success btn-xs">确定提交</span>
+													</td>
+									<td class="border" colspan="3">
+												暂时没有顾问承接
+												<!-- <p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">孙洋:放大放大发达发达fdasf</p>		 -->
+									</td>
+									<td class="border">未验证</td>
+								 </tr>
+								 <tr>
+									<td colspan="7"><hr/ style="border:3px solid #808080;"></td>
+								 </tr>
+						</table>
+			</div>	
+	  </div>
+</div>
+</div>

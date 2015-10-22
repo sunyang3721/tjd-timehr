@@ -1,0 +1,22 @@
+.title{margin-top:25px;border-bottom:1px solid #ccc;padding-bottom:5px;}
+.title .size28{font-size:28px;margin-right:15px;text-shadow:0px 2px 0px #D1D1D1;font-weight:bold;}
+.title .lianjie{font-size:12px;color:#999;}
+.bg-left{background: url('../../images/box_bj.png') left top repeat-y;margin-top:30px;}
+.left-nav{padding-top:5px;width:194px;}
+.left-nav ul li{line-height:29px;height:29px;padding-left:25px;background: url('../../images/sidelibg.png') left top no-repeat;}
+.left-nav ul .btn{background: url('../../images/sideicon.png') left top no-repeat;}
+.left-nav ul .btn a{color:#fff;}
+.left-nav ul li a{color:#005BAC;font-size:14px;}
+/*下面右边布局 news_hd*/
+.right-nav{width:750px;}
+.right-nav h1{color:#333;font-size:16px;line-height:30px;font-weight:bold;}
+.right-nav .con{width:750px;border:1px solid #ccc;}
+.right-nav .con .warp{padding:0px 30px;}
+.con .warp img{margin-right:10px;}
+.con .warp dl{border-bottom:1px solid #ccc;padding-bottom:20px;}
+.con .warp dl dt,.con .warp dl dt dd{float:left;}
+.con .warp span{float:right;color:#888;}
+.con .warp dl p a{color:#005BAC;font-size:16px;padding-left:15px;}
+.con .warp dl .text{color:#666;text-indent:2em;padding-top:5px;}
+.con .warp dl p a:hover{text-decoration: underline;}
+.center{text-align:center;}

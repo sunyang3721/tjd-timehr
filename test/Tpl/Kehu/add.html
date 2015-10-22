@@ -1,0 +1,180 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.form-horizontal .form-group{margin-left:0px;}
+</STYLE>
+<BR>
+<div class="container">
+	<div class="row">
+		<!-- <div class="col-md-10 col-md-offset-1">
+				<div class="col-md-6">
+				<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input id="soso" type="text" class="form-control" placeholder="请输入关键字" data-provide="typeahead"  autocomplete="off">
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="button">开始搜索</button>
+					  </span>
+				</div>
+			 </div>
+		</div> -->
+		<div class="col-md-10 col-md-offset-1" style="margin-bottom:10px;">
+				<div class="panel panel-primary">
+					<div class="panel-heading">新增职位信息</div>
+					<div class="panel-body">
+						<div class="col-md-12">
+								<form class="form-horizontal" method="post" action="{:U('Kehu/adding')}">
+									<input type="hidden" name="tid" value="{$Think.session.id}">
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">职位名称</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control"  placeholder="输入职位名称" name="jobname">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">是否紧急</label>
+										<div class="col-sm-2">
+										  <select class="form-control" name="jinji">
+											  <option value="0">否</option>
+											  <option value="1">是</option>
+											</select>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">客户名称</label>
+										<div class="col-sm-5">
+										  <select class="form-control" name="pid">
+											  <option value="0">请选择</option>
+											<foreach name="list" item="vo">
+											  <option value="{$vo.id}">{$vo.title}</option>
+											</foreach>
+											</select>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">薪酬</label>
+										<div class="col-sm-2">
+										  <div class="form-group">
+											<div class="input-group">											  
+											  <input class="form-control" type="text" name="moeny">
+											  <div class="input-group-addon">万</div>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">招聘人数</label>
+										<div class="col-sm-2">
+										  <div class="form-group">
+											<div class="input-group">											  
+											  <input class="form-control" type="text" name="num">
+											  <div class="input-group-addon">人</div>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">工作地点</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control"  placeholder="请输入地点" name="address">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">面试要点</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control"  placeholder="请输入面试要点" name="msneed">
+										</div>
+									  </div>
+									   <div class="form-group">
+										<label  class="col-sm-2 control-label">面试流程</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" placeholder="请输入面试流程" name="msliucheng">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">参考人方向</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control"  placeholder="请输入参考人方向" name="cankao">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">其它</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control"  name="other">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">客户招聘对接人</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control" name="kehuname">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">职位要点</label>
+										<div class="col-sm-10">
+										  <textarea class="form-control" rows="6" name="jobneed"></textarea>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">预计截止时间</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control" name="enddate" value="<?php echo date('Y-m-d') ;?>">
+										</div>
+										<input type="hidden" name="newdate" value="<?php echo time();?>">
+									  </div>
+									   <div class="form-group">
+										<label  class="col-sm-2 control-label">目前状态</label>
+										<div class="col-sm-3">
+										   <div class="form-group">
+													<select class="form-control" name="status">
+													  <option value="0">请选择</option>
+													  <option value="1">正在进行中</option>
+													  <option value="2">即将开始</option>
+													  <option value="3">暂时关闭</option>
+													</select>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <!-- <div class="col-md-12">
+												<div class="panel panel-warning">
+													<div class="panel-heading">
+															<table width="100%" border="1" cellspacing="0" cellpadding="0" class="table-foot table-td">
+																  <tr>
+																	<td><b>对接人信息</b></td>
+																	<td><b>所属导师组</b></td>
+																	<td><b>移动电话</b></td>
+																	<td><b>邮箱</b></td>
+																	<td><b>QQ</b></td>
+																	<td><b>其他</b></td>
+																  </tr>
+																  <tr>
+																	<td>孙洋</td>
+																	<td>4组</td>
+																	<td>139551212556</td>
+																	<td>sunyang@timehr.com</td>
+																	<td>245855212</td>
+																	<td>无</td>
+																  </tr>
+															</table>
+													</div>
+												</div>
+									  </div> -->
+									  <div class="form-group">
+										<div class="col-sm-offset-3 col-sm-10">
+										  <button type="submit" class="btn btn-primary">保存发布</button>
+										</div>
+									  </div>
+								</form>
+						</div>
+					</div>
+			</div>	
+		</div>
+		
+	</div>
+</div>

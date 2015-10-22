@@ -1,0 +1,3 @@
+#right #cut{width:150px;height:150px;border:1px solid #acacac;margin-right:10px;margin-bottom:5px;}
+#right .btn{background:url("../images/bg12.jpg") no-repeat left top;padding:10px 44px;color:#fff;cursor: pointer;display:block;margin-left:4px;}
+#right .btn:hover{background:url("../images/bg12.jpg") no-repeat left 100%;padding:10px 44px;color:#005bac;cursor: pointer;}

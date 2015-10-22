@@ -1,0 +1,41 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<ul>
+						<li><a href="__APP__/List/index">所有资料</a></li>
+						<li><a href="__APP__/List/index/2">list表</a></li>
+						<li><a href="__APP__/List/index/6">人力资源报告</a></li>
+						<li><a href="__APP__/List/index/1">内部期刊</a></li>
+						<li><a href="__APP__/List/index/3">客户信息资料</a></li>
+						<li><a href="__APP__/List/index/4">公司制度</a></li>
+						<li><a href="__APP__/List/index/5">其他</a></li>
+				</ul>
+		</div>
+		<STYLE type="text/css">
+			button{width:120px;height:30px;margin-top:10px;margin-left:100px;}
+			.load{margin-left:100px;}
+		</STYLE>
+		<script type="text/javascript">
+				$(document).ready(function(){
+						$('.load').hide();
+						$('button').click(function(){
+								$('button').hide();
+								$('.load').show();
+						});
+				});
+		</script>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+						<form method="post" action="__URL__/uping" enctype="multipart/form-data">
+							<h3>List表标题：<input type="text" name="title" value="" size="40"/></h3>
+							<h3> 所属行业： <input type="text" name="hangye" value="" size="20"/></h3>
+							<h3>上传List表：<input type="file" name="pdfpath" value="" style="width:200px;padding-left:5px;"/><span style="color:red;">*仅支持pdf格式上传且不超过20MB大小</span></h3>
+							<button>开始上传</button><span class="load"><img src="__PUBLIC__/images/loading.gif" />正在上传中，请勿关闭页面！</span>
+						</form>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>
+</body>
+</html>

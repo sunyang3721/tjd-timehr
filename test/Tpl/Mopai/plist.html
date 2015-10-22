@@ -1,0 +1,80 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	#nav-h26 span img{position:relative;top:-2px;}
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		 <div class="col-md-10 col-md-offset-1">
+			<!-- <div class="col-md-6">
+				<form method="get" action="__URL__/index">
+					<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+							<input type="text" class="form-control" name="title" placeholder="请输入集团名称" >
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">开始搜索</button>
+						  </span>
+					</div>
+				</form>
+			 </div> -->
+			 <div class="col-md-2">
+				<!-- Single button -->
+					<in name="listpdf" value="3,4">
+						<div class="btn-group">
+						  <a  href="__URL__/mylist"class="btn btn-default " >
+							查看我的人才信息库 
+						  </a>
+						</div>
+					</in>
+			 </div>
+		</div>
+		<!-- <div class="col-md-12">
+				<div class="jumbotron">
+				  <p>正在开发中。。。。。。</p>
+				</div>
+		</div> -->
+		<div class="col-md-10 col-md-offset-1 none-padding">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><!-- <a href="__URL__/mylist" class="btn btn-default" >返回到集团列表</a> --><a href="__URL__/addlist/sid/{$sid}" class="btn btn-success">创建新分公司</a></div>
+					<div class="panel-body">
+							<table class="table table-hover table-condensed">
+								<thead>
+									<tr class="">
+										<th colspan="6">&nbsp;<b>{$title}</b></th>
+									 </tr>
+									<tr class="active info">
+										<th><b>编号</b></th>
+										<th><b>分公司名称</b></th>
+										<th><b>所属行业</b></th>
+										<th><b>地点</b></th>
+										<th><b>更新日期</b></th>
+										<th><b>操作处理</b></th>
+									 </tr>
+								</thead>
+								<foreach name="list" item="vo" >
+									<tr>
+										<td>{$vo.id}</td>
+										<td><a href="{:U('Lsku/show_list',array('id'=>$vo['id']))}">{$vo.title}</a></td>
+										<td>{$vo.hangye}</td>
+										<td>{$vo.address}</td>
+										<td>{$vo.date|date='Y-m-d',###}</td>	
+										<td><a href="{:U('Lsku/user_modify',array('id'=>$vo['id']))}" type="button" class="btn btn-success btn-xs">修改</a></td>	
+									</tr>
+								</foreach>
+									<tr>
+										<td colspan="7" align="center">{$page}{$empty}</td>
+									</tr>
+							</table>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

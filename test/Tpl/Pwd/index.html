@@ -1,0 +1,61 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-user.css" type="text/css" media="screen" />
+<script type="text/javascript">
+	$(function(){
+		$('button').click(
+			function(){
+				var password = $('#password').val();
+				var apassword = $('#apassword').val();
+				var npassword = $('#npassword').val();
+				$.post('__URL__/updata',{'password':password,'npassword':npassword,'apassword':apassword},function(jdata){
+				if(jdata.status==1){
+					$('#title').show().html("<font style='color:#009933;'>"+jdata.info+"</font>").delay(1800).fadeOut();
+					setTimeout("location.href='__APP__/User/index'",1500);
+				}
+				if(jdata.status==2){
+					$('#title').show().html("<font style='color:red;'>"+jdata.info+"</font>").delay(1800).fadeOut();
+				}
+				if(jdata.status==3){
+					$('#title').show().html("<font style='color:red;'>"+jdata.info+"</font>").delay(1800).fadeOut();
+				}
+			});
+			});
+		$('#loading').ajaxStart(function(){$(this).show();$('button').hide()});
+		$('#loading').ajaxStop(function(){$(this).hide();$('button').show()});
+	});
+</script>
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<include file="Public:test-nav"/>
+		</div>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+				
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tr>
+							<td colspan="2" style="border-bottom:1px solid #99ceff;">修改密码<span id="title" style="padding-left:160px;"></span></td>
+						</tr>
+						<tr>
+							<td width="200 "  align="right">输入原密码：</td>
+							<td  align="left"><input type="password" name="password" id="password"/></td>
+						</tr>
+						<tr>
+							<td  align="right">输入新密码：</td>
+							<td  align="left"><input type="password" name="npassword" id="npassword"/></td>
+						</tr>
+						<tr>
+							<td  align="right">再输入密码：</td>
+							<td  align="left"><input type="password" name="apassword" id="apassword" /></td>
+						</tr>
+						<tr height="50">
+							<td><span></span></td>
+							<td align="left"><button class="btn">确定修改</button><img src="__PUBLIC__/images/loading.gif" alt="" width="" height="" style="display:none;padding-left:50px;" id="loading"/></td>
+						</tr>
+					</table>
+				
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>
+</body>
+</html>

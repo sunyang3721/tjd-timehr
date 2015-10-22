@@ -1,0 +1,28 @@
+<include file="Public:header" />
+									<!-- model -->
+										  <div class="modal-dialog">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<h4 class="modal-title" id="myModalLabel"><span class="text-info">修改企业总部</span></h4>
+											  </div>
+											  <div class="modal-body">
+												<form method='post' action="{:U('Bopai/save_enter')}">
+												<input type="hidden" name="id" value="{$list.id}">
+													<div class="input-group">
+															<span class="input-group-addon">企业名称</span>
+															<input  type="text" class="form-control" placeholder="请输入项目名称" autocomplete="off" name="project"  value="{$list.project}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">项目地点</span>
+															<input type="text" class="form-control" placeholder="请输入项目地点" autocomplete="off" name="address" value="{$list.address}">
+													</div>													
+											  </div>
+											  <div class="modal-footer">
+												<input type="submit" class="btn btn-primary" value="提交保存">
+											  </div>
+											  </form>
+											</div>
+										  </div>
+									<!-- model end -->
+										  

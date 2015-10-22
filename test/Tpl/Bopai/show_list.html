@@ -1,0 +1,269 @@
+<include file="Public:header" title="{$list.name}的人才信息"/>
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.bopai-right{margin-right:50px;}
+	.border,.border td{border:1px solid #c0c0c0;}
+	h2{margin-bottom:15px;}
+	h2 p{padding:5px 10px 5px 60px;width:80%;margin-left:7%;}
+</STYLE>
+<script type="text/javascript">
+			$(document).ready(function(){
+					$('.focus').focus();
+					$('.save').bind('click',function(){
+						var yourname = "{$Think.session.yourname}";
+						var date = "<?php echo date('Y-m-d H:i:s');?>";
+						$.ajax({
+						url: '__URL__/remarkUser',
+
+						type: 'POST',
+
+						data:{
+									uid:$("input[name='uid']").val(),
+									tid:$("input[name='tid']").val(),
+									dates:date,
+									date:$("input[name='date']").val(),
+									remark:$("input[name='remark']").val(),
+									},
+
+						dataType: 'JSON',
+
+						timeout: 2000,
+
+						error: function(){alert('数据错误');},
+
+						success: function(jdata){
+												if(jdata.status==0){
+													$('.show').html("<b class='text-danger' style='font-size:18px;margin-left:400px;'>"+jdata.info+"</b>");
+												}else{
+													$('.show').html("<b class='text-success' style='font-size:18px;margin-left:400px;padding-bottom:20px;display:block;'>"+jdata.info+"</b>");
+													$('.ajax_none').hide();
+													$('.ajax_show').show('300').append('<b>['+date+'] '+yourname+' :</b>'+jdata.data);
+													//setTimeout(location.href="__URL__/show_list/id/"+$("input[name='gid']").val(),2000);
+												}
+										}
+
+						});
+					});
+			});
+</script>
+<div class="container-fluid">
+  <div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+						<h4>人才信息 &nbsp;&nbsp;<a href="javascript:history.go(-1);" class="pull-right btn btn-warning btn-xs">返回</a></h4>
+						</div>
+					<div class="panel-body">
+						<table class="table  table-condensed" width="100%">
+								<tr  class="border"><td colspan="9" align="right">提交日期：{$list.date|date='Y-m-d',###}&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+								<tr class="active info border">
+										<td colspan="3" align="center"><b>职位名称</b></td>
+										<td><b>项目经理</b></td>
+										<td><b>立项时间</b></td>
+										<td><b>需要人数</b></td>
+										<td><b>目前状态</b></td>
+										<!--<td><b>日均客流量</b></td>-->
+										<td><b>企业结构图</b></td>
+								</tr>
+								<tr class="border">
+										<td colspan="3" align="center">{$list.project}</td>
+										<td>{$list.address}</td>
+										<td>{$list.opendate|default='(未填写)'}</td>
+										<td>{$list.zujin|default='(未填写)'}</td>
+										<td>
+											<if condition="$list['voluam'] eq 0"><span class="text-danger">职位关闭</span>
+											<elseif condition="$list['voluam'] eq 1" /><span class="text-success">职位开放</span>
+											<else /> 未知
+											</if>
+										</td>
+										<!--<td>{$list.liuliang|default='(未填写)'}万</td>-->
+										<td><a href="#" data-toggle="modal" data-target="#myModal">查看结构图</a></td>
+								</tr>
+								 <tr class="info border">
+									<th colspan="8"><b>职位要点</b></th>
+								 </tr>
+								 <tr class="border">
+									<td colspan="8">{$list.beizhu|default='未填写'}</td>
+								 </tr>
+								<tr class="active info border">
+									<td><b>编号</b></td>
+									<td><b>人才姓名</b></td>
+									<td><b>出生日期</b></td>
+									<td><b>性别</b></td>
+									<td><b>所在单位</b></td>
+									<!--<th><b>年薪(万)</b></th>-->
+									<td><b>学历</b></td>
+									<td><b>寻访性质</b></td>
+									<td><b>寻访员</b></td>
+								 </tr>
+								 <tr class="border">
+									<td>{$list.id}</td>
+									<td>{$list.name}</td>
+									<td>{$list.chusheng}</td>
+									<td>
+											<switch name="list.sex">
+												<case value="1">男</case>
+												<case value="0">女</case>
+												<default />未填写
+											</switch>
+									</td>
+									<td>{$list.gongsiname|default="未填写"}</td>
+									<!--<td><in name="list.moeny" value="0">未填写<else />{$list.moeny}</in></td>-->
+									<td>
+											<switch name="list.xueli">
+												<case value="1">专科以下</case>
+												<case value="2">本科</case>
+												<case value="3">硕士</case>
+												<case value="4">博士以上</case>
+												<default />未填写
+											</switch>
+									</td>
+									<td>
+											<switch name="list.nowstatus">
+												<case value="1">常规寻访</case>
+												<case value="0">战略寻访</case>
+												<default />未知
+											</switch>
+									</td>
+									<td>{$list.yourname}</td>
+								 </tr>
+								 <tr class="info border">
+									<td colspan="7"><b>沟通内容</b></td>
+									<td><b>手机号码</b></td>
+								 </tr>
+								 <tr class="border">
+									<td colspan="7">{$list.goutong}</td>
+									<td>
+										{$iphone|default='未填写号码,请找寻访员索取'}
+										
+									</td>
+								 </tr>
+								 <tr>
+									<td colspan="9"><hr/ style="border:3px solid #808080;"></td>
+								 </tr>
+								 <tr class="border">
+									<td colspan="9" style="font-size:16px;">
+										<h2>
+											<b>承接顾问：</b>
+												<if condition="$list.uid  eq $userid">
+													<in name="list.chengjieren" value='0'>
+													<form method='post' action="{:U('Bopai/chengjieUser')}"    style="display:inline;">
+															<input type="hidden" name="id" value="{$list.id}">
+														<div class="bfh-selectbox" data-name="chengjieren" data-value="0" data-filter="true" style="display: inline-flex;width:20%;">
+																<div data-value="0">请选择承接顾问</div>
+															 <volist name="username"  id='vo'>
+																<div data-value="{$vo.id}">{$vo.yourname}</div>
+															 </volist>
+														</div>
+														<input type="submit" class="btn btn-success btn-xs" value="确定提交">
+													</form>
+													</in>
+													<volist name="username" id='vo'>
+														<in name="vo.id" value="$list.chengjieren">
+															{$vo.yourname}&nbsp;&nbsp;<span class="text-info">{$usermail.mail}</span><empty name="usermail.mail"><span class="text-info">【此人邮箱未填写,请手动提醒~】</span></empty>
+															<a href="{:U('Bopai/quxiaochengjie',array('id'=>$list['id'],'chengjieren'=>0,'yanzheng'=>0,'quedingchengjieren'=>0))}" onclick="return confirm('确定要取消承接顾问吗?')" class="btn btn-danger btn-sm">取消顾问承接</a>
+														</in>
+													</volist>
+												<else />
+													<in name="list.chengjieren" value='0'>
+															待处理
+													</in>
+													<volist name="username" id='vo'>
+														<in name="vo.id" value="$list.chengjieren">
+															{$vo.yourname}&nbsp;&nbsp;<span class="text-info">{$usermail.mail}</span><empty name="usermail.mail"><span class="text-info">【此人邮箱未填写,请手动提醒~】</span></empty>
+															<a href="{:U('Bopai/quxiaochengjie',array('id'=>$list['id'],'chengjieren'=>0,'yanzheng'=>0,'quedingchengjieren'=>0))}" onclick="return confirm('确定要取消承接顾问吗?')" class="btn btn-danger btn-sm">取消顾问承接</a>
+														</in>
+													</volist>
+												</if>
+										</h2>
+										<h2><b>承接日期：</b>
+													<empty name="list.chengjieriqi">
+													<span class="text-warning">未承接</span>
+													<else /> 
+													{$list.chengjieriqi|date='Y-m-d H:i:s',###}
+													</empty> 
+										</h2>
+										<h2><b>联系验证：</b> 
+													<if condition="$list.chengjieren  eq $userid">
+																<switch name="list.yanzheng">
+																	<case value="1"><i class="glyphicon glyphicon-ok text-success"></i> <span class="text-success">验证有效</span></case>
+																	<case value="2"><i class="glyphicon glyphicon-remove text-danger"></i> <span class="text-danger">验证无效</span></case>
+																	<default/>
+																				<in name="list.quedingchengjie" value='1'>
+																					<form method='post' action="{:U('Bopai/yanzhengUser')}" style="display:inline;">
+																						<input type="hidden" name="id" value="{$list.id}">
+																						<label class="radio-inline">
+																						  <input type="radio" name="yanzheng"  value="1" checked> 有效
+																						</label>
+																						<label class="radio-inline">
+																						  <input type="radio" name="yanzheng" value="2"> 无效
+																						</label>&nbsp;&nbsp;
+																						<input type="submit" class="btn btn-success btn-xs" value="确定验证">
+																					</form>
+																					<else/>
+																					<span class="text-warning">未承接</span>
+																				</in>
+																				
+																</switch>
+															<else/>
+																<switch name="list.yanzheng">
+																	<case value="1"><i class="glyphicon glyphicon-ok text-success"></i> <span class="text-success">验证有效</span></case>
+																	<case value="2"><i class="glyphicon glyphicon-remove text-danger"></i> <span class="text-danger">验证无效</span></case>
+																	<default/><span class="text-warning">未验证</span>
+																</switch>
+
+														</if>
+											</h2>
+											<h2><b>顾问沟通内容及情况：</b><span class="show" ></span>
+														<if condition="($list.chengjieren  eq $userid) or ($list.uid eq $userid)">
+																	<in name="list.quedingchengjie" value='1'>
+																		<div class="input-group ajax_none" style="padding-left:60px;margin-top:10px;width:90%;">
+																		  <input type="hidden" name="uid" value="{$Think.session.id}">
+																		  <input type="hidden" name="tid" value="{$list.id}">
+																		  <input type="hidden" name="date" value="<?php echo time();?>">
+																		  <input type="text" class="form-control focus" name="remark">
+																		  <span class="input-group-addon btn save">保存</span>
+																		</div>
+																		<else/>
+																		&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-warning">请先承接后才可填写沟通内容</span>
+																	</in>
+															<else/>
+																	&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-warning">（仅限承接人和寻访人可填写沟通内容）</span>
+														</if>
+														<p class="ajax_show alert alert-info" style="display:none;"></p>
+														<volist name="relist" id="bo">
+																<p class="alert alert-info" style="margin-bottom:0px;margin-top:10px;"><b>[{$bo.date|date='Y-m-d H:i:s',###}] {$bo.yourname} :</b> {$bo.remark}</p>
+														</volist>
+														<p class="ajax_none text-danger" style="margin-top:10px;">{$kong}</p>
+											</h2>
+									</td>
+								 </tr>
+									<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										  <div class="modal-dialog modal-lg">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title" id="myModalLabel">企业结构图</h4>
+											  </div>
+											  <div class="modal-body">	
+														<img src="__ROOT__/Upload/bopai/m_{$img[0]['imgpath']}" alt="" width="100%"  />
+														
+											</div>
+												<div class="modal-footer">
+													<div class="pull-left show"></div>
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+												  </div>
+											  </div>
+											 <!-- </form> -->
+										</div>
+									</div>
+			</div>	
+	  </div>
+</div>
+</div>

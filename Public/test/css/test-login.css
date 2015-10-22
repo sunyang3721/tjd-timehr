@@ -1,0 +1,7 @@
+#login{border:1px solid #000;width:60%; font-family:"微软雅黑","宋体", arial;font-size:22px;margin-top:30px;background-color:#033d7c;padding-bottom:20px;color:#fff;}
+#login table{width:100%;}
+#login table input{font-size:22px;color:#005bac;}
+#login table button{width:30%;height:40px;font-size:18px;}
+#login table tr{height:50px;}
+#login img{position: relative;top:8px;padding:0 10px;cursor: pointer;}
+#login span{color:#00ff33;font-size:14px;}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+<title>寻访需求调查表,猎头顾问:{$yourname}</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.css">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+ <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+	body{background: #ddf4ff url("http://image.sojump.com/images/newbg/oldbg2-bg.jpg") repeat-x;}
+	.bg-xiaobai{background-color: #fff;}
+	.wei{font-family: '微软雅黑';}
+	.border{border: 1px solid #000000;}
+	.radio-inline{margin-left: 3%;font-size: 16px;}
+	.radio{margin-left: 5%;}
+	.col-md-8,.col-md-12{padding-left: 5px;padding-right: 5px;}
+	.dl-horizontal dt{line-height: 33px;}
+	.dl-horizontal dt,.dl-horizontal dd{margin-bottom: 5px;}
+	i{color: red;}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.submit').bind('click',function(){
+			$.ajax({
+			url: "__URL__/add",
+
+			type: 'POST',
+
+			data:{
+					gongsiname:$(".xunfang_post input[name='gongsiname']").val(),
+					gongsihangye:$(".xunfang_post input[name='gongsihangye']").val(),
+					gongsizhineng:$(".xunfang_post input[name='gongsizhineng']").val(),
+					gongsijob:$(".xunfang_post input[name='gongsijob']").val(),
+					date:$(".xunfang_post input[name='date']").val(),
+					gongsineed:$(".xunfang_post input[name='gongsineed']").val(),
+					user_id:$(".xunfang_post input[name='user_id']").val(),
+					gongsihangye:$(".xunfang_post input[name='gongsihangye']").val(),
+					gongsihangye:$(".xunfang_post input[name='gongsihangye']").val(),
+					jobxingzhi:$(".xunfang_post input[name='jobxingzhi']:checked").val(),
+					bumen:$(".xunfang_post input[name='bumen']").val(),
+					jobnum:$(".xunfang_post input[name='jobnum']").val(),
+					xueli:$(".xunfang_post input[name='xueli']:checked").val(),
+					zhuanye:$(".xunfang_post input[name='zhuanye']").val(),
+					age_a:$(".xunfang_post input[name='age_a']").val(),
+					age_b:$(".xunfang_post input[name='age_b']").val(),
+					zhengshuneed:$(".xunfang_post input[name='zhengshuneed']").val(),
+					guanji:$(".xunfang_post input[name='guanji']").val(),
+					mubiaogongsi:$(".xunfang_post input[name='mubiaogongsi']").val(),
+					mubiaojiagou:$(".xunfang_post input[name='mubiaojiagou']:checked").val(),
+					mubiaobumen:$(".xunfang_post input[name='mubiaobumen']:checked").val(),
+					jobfengge:$("#jobfengge").val(),
+					zhicheng:$(".xunfang_post input[name='zhicheng']").val(),
+					bushurenshu:$(".xunfang_post input[name='bushurenshu']").val(),
+					peihe:$(".xunfang_post input[name='peihe']").val(),
+					opendate:$(".xunfang_post input[name='opendate']").val(),
+					jinji:$(".xunfang_post input[name='jinji']:checked").val(),
+					offdate:$(".xunfang_post input[name='offdate']").val(),
+					liucheng:$(".xunfang_post input[name='liucheng']").val(),
+					offer:$(".xunfang_post input[name='offer']:checked").val(),
+					moeny_a:$(".xunfang_post input[name='moeny_a']").val(),
+					moeny_b:$(".xunfang_post input[name='moeny_b']").val(),
+					yeji:$(".xunfang_post input[name='yeji']").val(),
+					maidian:$(".xunfang_post input[name='maidian']").val(),
+					jinsheng:$(".xunfang_post input[name='jinsheng']").val(),
+					daogang:$(".xunfang_post input[name='daogang']").val(),
+					qita:$(".xunfang_post input[name='qita']").val(),
+					jobage:$(".xunfang_post input[name='jobage']").val(),
+					jinengneed:$("#jinengneed").val(),
+					xiangmujingyan:$("#xiangmujingyan").val()
+					
+					//name:$(".talent input[name='name']").val(),
+					//sex:$(".talent input[name='sex']:checked").val(),
+					//xueli:$(".talent input[name='xueli']:checked").val(),
+					//job:$(".talent input[name='job']").val(),
+					//nowstatus:$(".talent input[name='nowstatus']:checked").val(),
+					//moeny:$(".talent input[name='moeny']").val(),
+					//goutong:$(".talent input[name='goutong']").val(),
+					//uid:$(".talent input[name='uid']").val(),
+					//date:$(".talent input[name='date']").val(),
+					//status:$(".talent input[name='status']").val(),
+					},
+
+			dataType: 'JSON',
+
+			timeout: 2000,
+
+			//error: function(){alert('数据错误');},
+
+			success: function(jdata){
+									if(jdata.status==0){
+										$('.show').html("<p class='alert alert-danger'>"+jdata.info+"</p>");
+									}else if(jdata.status==1){
+										$('.show').html("<p class='alert alert-success'>"+jdata.info+"</p>");
+										setTimeout("location.href='__APP__/Xun/success.html'",1500);
+									}
+							}
+
+			});
+		})
+	});
+</script>
+<body>
+	<div class="container-fluid">
+		<div class="row bg-primary">
+			<div class="col-md-12 text-center">
+				<h3><b>《腾驹达寻访需求调查表》</b></h3>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+  		<div class="row wei">
+  			<div class="col-md-8 col-md-offset-2 bg-xiaobai">
+  				<div class="col-md-12 xunfang_post">
+  					<br/>
+  					<div class="alert alert-info" role="alert">
+					  <p>问卷调查是为了了解客户对人力资源的了解程度，提高客户的满意度而设计的，您的建议将成为发展腾驹达猎头的参考，感谢您的参与！</p>
+					</div>
+					<hr/>
+					<div class="panel panel-info">
+					  <div class="panel-heading text-center"><h4>首要寻访项目<small>(带<i>*</i> 号为必填)</small></h4></div>
+					 <!-- <form action="{:U('Xunfang/add')}" method="post"> -->
+					  <input type="hidden" name="date" value="<?php echo time();?>">
+					  <input type="hidden" name="user_id" value="{$user_id}">
+					  <div class="panel-body">
+						<dl class="dl-horizontal">
+						  <dt>公司名称<i>*</i>：</dt>
+						  <dd><input type="text" name="gongsiname" class="form-control" placeholder="请填写公司名称"></dd>
+						  <dt>公司所属行业<i>*</i>：</dt>
+						  <dd><input type="text" name="gongsihangye" class="form-control" placeholder="请填写公司所属行业"></dd>
+						  <dt>所属职能线<i>*</i>：</dt>
+						  <dd><input type="text" name="gongsizhineng" class="form-control" placeholder="请填写职能"></dd>
+						  <dt>客户职位<i>*</i>：</dt>
+						  <dd><input type="text" name="gongsijob" class="form-control" placeholder="请填写客户职位"></dd>
+						  <dt>需要人数<i>*</i>：</dt>
+						  <dd><div class="input-group col-md-3">
+					    	<input type="text" name="gongsineed" class="form-control" placeholder="请填写人数">
+					    	<div class="input-group-addon">人</div>
+					    </div></dd>
+						  <dt>提交顾问：</dt>
+						  <dd style="padding-top:6px;"><empty name="yourname">不存在猎头顾问！请重新向顾问索取~<else/>{$yourname}</empty></dd>
+						</dl>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>1、职位性质<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="jobxingzhi" value="新增" checked="checked"> 新增
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="jobxingzhi" value="替换"> 替换
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="jobxingzhi" value="新增和替换都有"> 两者都有
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>2、所在部门<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" name="bumen" class="form-control" placeholder="请填写所在部门">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>3、招聘人数<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-md-3">
+					    	<input type="text" name="jobnum" class="form-control" placeholder="请填写招聘人数">
+					    	<div class="input-group-addon">人</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>4、学历要求<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="xueli" value="大专以上" checked="checked"> 大专以上
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="xueli" value="本科以上"> 本科以上
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="xueli" value="硕士以上"> 硕士以上
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="xueli" value="博士"> 博士
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>5、专业要求<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" name="zhuanye" class="form-control" placeholder="请填写专业要求">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>6、年龄范围<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" name="age_a" class="form-control" placeholder="最小岁数">
+					    	<div class="input-group-addon">岁</div>
+					    </div>
+					    <div class="pull-left" style="margin:0 15px;padding-top:6px;"><b>到</b></div>
+					    <div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" name="age_b" class="form-control" placeholder="最大岁数">
+					    	<div class="input-group-addon">岁</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>7、证书要求<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" name="zhengshuneed" class="form-control" placeholder="请填写证书要求">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>8、工作或岗位年限<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-md-4">
+					  		<div class="input-group-addon">至少</div>
+					    	<input type="text" name="jobage" class="form-control" placeholder="请写数字">
+					    	<div class="input-group-addon">年</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>9、项目经验要求</b></div>
+					  <div class="panel-body">
+					    <textarea class="form-control" id="xiangmujingyan" name="xiangmujingyan" rows="3"></textarea>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>10、特殊技术，技能要求</b></div>
+					  <div class="panel-body">
+					    <textarea class="form-control" id="jinengneed" name="jinengneed" rows="3"></textarea>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>11、候选人贯籍<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" name="guanji" class="form-control" placeholder="请填写贯籍，更多用逗号或空格分开">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>12、候选人目标企业名称<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" name="mubiaogongsi" class="form-control" placeholder="请填写企业名称，更多用逗号或空格分开">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>13、是否提供候选人目标企业架构<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="mubiaojiagou" value="是" checked="checked"> 是
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="mubiaojiagou" value="否"> 否
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>14、是否提供候选人对标部门名称<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="mubiaobumen" value="是" checked="checked"> 是
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="mubiaobumen" value="否"> 否
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>15、候选人工作风格以及性格</b></div>
+					  <div class="panel-body">
+					    <textarea class="form-control" id="jobfengge" name="jobfengge" rows="3"></textarea>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>16、汇报对象的职称或职级</b></div>
+					  <div class="panel-body">
+					    <input type="text" name="zhicheng" class="form-control" placeholder="请填写汇报对象的职称或职级">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>17、部属人数<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-md-3">
+					    	<input type="text" name="bushurenshu" class="form-control" placeholder="请填写人数">
+					    	<div class="input-group-addon">人</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>18、平行配合部门</b></div>
+						  <div class="panel-body">
+						    <input type="text" name="peihe" class="form-control" placeholder="请填写企业名称，更多用逗号或空格分开">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  	<div class="panel-heading"><b>19、职位开放日期<i>*</i></b></div>
+					  	<div class="panel-body">
+						  	<div class="col-xs-8 col-md-3">
+						    	<input type="text" name="opendate" class="form-control" placeholder="xxxx年xx月xx日">
+						    </div>
+					    </div>
+					</div>
+				  	<div class="panel panel-default">
+					  <div class="panel-heading"><b>20、职位紧急程度<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio">
+						  <input type="radio" name="jinji" value="1星级" checked="checked"> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="jinji" value="2星级"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="jinji" value="3星级"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="jinji" value="4星级"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="jinji" value="5星级"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="jinji" value="6星级"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  	<div class="panel-heading"><b>21、职位关闭日期<i>*</i></b></div>
+					  	<div class="panel-body">
+						  	<div class="col-xs-8 col-md-3">
+						    	<input type="text" name="offdate" class="form-control" placeholder="xxxx年xx月xx日">
+						    </div>
+					    </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>22、流程中候选人情况<i>*</i></b></div>
+						  <div class="panel-body">
+						    <input type="text" name="liucheng" class="form-control" placeholder="请填写流程中候选人情况">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>23、之前有offer过人吗?<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="offer" value="有" checked="checked"> 有
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="offer" value="没有"> 没有
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>24、年薪范围<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" name="moeny_a" class="form-control" placeholder="最小数">
+					    	<div class="input-group-addon">万</div>
+					    </div>
+					    <div class="pull-left" style="margin:0 15px;padding-top:6px;"><b>到</b></div>
+					    <div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" name="moeny_b" class="form-control" placeholder="最大数">
+					    	<div class="input-group-addon">万</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>25、客户最近市场业绩</b></div>
+						  <div class="panel-body">
+						    <input type="text" name="yeji" class="form-control" placeholder="请填写最近市场业绩">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>26、企业三个卖点</b></div>
+						  <div class="panel-body">
+						    <input type="text" name="maidian" class="form-control" placeholder="请填写企业三个卖点">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>27、职位晋升空间</b></div>
+						  <div class="panel-body">
+						    <input type="text" name="jinsheng" class="form-control" placeholder="请填写晋升空间">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>28、候选人到岗后3个月达成目标</b></div>
+						  <div class="panel-body">
+						    <input type="text" name="daogang" class="form-control" placeholder="请填写到岗达成目标">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>29、其它</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" name="qita" placeholder="请填写其它">
+						  </div>
+					</div>
+					<div class="panel-body show">
+					    
+					 </div>
+				</div>
+
+  				<input class="btn btn-primary btn-lg btn-block submit" type="submit" value="提交">
+  				<!--</form> -->
+  				<br/>
+  				</div>
+  			</div>
+  		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-hover tr{cursor: pointer;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		<!-- <div class="col-md-10 col-md-offset-1">
+				<div class="col-md-6">
+				<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input id="soso" type="text" class="form-control" placeholder="请输入关键字" data-provide="typeahead"  autocomplete="off">
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="button">开始搜索</button>
+					  </span>
+				</div>
+			 </div>
+		</div> -->
+		<!-- <div class="col-md-10 col-md-offset-1">
+				<div class="btn-group">
+					  <a href="__URL__/index"><button type="button" class="btn btn-default">查看最近更新</button></a>
+					  <a href="__URL__/add"  target="_blank"><button type="button" class="btn btn-default">发布新职位</button></a>
+					  <a href="__URL__/userList"><button type="button" class="btn btn-default">查看我的发布</button></a>
+				</div>
+		</div> -->
+		<div class="col-md-10 col-md-offset-1 none-padding">
+			<div class="panel panel-default">
+				<div class="panel-heading">我的职位信息<span class="pull-right">职位总数：{$num}个</span></div>
+					<div class="panel-body">
+							<table class="table table-hover table-condensed">
+								<thead>
+									<tr>
+										<th><b>客户名称</b></th>
+										<th><b>编号</b></th>
+										<th><b>职位名称</b></th>
+										<th><b>紧急状态</b></th>
+										<th><b>招聘人数</b></th>
+										<!-- <th><b>工作地点</b></th> -->
+										<th><b>职位更新时间</b></th>
+										<th><b>目前状态</b></th>
+										<th><b>发布人</b></th>
+										<th><b>操作处理</b></th>
+									 </tr>
+								</thead>
+								<foreach name="list" item="vo">
+									<in name="vo.tid" value="$Think.session.id">
+									<tr >
+										<td>{$vo.title}</td>
+										<td>{$vo.sid}</td>
+										<td><in name="vo.jinji" value="1,2"><b style="color:red;">【急】</b></in><a href="{:U('Kehu/show',array('id'=>$vo['sid']))}"  target="_blank">{$vo.jobname}</a></td>
+										<td>
+												<div class="btn-group">
+													<switch name="vo.jinji">
+													<case value="1">
+															<button type="button" class="btn btn-xs btn-danger">加急</button>
+															<button type="button" class="btn btn-xs btn-danger dropdown-toggle" data-toggle="dropdown">
+													</case>
+													<case value="0">
+															<button type="button" class="btn btn-xs btn-default">正常</button>
+															<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+													</case>
+													</switch>
+													<span class="caret"></span>
+												  </button>
+												  <ul class="dropdown-menu" role="menu">
+													<li><a href="{:U('Kehu/jinjis',array('id'=>$vo['sid'],'jinji'=>1,'pid'=>$vo['pid']))}">加急</a></li>
+													<li><a href="{:U('Kehu/jinjis',array('id'=>$vo['sid'],'jinji'=>0,'pid'=>$vo['pid']))}">正常</a></li>
+												  </ul>
+												</div>
+										</td>
+										<td>{$vo.num}人</td>
+										<!-- <td>{$vo.address}</td> -->
+										<td>{$vo.newdate|date='Y-m-d',###}</td>
+										<td>
+												<div class="btn-group">
+													<switch name="vo.status">
+													<case value="1">
+															<button type="button" class="btn btn-xs btn-success">正在进行中</button>
+															<button type="button" class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown">
+													</case>
+													<case value="2">
+															<button type="button" class="btn btn-xs btn-info">即将开始</button>
+															<button type="button" class="btn btn-xs btn-info dropdown-toggle" data-toggle="dropdown">
+													</case>
+													<case value="3">
+															<button type="button" class="btn btn-xs btn-default">已结束或关闭</button>
+															<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+													</case>
+													</switch>
+													<span class="caret"></span>
+												  </button>
+												  <ul class="dropdown-menu" role="menu">
+													<li><a href="{:U('Kehu/zhuangtai',array('id'=>$vo['sid'],'status'=>1,'pid'=>$vo['pid']))}">正在进行中</a></li>
+													<li><a href="{:U('Kehu/zhuangtai',array('id'=>$vo['sid'],'status'=>2,'pid'=>$vo['pid']))}">即将开始</a></li>
+													<li><a href="{:U('Kehu/zhuangtai',array('id'=>$vo['sid'],'status'=>3,'pid'=>$vo['pid']))}">已结束或关闭</a></li>
+												  </ul>
+												</div>
+										</td>
+										<td>{$vo.yourname}</td>
+										<td><b><a href="{:U('Kehu/updata',array('id'=>$vo['sid']))}" class="btn btn-xs">修改职位</a></b></td>
+									</tr>
+									</in>
+								</foreach>
+									<!-- <tr>
+										<td colspan="6">
+												<ul class="pagination">
+												  <li><a href="#">&laquo;</a></li>
+												  <li><a href="#">1</a></li>
+												  <li><a href="#">2</a></li>
+												  <li><a href="#">3</a></li>
+												  <li><a href="#">4</a></li>
+												  <li><a href="#">5</a></li>
+												  <li><a href="#">&raquo;</a></li>
+												</ul>
+										</td>
+									</tr> -->
+							</table>
+					</div>
+			</div>	
+	  </div>
+	</div>
+</div>
+<!-- modal go -->
+						<div class="modal fade modal-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title">客户名称：北京万达房地产</h4>
+											  </div>
+										    <div class="modal-body">
+												<dl class="dl-horizontal">
+													<dt><b>客户简介：</b></dt>
+														<dd><p>万达酒店建设有限公司成立于2007年，是中国五星级酒店投资规模最大的企业，到2014年底预计开业72家五星或超五星酒店，预计到2015年五星级及五星级以上酒店数量将会达到80家，成为全球最大的五星级酒店业主。</p></dd>
+													<dt><b>客户组织架构：</b></dt>
+													  <dd><p><img src="http://127.0.0.1/sunyang/1.png"/></p></dd>
+													<dt><b>招聘人员：</b></dt>
+													  <dd><p>招聘1组  陈强（总监）    负责职位：项目总	  刘哲（经理）    负责职位：营销类，商管、物业类  熊淑静（副经理）负责职位：工程、成本类<BR>				  招聘2组
+														  任强（经理）    负责职位：信息部业务总监、O2O策划总监、O2O运营总监
+														  等总部职位
+														</p></dd>
+												</dl>
+											</div>
+										</div>
+								</div>
+						</div><!-- modal end -->

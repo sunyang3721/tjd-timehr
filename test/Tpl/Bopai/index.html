@@ -1,0 +1,602 @@
+<include file="Public:header" title="查看所有的信息"/>
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;padding-bottom:10px;}
+	.table{margin-bottom:0px;}
+	.table-hover tr{cursor: pointer;}
+	.bopai-right{margin-right:50px;}
+	.border,.border td{border:1px solid #c0c0c0;}
+	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{vertical-align: middle;}
+
+	/*animate css动画效果*/
+    .animated {
+	  -webkit-animation-duration: 1s;
+	  animation-duration: 1s;
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+	}
+	@-webkit-keyframes fadeIn {
+	  0% {
+	    opacity: 0;
+	  }
+
+	  100% {
+	    opacity: 1;
+	  }
+	}
+
+	@keyframes fadeIn {
+	  0% {
+	    opacity: 0;
+	  }
+
+	  100% {
+	    opacity: 1;
+	  }
+	}
+
+	.fadeIn {
+	  -webkit-animation-name: fadeIn;
+	  animation-name: fadeIn;
+	}
+</STYLE>
+<script type="text/javascript">
+			$(document).ready(function(){
+					$(function () {
+							$(".focus").focus();//获得焦点
+							$('[data-toggle="tooltip"]').tooltip(); //提示
+							//ajax 选向分类 对应
+							$('.form-control').click(function(){  //项目选项
+								var v = $("input[name='id']").val();
+									$.ajax({
+											url:'__URL__/ajaxProject/'+v,  //v=0 显示全部项目 其它分类显示
+											type:'GET',
+											dataType:'JSON',
+											timeout:1000,
+										//	error:function(){ alert('数据错误!');},
+											success:function(jdata){
+													$('.enter_pid .bfh-selectbox-options div ul li').empty().append("<a tabindex='-1' href='#' data-option='0'>全部职位</a>");
+													for(i=0;i<=300;i++){
+														if(jdata[i]["pid"]!= 0){
+													$('.enter_pid .bfh-selectbox-options div ul li').append("<a tabindex='-1' href='#' data-option='"+jdata[i]["id"]+"'>"+jdata[i]["project"]+"</a>");
+														}
+													}
+											},
+											});
+							});
+							$('.enter_address .bfh-selectbox-option,.bfh-selectbox .bfh-selectbox-toggle').click(function(){  //全国地区 选项
+									var d = $("input[name='pid']").val();
+									$.ajax({
+											url:'__URL__/ajaxAddress/'+d,
+											type:'GET',
+											dataType:'JSON',
+											timeout:1000,
+											//error:function(){alert('数据错误!');},
+											success:function(data){
+														$('.enter_address .bfh-selectbox-options div ul li').empty().append("<a tabindex='-1' href='#' data-option='0'>项目经理</a>");
+													for(i=0;i<=300;i++){
+													$('.enter_address .bfh-selectbox-options div ul li').append("<a tabindex='-1' href='#' data-option='"+data[i]["address"]+"'>"+data[i]["address"]+"</a>");	
+													}
+											}
+									});
+							});
+							$('.all_enter .bfh-selectbox-options ul li').click(function(){
+									$('.enter_pid .bfh-selectbox-option').text('职位名称');
+									$('.enter_address .bfh-selectbox-option').text('项目经理');
+									$("input[name='pid']").attr('value','');
+									$("input[name='address']").attr('value','');
+							});
+							$('.enter_pid .bfh-selectbox-options ul li').click(function(){
+									$('.enter_address .bfh-selectbox-option').text('项目经理');
+									$("input[name='address']").attr('value','');
+							})
+						})
+			});
+</script>
+<div class="container-fluid">
+  <div class="row">
+		 <div class="col-md-10 col-md-offset-1" >
+			 <div class="col-md-8">
+				<!-- Single button -->
+					<div class="btn-group">
+						  <a  href="{:U('Bopai/index')}"class="btn btn-default " >
+							查看所有的信息
+						  </a>
+						  <!--
+						  <a  href="{:U('Bopai/my_list')}"class="btn btn-default " >
+							查看我上传的信息
+						  </a>
+						  -->
+						  <in name="guwen" value = "1,2">
+						  <a  href="{:U('Bopai/my_join')}"class="btn btn-default " >
+							查看我承接的信息
+						  </a>
+						  </in>
+						  <a  href="{:U('Bopai/my_xiangmu')}"class="btn btn-default " >
+							查看企业项目
+						  </a>
+						  <a href="{:U('Bopai/tongji')}" class="btn btn-default">
+						  	员工统计
+						  </a>
+					</div>
+			 </div>
+		</div>
+					<div class="col-md-12">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+											<ol class="breadcrumb" style="margin-bottom:0px;">
+											  <li class="active">查看所有的信息</li>
+											  <li><a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#xiangmu-2">新增人才信息</a></li>
+											</ol>
+								</div>
+							<form method="get" action="__URL__">
+								<input type="hidden" name="order" value="26">
+								<div class="col-md-12">
+									<div class="col-md-2" style="padding:20px;padding-right:0px;">
+											<div class="bfh-selectbox all_enter" data-name="id" data-value="" data-filter="true">
+															  <div data-value="">客户名称</div>
+															  <foreach name="boenter" item="vo" >
+															  <div data-value="{$vo.id}">{$vo.project}</div>
+															  </foreach>
+														</div>
+									</div>
+									<div class="col-md-2" style="padding:20px;padding-right:0px;">
+											<div class="bfh-selectbox enter_pid" data-name="pid" data-value="" data-filter="true">
+															  <div data-value="">职位名称</div>
+														</div>
+									</div>
+									<div class="col-md-2" style="padding:20px;padding-right:0px;">
+											<div class="bfh-selectbox enter_address" data-name="address" data-value="" data-filter="true">
+															  <div data-value="">项目经理</div>
+														</div>
+									</div>
+									<div class="col-md-4" style="padding:20px;">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+												<input type="text" class="form-control focus" placeholder="请输入关键字,多文字按空格键分开即可!" value="{$text}" name="text">
+												<span class="input-group-btn">
+												<button class="btn btn-default" type="submit">开始搜索</button>
+											  </span>
+										</div>
+									 </div>
+									 </div>
+							</form>
+								</div>
+					<div class="panel-body">
+									<div class="panel-group" id="accordion" >
+									  <div class="panel panel-default">
+										<div class="panel-heading">
+										  <h4 class="panel-title">
+												项目人才信息列表 <!-- <b>全部企业</b> <i class="glyphicon glyphicon-plus"></i> <b>北京</b> <i class="glyphicon glyphicon-plus"></i> <b>万达</b> -->
+										  </h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in" >
+										  <div class="panel-body table-responsive">
+											<table class="table table-hover table-condensed ">
+												<tr class="info border">
+													<td>
+															<if condition="$order eq 1">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=2" class="label label-primary">编号</a>
+															<elseif condition="$order eq 2"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=1" class="label label-info">编号</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=2">编号</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 3">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=4" class="label label-primary">职位名称</a>
+															<elseif condition="$order eq 4"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=3" class="label label-info">职位名称</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=4">职位名称</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 5">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=6" class="label label-primary">项目经理</a>
+															<elseif condition="$order eq 6"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=5" class="label label-info">项目经理</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=6">项目经理</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 7">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=8" class="label label-primary">目前状态</a>
+															<elseif condition="$order eq 8"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=7" class="label label-info">目前状态</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=8">目前状态</a>
+															</if>
+													</td>
+												<!--	<td>
+															<if condition="$order eq 9">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=10" class="label label-primary">立项时间</a>
+															<elseif condition="$order eq 10"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=9" class="label label-info">立项时间</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=10">立项时间</a>
+															</if>
+													</td>-->
+													<td>
+															<if condition="$order eq 11">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=12" class="label label-primary">人才姓名</a>
+															<elseif condition="$order eq 12"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=11" class="label label-info">人才姓名</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=12">人才姓名</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 13">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=14" class="label label-primary">出生年月</a>
+															<elseif condition="$order eq 14"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=13" class="label label-info">出生年月</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=14">出生年月</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 15">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=16" class="label label-primary">性别</a>
+															<elseif condition="$order eq 16"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=15" class="label label-info">性别</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=16">性别</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 21">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=22" class="label label-primary">学历</a>
+															<elseif condition="$order eq 22"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=21" class="label label-info">学历</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=22">学历</a>
+															</if>
+													</td>
+													<td style="width:9%;">
+															<if condition="$order eq 17">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=18" class="label label-primary">职位</a>
+															<elseif condition="$order eq 18"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=17" class="label label-info">职位</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=18">职位</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 19">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=20" class="label label-primary">年薪</a>
+															<elseif condition="$order eq 20"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=19" class="label label-info">年薪</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=20">年薪</a>
+															</if>
+													</td>
+													<td style="width:13%;">
+															所在单位名称
+													</td>
+													<td>
+															单位地点
+													</td>
+													<td>
+															<if condition="$order eq 23">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=24" class="label label-primary">寻访性质</a>
+															<elseif condition="$order eq 24"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=23" class="label label-info">寻访性质</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=24">寻访性质</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 25">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=26" class="label label-primary">提交日期</a>
+															<elseif condition="$order eq 26"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=25" class="label label-info">提交日期</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=26">提交日期</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 27">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=28" class="label label-primary">RC</a>
+															<elseif condition="$order eq 28"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=27" class="label label-info">RC</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=28">RC</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 29">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=30" class="label label-primary">OC</a>
+															<elseif condition="$order eq 30"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=29" class="label label-info">OC</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=30">OC</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 31">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=32" class="label label-primary">承接日期</a>
+															<elseif condition="$order eq 32"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=31" class="label label-info">承接日期</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=32">承接日期</a>
+															</if>
+													</td>
+													<td>
+															<if condition="$order eq 33">
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=34" class="label label-primary">验证</a>
+															<elseif condition="$order eq 34"/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=33" class="label label-info">验证</a>
+															<else/>
+																<a href="__APP__/Bopai?id={$qiye}&pid={$xiangmu}&address={$diqu}&text={$text}&order=34">验证</a>
+															</if>
+													</td>
+													<td>
+														操作
+													</td>
+												</tr>
+												<volist name="list" id="vo">
+												<tr class="border">
+													<td>{$vo.id}</td>
+													<td><b data-toggle="tooltip" data-placement="top" title="立项时间:{$vo.opendate|default='(未填写)'} | 需要人数:{$vo.zujin|default='(未填写)'}人">{:highlight($text,$vo['project'])}</b>&nbsp;&nbsp;<mark class="text-muted" data-toggle="tooltip" data-placement="top" title="{$vo.beizhu|default='未填写'}">职位要点</mark></td>
+													<td>{:highlight($text,$vo['address'])}</td>
+													<td>
+														<if condition="$vo['voluam'] eq 0"><span class="text-danger">职位关闭</span>
+														<elseif condition="$vo['voluam'] eq 1" /><span class="text-success">职位开放</span>
+														<else /> 未知
+														</if>
+													</td>
+													<!--<td>{:highlight($text,$vo['opendate'])}</td>-->
+													<td><a href="{:U('Bopai/show_list',array('id'=>$vo['id']))}" class="alink" title="{$vo.name}">{:highlight($text,$vo['name'])}</a>&nbsp;&nbsp;<span style="color:#808080;" data-toggle="tooltip" data-placement="top" title="{$vo.goutong}">[沟通]</span><!--<span style="color:#808080;" data-toggle="tooltip" data-placement="top" title="{$vo.iphone|default='无'}">[手机号码]</span>--></td>
+													<td>{:highlight($text,$vo['chusheng'])}</td>
+													<td>
+															<switch name="vo.sex">
+																<case value="1">男</case>
+																<case value="0">女</case>
+																<default />未知
+															</switch>
+													</td>
+													<td>
+															<switch name="vo.xueli">
+																	<case value="1">大专</case>
+																	<case value="2">本科</case>
+																	<case value="3">硕士</case>
+																	<case value="4">博士</case>
+																	<default />未知
+																</switch>
+													</td>
+													<td>{:highlight($text,$vo['job'])}</td>
+													<td><in name="vo['moeny']" value='0'>未知<else />{:highlight($text,$vo['moeny'])}万</in></td>
+													<td>
+														{:highlight($text,$vo['gongsiname'])}
+													</td>
+													<td>
+														{:highlight($text,$vo['jobaddress'])}
+													</td>
+													<td>
+															<switch name="vo.nowstatus">
+																<case value="1"><span class="text-success">常规寻访</span></case>
+																<case value="0"><span class="text-danger">战略寻访</span></case>
+																<default />未知
+															</switch>
+													</td>
+													<td>{$vo.date|date='Y-m-d',###}</td>
+													<td>{:highlight($text,$vo['yourname'])}</td>
+													<td>
+														<in name="vo.chengjieren" value='0'><span>待处理</span></in>
+														<volist name="chengjiexingming" id="chengjie">
+															<in name="chengjie.id" value="$vo.chengjieren">
+																<b>{:highlight($text,$chengjie['yourname'])}</b>
+																</in>
+														</volist>
+													</td>
+													<td>
+															<in name="vo.quedingchengjie" value='0'>未承接</in>
+															<in name="vo.quedingchengjie" value='1'>{$vo.chengjieriqi|date='Y-m-d',###}</in>
+													</td>
+													<td>
+															<empty name="vo.chengjieren">
+															未验证
+															<else /> 
+																<switch name="vo.yanzheng">
+																	<case value="1"><span class="text-success">验证有效</span></case>
+																	<case value="2"><span class="text-danger">验证无效</span></case>
+																	<default />未验证
+																</switch>
+															</empty>
+													</td>
+													<td>
+														<a href="{:U('Bopai/edit_user',array('id'=>$vo['id']))}" class="btn btn-xs btn-info">修改</a>
+													</td>
+												</tr>
+												</volist>
+												<tr>
+													<td colspan="17" align='center'><b>{$show}{$kong}</b></td>
+												</tr>
+									</table>									
+										  </div>
+										</div>
+									  </div>
+							<!-- model -->
+							<script type="text/javascript">
+												$(document).ready(function(){	
+														$('.submit_talent').bind('click',function(){
+													//	var uid = "{$Think.session.id}";
+													//	var date = "<?php echo date('Y-m-d');?>";
+														var chusheng_nian = $(".chusheng_nian  option:selected:selected").val();
+														var chusheng_yue = $(".chusheng_yue  option:selected:selected").val();
+														$.ajax({
+														url: "__URL__/addTalent",
+
+														type: 'POST',
+
+														data:{
+																	eid:$(".talent input[name='eid']").val(),
+																	name:$(".talent input[name='name']").val(),
+																	//chusheng:$(".talent input[name='chusheng']").val(),
+																	chusheng_nian:chusheng_nian,
+																	chusheng_yue:chusheng_yue,
+																	chusheng_nian:chusheng_nian,
+																	chusheng_yue:chusheng_yue,
+																	sex:$(".talent input[name='sex']:checked").val(),
+																	xueli:$(".talent input[name='xueli']:checked").val(),
+																	job:$(".talent input[name='job']").val(),
+																	nowstatus:$(".talent input[name='nowstatus']:checked").val(),
+																	moeny:$(".talent input[name='moeny']").val(),
+																	goutong:$(".talent input[name='goutong']").val(),
+																	uid:$(".talent input[name='uid']").val(),
+																	date:$(".talent input[name='date']").val(),
+																	status:$(".talent input[name='status']").val(),
+																	iphone:$(".talent input[name='iphone']").val(),
+																	gongsiname:$(".talent input[name='gongsiname']").val(),
+																	jobaddress:$(".talent input[name='jobaddress']").val()
+																	},
+
+														dataType: 'JSON',
+
+														timeout: 2000,
+
+														//error: function(){alert('数据错误');},
+
+														success: function(jdata){
+																				if(jdata.status==0){
+																					$('.show').html("<b class='text-danger' style='b-size:18px;'>"+jdata.info+"</b>");
+																				}else if(jdata.status==1){
+																					$('.show').html("<b class='text-success' style='b-size:18px;'>"+jdata.info+"</b>");
+																					setTimeout(location.href="__URL__/index",2000);
+																				}
+																		}
+
+														});
+													});
+												});
+									</script>
+										<div class="modal animated fadeIn talent" id="xiangmu-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title" id="myModalLabel"><span class="text-info">新增人才信息(带<i style="color:red;">*</i> 号为必填)</span></h4>
+											  </div>
+											  <div class="modal-body">
+													<div class="bfh-selectbox moe_enter" data-name="eid" data-value="" data-filter="true" style="width:55%;">
+														  <div data-value="">选择职位名称<i style="color:red;">*</i></div>
+														  <foreach name="project" item="vo" >
+															  <div data-value="{$vo.id}">{$vo.project}</div>
+															  </foreach>
+													</div>
+													<input type="hidden" name="uid" value="{$Think.session.id}">
+													<input type="hidden" name="date" value="<?php echo time();?>">
+													<input type="hidden" name="status" value="1">
+													<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
+													  <tr>
+													    <td class="info" width="100" align="right"><b>人才姓名<i style="color:red;">*</i></b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入人才姓名" autocomplete="off" name="name"></td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>出生日期</b></td>
+													    <td>
+																<select name="chusheng_nian" class="chusheng_nian">
+																	<option value="0" selected="selected">选择年份</option>
+																	<for start="1960" end="2010">
+																	<option value="{$i}">{$i}</option>
+																	</for>
+																</select>年&nbsp;&nbsp;
+																<select name="chusheng_yue" class="chusheng_yue">
+																	<option value="0" selected="selected">选择月份</option>
+																	<for start="1" end="13">
+																	<option value="{$i}">{$i}</option>
+																	</for>
+																</select>月&nbsp;&nbsp;(不填写为不祥)
+																<!-- <input  type="text" class="form-control" placeholder="1980-01-01" autocomplete="off" name="chusheng"> -->
+														</td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>性别<i style="color:red;">*</i></b></td>
+													    <td>
+																<label class="radio-inline">
+																	<input type="radio" name="sex"  value="1" checked> 男
+																</label>
+																<label class="radio-inline">
+																	<input type="radio" name="sex" value="0"> 女
+																</label>
+														</td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>第一学历<i style="color:red;">*</i></b></td>
+													    <td>
+																<label class="radio-inline">
+																	<input type="radio" name="xueli"  value="1" checked> 大专
+																</label>
+																<label class="radio-inline">
+																	<input type="radio" name="xueli" value="2"> 本科
+																</label>
+																<!-- <label class="radio-inline">
+																	<input type="radio" name="xueli" value="3"> 硕士
+																</label>
+																<label class="radio-inline">
+																	<input type="radio" name="xueli" value="4"> 博士
+																</label> -->
+														</td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>职位<i style="color:red;">*</i></b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入职位" autocomplete="off" name="job"></td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>所在单位名称</b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入单位名称" autocomplete="off" name="gongsiname"></td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>单位地点</b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入单位地点" autocomplete="off" name="jobaddress"></td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>寻访性质<i style="color:red;">*</i></b></td>
+													    <td>
+																<label class="radio-inline">
+																	<input type="radio" name="nowstatus"  value="1" checked> 常规寻访
+																</label>
+																<label class="radio-inline">
+																	<input type="radio" name="nowstatus" value="0"> 战略寻访
+																</label>
+														</td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>手机号码<i style="color:red;">*</i></b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入有效手机号码" autocomplete="off" name="iphone"></td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>目前年薪(万)</b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入数字或小数点" autocomplete="off" name="moeny"></td>
+													  </tr>
+													  <tr>
+													    <td class="info" width="100" align="right"><b>沟通内容<i style="color:red;">*</i></b></td>
+													    <td><input  type="text" class="form-control" placeholder="请输入沟通内容" autocomplete="off" name="goutong"></td>
+													  </tr>
+													</table>
+													<!-- <div class="bfh-selectbox moe_enter" data-name="eid" data-value="0" data-filter="true" style="width:55%;">
+														  <div data-value="0">交给承接人(可选)</div>
+														  <foreach name="username" item="vo" >
+															  <div data-value="{$vo.id}">{$vo.yourname}</div>
+															  </foreach>
+													</div> -->
+											  </div>
+											  <div class="modal-footer">
+											  <div class="show pull-left"></div>
+												<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+												<input type="submit" class="btn btn-primary submit_talent" value="提交保存">
+											  </div>
+											</div>
+										  </div>
+									</div>
+									<!-- model end -->
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+.title{margin-top:25px;border-bottom:1px solid #ccc;padding-bottom:5px;}
+.title .size28{font-size:28px;margin-right:15px;text-shadow:0px 2px 0px #D1D1D1;font-weight:bold;}
+.title .lianjie{font-size:12px;color:#999;}
+.bg-left{margin-top:30px;}
+.left-nav{padding-top:5px;width:194px;}
+.left-nav ul li{line-height:29px;height:29px;padding-left:25px;background: url('../../images/sidelibg.png') left top no-repeat;}
+.left-nav ul .btn{background: url('../../images/sideicon.png') left top no-repeat;}
+.left-nav ul .btn a{color:#fff;}
+.left-nav ul li a{color:#005BAC;font-size:14px;}
+/*下面右边布局 news,news_dt,news_bd*/
+.right-nav{width:750px;}
+.right-nav h1{color:#333;font-size:16px;line-height:30px;font-weight:bold;}
+.right-nav .con{width:750px;border:1px solid #ccc;}
+.right-nav .con .warp{padding:25px 30px;}
+.right-nav .con .warp ul{width:580px;margin:0 auto;}
+.right-nav .con .warp pre{font-family:'微软雅黑';position: relative;top:-20px;padding-left:40px;} /*对job_show有效*/
+.right-nav .con .warp #upload{cursor: pointer;margin-left:20%;width:200px;line-height:30px;border:1px solid #fff;background-color: #005BAC; display:block;font-size:16px;font-weight:bold;color:#FFF;text-align:center;}/*对job_show有效*/
+.right-nav .con .warp #upload a:hover{color:#fff;}
+.center{text-align:center;}
+pre{
+	white-space: pre-wrap;       
+	white-space: -moz-pre-wrap;  
+	white-space: -pre-wrap;      
+	white-space: -o-pre-wrap;    
+	word-wrap: break-word;       
+}

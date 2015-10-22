@@ -1,0 +1,99 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/date/datepicker.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/date/bootstrap-datepicker.js"></script>
+<STYLE type="text/css">
+	.border{border-left:1px solid #c0c0c0;border-right:1px solid #c0c0c0;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		<!-- <div class="col-md-12">
+				<div class="jumbotron">
+				  <p>正在开发中。。。。。。</p>
+				</div>
+		</div> -->
+		<div class="col-md-10 col-md-offset-1 none-padding">
+			<div class="panel panel-primary">
+			<!-- 日期插件开始 -->
+				<div class="panel-heading">最新流动工作站&nbsp;&nbsp;<eq name='status.statuspdf' value='3'><a href="__URL__/add" class="btn btn-success btn-xs">新增</a></eq></div>
+					<div class="panel-body">
+					<div class="input-append" >
+									<table class="table  table-condensed" >
+										<!-- <thead>
+											<tr class="active info">
+												<th><b>序号</b></th>
+												<th><b>姓名</b></th>
+												<th><b>职务</b></th>
+												<th><b>联系方式</b></th>
+												<th><b>微信群（二维码）</b></th>
+												<th><b>所在地点</b></th>
+												<th><b>开始日期</b></th>
+												<th><b>结束日期</b></th>
+												<th><b>状态</b></th>
+												<th style="width: 310px;"><b>备注</b></th>
+												<eq name='status.statuspdf' value='3'><th><b>操作</b></th></eq>
+											 </tr>
+										</thead> -->
+										<foreach name="list" item="vo" >
+											<tr class="active info">
+												<th><b>序号</b></th>
+												<th class="border"><b>姓名</b></th>
+												<th><b>职务</b></th>
+												<th class="border"><b>移动电话</b></th>
+												<th><b>QQ号</b></th>
+												<th class="border"><b>微信号</b></th>
+												<th><b>流动工作站（二维码）</b></th>
+												<th class="border"><b>备注</b></th>
+												<eq name='status.statuspdf' value='3'><th style="border-right:1px solid #c0c0c0;"><b>操作</b></th></eq>
+											 </tr>
+											 <tr>
+												<td rowspan="3" align="center" class="border" style="vertical-align:middle;"><b>{$vo.id}</b></td>
+												<td>{$vo.name}</td>
+												<td class="border">{$vo.job}</td>
+												<td>{$vo.ihone}</td>
+												<td class="border">{$vo.qq}</td>
+												<td>{$vo.weixin}</td>
+												<td rowspan="3" class="border" width="160">
+														<empty name="vo.weixin_path">
+															<BR>&nbsp;&nbsp;&nbsp;
+															未上传
+															<else/>
+															<img src="__ROOT__/Upload/flow/m_{$vo.weixin_path}" width="120"/>
+														</empty>
+														<br/>&nbsp;												
+														<eq name='status.statuspdf' value='3'><a href="{:U('Flow/upload',array('id'=>$vo['id']))}" class="btn btn-success btn-xs">修改/上传图片</a></eq>
+												</td>
+												<td rowspan="3">{$vo.remark}</td>
+												<eq name='status.statuspdf' value='3'><td  rowspan="3"class="border"><a href="{:U('Flow/modify',array('id'=>$vo['id']))}" class="btn btn-success btn-xs">修改</a></td></eq>
+											 </tr>
+											 <tr class="active info">
+												<td colspan="2" align="center" ><b>所在地</b></td>
+												<td class="border"><b>开始日期</b></td>
+												<td><b>结束日期</b></td>
+												<td style="border-left:1px solid #c0c0c0;"><b>状态</b></td>
+											 </tr>
+											 <tr>
+												<td  colspan="2" align="center">{$vo.address}</td>
+												<td class="border">{$vo.godate|date='Y-m-d',###}</td>
+												<td>{$vo.enddate|date='Y-m-d',###}</td>
+												<td class="border">
+														<if condition="$vo.status gt time()"><b style="color:green">正在进行中</b>
+														<else/>已经结束
+														</if>
+												</td>
+											 </tr>
+											 <tr>
+												<td colspan="9"><hr/ style="border:3px solid #808080;"></td>
+											 </tr>
+											 </foreach>
+												<tr>
+													<td colspan="9" align="center">{$page}{$empty}</td>
+												</tr>
+									</table>
+								</table>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

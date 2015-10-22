@@ -1,0 +1,121 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	#nav-h26 span img{position:relative;top:-2px;}
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		 <div class="col-md-10 col-md-offset-1">
+			<!-- <div class="col-md-6">
+				<form method="get" action="__URL__/index">
+					<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+							<input type="text" class="form-control" name="title" placeholder="请输入集团名称" >
+							<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">开始搜索</button>
+						  </span>
+					</div>
+				</form>
+			 </div> -->
+			 <div class="col-md-6">
+				<!-- Single button -->
+					<div class="btn-group">
+					  <a  href="__URL__/mylist"class="btn btn-default " >
+						查看我上传的人才 
+					  </a>
+					</div>
+			 </div>
+		</div>
+		<div class="col-md-10 col-md-offset-1 none-padding">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+						<ol class="breadcrumb" style="margin-bottom:0px;">
+						  <li><a href="{:U('Mopai/index')}">集团列表</a></li>
+						  <li class="active">{$title.title}</li>
+						  <li><a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">创建新分公司</a></li>
+						</ol>
+				</div>
+					<div class="panel-body">
+									<table class="table table-hover table-condensed">
+										<thead>
+											<tr class="active info">
+												<th><b>编号</b></th>
+												<th><b>分公司名称</b></th>
+												<th><b>人才数量</b></th>
+												<th><b>创建者</b></th>
+												<th><b>所属行业</b></th>
+												<th><b>地点</b></th>
+												<th><b>创建日期</b></th>
+												<in name="listpdf" value="0"><th><b>操作处理</b></th></in>
+											 </tr>
+										</thead>
+										<foreach name="list" item="vo" >
+												<tr>
+													<td>{$vo.id}</td>
+													<td><a href="{:U('Mopai/show_list',array('id'=>$vo['id']))}" class="alink">{$vo.title}</a></td>
+													<td>共{$vo.num}位</td>
+													<td>{$vo.yourname}</td>
+													<td>{$vo.hangye}</td>
+													<td>{$vo.address}</td>
+													<td>{$vo.date|date='Y-m-d H:i:s',###}</td>
+													<in name="listpdf" value="0"><td><a href="__URL__/modify/id/{$vo['id']}" class="btn btn-success btn-xs">修改</a> <!-- <a href="__URL__/del/id/{$vo['id']}" class="btn btn-danger btn-xs" onclick="return confirm('确定要删除?')">删除</a> --></td></in>
+												</tr>
+										</foreach>
+												<tr>
+													<td colspan="7" align="center">{$page}{$empty}</td>
+												</tr>
+									</table>
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title" id="myModalLabel"><b class="text-info">{$title.title}</b>->创建分公司</h4>
+											  </div>
+											  <div class="modal-body">
+												<form method='post' action="__URL__/add">
+													<input type="hidden" name="pid" value="{$Think.session.id}">
+													<input type="hidden" name="sid" value="{$title.id}">
+													<input type="hidden" name="status" value="1">
+													<div class="input-group">
+															<span class="input-group-addon">公司名称</span>
+															<input  type="text" class="form-control" placeholder="请输入分公司名称" autocomplete="off" name="title">
+															<span class="input-group-btn">
+														  </span>
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">所属行业</span>
+															<input type="text" class="form-control" placeholder="请输入所属行业" autocomplete="off" name="hangye">
+															<span class="input-group-btn">
+														  </span>
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">公司地点</span>
+															<input type="text" class="form-control" placeholder="请输入公司地点" autocomplete="off" name="address">
+															<span class="input-group-btn">
+														  </span>
+													</div>
+											  </div>
+											  <div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+												<input type="submit" class="btn btn-primary" value="提交保存">
+											  </div>
+											  </form>
+											</div>
+										  </div>
+										</div>
+								</div>
+			</div>	
+	  </div>
+</div>
+</div>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+<title>寻访需求调查表</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.css">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+ <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+	body{background: #ddf4ff url("http://image.sojump.com/images/newbg/oldbg2-bg.jpg") repeat-x;}
+	.bg-xiaobai{background-color: #fff;}
+	.wei{font-family: '微软雅黑';}
+	.border{border: 1px solid #000000;}
+	.radio-inline{margin-left: 3%;font-size: 16px;}
+	.radio{margin-left: 5%;}
+	.col-md-8,.col-md-12{padding-left: 5px;padding-right: 5px;}
+	.dl-horizontal dt{line-height: 33px;}
+	.dl-horizontal dt,.dl-horizontal dd{margin-bottom: 5px;}
+	i{color: red;}
+</style>
+<body>
+	<div class="container-fluid">
+		<div class="row bg-primary">
+			<div class="col-md-12 text-center">
+				<h3><b>《腾驹达寻访需求调查表》</b></h3>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+  		<div class="row wei">
+  			<div class="col-md-8 col-md-offset-2 bg-xiaobai">
+  				<div class="col-md-12">
+  					<br/>
+  					<div class="alert alert-info" role="alert">
+					  <p>问卷调查是为了了解客户对人力资源的了解程度，提高客户的满意度而设计的，您的建议将成为发展腾驹达猎头的参考，感谢您的参与！</p>
+					</div>
+					<hr/>
+					<div class="panel panel-info">
+					  <div class="panel-heading text-center"><h4>首要寻访项目<small>(带<i>*</i> 号为必填)</small></h4></div>
+					  <form action="{:U('Xunfang/add')}">
+					  <div class="panel-body">
+						<dl class="dl-horizontal">
+						  <dt>公司名称<i>*</i>：</dt>
+						  <dd><input type="text" name="gongsiname" class="form-control" placeholder="请填写公司名称"></dd>
+						  <dt>公司所属行业<i>*</i>：</dt>
+						  <dd><input type="text" class="form-control" placeholder="请填写公司所属行业"></dd>
+						  <dt>属于哪条职能线<i>*</i>：</dt>
+						  <dd><input type="text" class="form-control" placeholder="请填写职能"></dd>
+						  <dt>客户职位<i>*</i>：</dt>
+						  <dd><input type="text" class="form-control" placeholder="请填写客户职位"></dd>
+						  <dt>需要人数<i>*</i>：</dt>
+						  <dd><div class="input-group col-md-3">
+					    	<input type="text" class="form-control" placeholder="请填写人数">
+					    	<div class="input-group-addon">人</div>
+					    </div></dd>
+						  <dt>提交顾问：</dt>
+						  <dd style="padding-top:6px;">孙洋</dd>
+						</dl>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>1、职位性质<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="a" value="option1"> 新增
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 替换
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>2、所在部门<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" class="form-control" placeholder="请填写所在部门">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>3、招聘人数<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-md-3">
+					    	<input type="text" class="form-control" placeholder="请填写招聘人数">
+					    	<div class="input-group-addon">人</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>4、学历要求<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="a" value="option1"> 大专
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 本科
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 硕士
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 博士
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>5、专业要求<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" class="form-control" placeholder="请填写专业要求">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>6、年龄范围<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" class="form-control" placeholder="最小岁数">
+					    	<div class="input-group-addon">岁</div>
+					    </div>
+					    <div class="pull-left" style="margin:0 15px;padding-top:6px;"><b>到</b></div>
+					    <div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" class="form-control" placeholder="最大岁数">
+					    	<div class="input-group-addon">岁</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>7、证书要求<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" class="form-control" placeholder="请填写证书要求">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>8、工作或岗位年限<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-md-4">
+					  		<div class="input-group-addon">至少</div>
+					    	<input type="text" class="form-control" placeholder="请写数字">
+					    	<div class="input-group-addon">年</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>9、项目经验要求</b></div>
+					  <div class="panel-body">
+					    <textarea class="form-control" rows="3"></textarea>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>10、特殊技术，技能要求</b></div>
+					  <div class="panel-body">
+					    <textarea class="form-control" rows="3"></textarea>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>11、候选人贯籍<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" class="form-control" placeholder="请填写贯籍，更多用逗号或空格分开">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>12、候选人目标企业名称<i>*</i></b></div>
+					  <div class="panel-body">
+					    <input type="text" class="form-control" placeholder="请填写企业名称，更多用逗号或空格分开">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>13、是否提供候选人目标企业架构<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="a" value="option1"> 是
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 否
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>14、是否提供候选人对标部门名称<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="a" value="option1"> 是
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 否
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>15、候选人工作风格以及性格</b></div>
+					  <div class="panel-body">
+					    <textarea class="form-control" rows="3"></textarea>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>16、汇报对象的职称或职级</b></div>
+					  <div class="panel-body">
+					    <input type="text" class="form-control" placeholder="请填写汇报对象的职称或职级">
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>17、部属人数<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-md-3">
+					    	<input type="text" class="form-control" placeholder="请填写人数">
+					    	<div class="input-group-addon">人</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>18、平行配合部门</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" placeholder="请填写企业名称，更多用逗号或空格分开">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  	<div class="panel-heading"><b>19、职位开放日期<i>*</i></b></div>
+					  	<div class="panel-body">
+						  	<div class="col-xs-8 col-md-3">
+						    	<input type="text" class="form-control" placeholder="xxxx年xx月xx日">
+						    </div>
+					    </div>
+					</div>
+				  	<div class="panel panel-default">
+					  <div class="panel-heading"><b>20、职位紧急程度<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio">
+						  <input type="radio" name="a" value="option1"> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="a" value="option1"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="a" value="option1"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="a" value="option1"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="a" value="option1"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+						<label class="radio">
+						  <input type="radio" name="a" value="option1"> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i> <i class="glyphicon glyphicon-star"></i>
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  	<div class="panel-heading"><b>21、职位关闭日期<i>*</i></b></div>
+					  	<div class="panel-body">
+						  	<div class="col-xs-8 col-md-3">
+						    	<input type="text" class="form-control" placeholder="xxxx年xx月xx日">
+						    </div>
+					    </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>22、流程中候选人情况如何?<i>*</i></b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" placeholder="请填写流程中候选人情况">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>23、之前有offer过人吗?<i>*</i></b></div>
+					  <div class="panel-body">
+					    <label class="radio-inline">
+						  <input type="radio" name="a" value="option1"> 有
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="a" value="option2"> 没有
+						</label>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>24、年薪范围<i>*</i></b></div>
+					  <div class="panel-body">
+					  	<div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" class="form-control" placeholder="最小数">
+					    	<div class="input-group-addon">万</div>
+					    </div>
+					    <div class="pull-left" style="margin:0 15px;padding-top:6px;"><b>到</b></div>
+					    <div class="input-group col-xs-5 col-md-3 pull-left">
+					    	<input type="text" class="form-control" placeholder="最大数">
+					    	<div class="input-group-addon">万</div>
+					    </div>
+					  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>25、客户最近市场业绩</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" placeholder="请填写最近市场业绩">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>26、企业三个卖点</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" placeholder="请填写企业三个卖点">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>27、职位晋升空间</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" placeholder="请填写企业三个卖点">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>28、候选人到岗后3个月达成目标</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" placeholder="请填写企业三个卖点">
+						  </div>
+					</div>
+					<div class="panel panel-default">
+					  <div class="panel-heading"><b>29、其它</b></div>
+						  <div class="panel-body">
+						    <input type="text" class="form-control" name="qita" placeholder="请填写其它">
+						  </div>
+					</div>
+				</div>
+  				<input class="btn btn-primary btn-lg btn-block" type="submit" value="提交">
+  				</form>
+  				<br/>
+  				</div>
+  			</div>
+  		</div>
+	</div>
+</body>
+</html>

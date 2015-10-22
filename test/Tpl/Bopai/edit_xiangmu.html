@@ -1,0 +1,64 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+									<!-- model -->
+										  <div class="modal-dialog">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<h4 class="modal-title" id="myModalLabel"><span class="text-info">修改项目信息</span></h4>
+											  </div>
+											  <div class="modal-body">
+												<form method='post' action="{:U('Bopai/save_enter')}">
+												<input type="hidden" name="id" value="{$list.id}">
+															<div class="bfh-selectbox" data-name="pid" data-value="{$list.pid}" data-filter="true" style="width:250px;">
+															  <div data-value="">选择客户名称<i style="color:red;">*</i></div>
+															  <volist name="xiangmu" id="vo">
+															  <div data-value="{$vo.id}">{$vo.project}</div>
+															  </volist>
+															</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">项目名称<i style="color:red;">*</i></span>
+															<input  type="text" class="form-control" placeholder="请输入项目名称" autocomplete="off" name="project" value="{$list.project}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">项目经理<i style="color:red;">*</i></span>
+															<input type="text" class="form-control" placeholder="请输入项目地点" autocomplete="off" name="address" value="{$list.address}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">立项时间<i style="color:red;">*</i></span>
+															<input type="text" class="form-control" placeholder="请输入日期(xxxx-xx-xx)" autocomplete="off" name="opendate" value="{$list.opendate}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">目前状态</span>
+															<input type="text" class="form-control" placeholder="1 表示职位开放 0 表示职位关闭 按数字输入" autocomplete="off" name="voluam" value="{$list.voluam}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">需要人数</span>
+															<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="zujin" value="{$list.zujin}">
+													</div>
+													<!--
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">日均客流量(万)</span>
+															<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="liuliang" value="{$list.liuliang}">
+													</div>
+													-->
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">职位要点</span>
+															<input type="text" class="form-control" placeholder="请输入备注内容" autocomplete="off" name="beizhu" value="{$list.beizhu}">
+													</div>
+											  </div>
+											  <div class="modal-footer">
+												<input type="submit" class="btn btn-primary" value="提交保存">
+											  </div>
+											  </form>
+											</div>
+										  </div>
+									<!-- model end -->
+										  

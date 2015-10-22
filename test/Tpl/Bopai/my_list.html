@@ -1,0 +1,155 @@
+<include file="Public:header" title="查看我上传的信息"/>
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;padding-bottom:10px;}
+	.table{margin-bottom:0px;}
+	.table-hover tr{cursor: pointer;}
+	.bopai-right{margin-right:50px;}
+	.border,.border td{border:1px solid #c0c0c0;}
+</STYLE>
+<script type="text/javascript">
+			$(document).ready(function(){
+					$(function () {
+						$(".focus").focus();//获得焦点
+						$('[data-toggle="tooltip"]').tooltip()
+						})
+			});
+</script>
+<div class="container-fluid">
+  <div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			 <div class="col-md-8">
+				<!-- Single button -->
+					<div class="btn-group">
+						  <a  href="{:U('Bopai/index')}"class="btn btn-default " >
+							查看所有的信息
+						  </a>
+						  <a  href="{:U('Bopai/my_list')}"class="btn btn-default " >
+							查看我上传的信息
+						  </a>
+						  <a  href="{:U('Bopai/my_join')}"class="btn btn-default " >
+							查看我承接的信息
+						  </a>
+						  <a  href="{:U('Bopai/my_xiangmu')}"class="btn btn-default " >
+							查看企业项目
+						  </a>
+					</div>
+			 </div>
+		</div>
+		<div class="col-md-12">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+											<h4>查看我上传的信息</h4>
+								</div>
+								<div class="col-md-12">
+									<div class="col-md-4" style="padding:20px;">
+										<form method="get" action="__URL__/my_list">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+												<input type="text" class="form-control focus" placeholder="请输入关键字" value="{$text}" name="text">
+												<span class="input-group-btn">
+												<button class="btn btn-default" type="submit">开始搜索</button>
+											  </span>
+										</div>
+										</form>
+									 </div>
+								</div>
+					<div class="panel-body">
+									<div class="panel-group" id="accordion" >
+									  <div class="panel panel-default">
+										<div class="panel-heading">
+										  <h4 class="panel-title">
+												项目人才信息列表<!-- : <b>全部企业</b> <i class="glyphicon glyphicon-plus"></i> <b>北京</b> <i class="glyphicon glyphicon-plus"></i> <b>万达</b> -->
+										  </h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in" >
+										  <div class="panel-body">
+											<table class="table table-hover table-condensed">
+												<tr class="info border">
+													<td>编号</td>
+													<td>项目名称</td>
+													<td>地点</td>
+													<td>商业面积</td>
+													<td>开业日期</td>
+													<td>姓名</td>
+													<td>出生年月</td>
+													<td>性别</td>
+													<td>职位</td>
+													<td>年薪</td>
+													<td>学历</td>
+													<td>状态</td>
+													<td>提交日期</td>
+													<td>承接人</td>
+													<td>承接日期</td>
+													<td>验证</td>
+												</tr>
+												<volist name="list" id="vo">
+												<tr class="border">
+													<td>{$vo.id}</td>
+													<td><b data-toggle="tooltip" data-placement="top" title="日均客流量:{$vo.liuliang|default='(未填写)'}万 租金:{$vo.zujin|default='(未填写)'}千万元">{:highlight($text,$vo['project'])}</b>&nbsp;&nbsp;<mark class="text-muted" data-toggle="tooltip" data-placement="top" title="{$vo.beizhu|default='未填写'}">项目备注</mark></td>
+													<td>{$vo.address|str_replace=$text, '<b style="color:blue;"> '.$text.'</b>', ###}</td>
+													<td>{$vo.voluam|str_replace=$text, '<b style="color:blue;"> '.$text.'</b>', ###}万㎡</td>
+													<td>{$vo.opendate|str_replace=$text, '<b style="color:blue;"> '.$text.'</b>', ###}</td>
+													<td><a href="{:U('Bopai/show_list',array('id'=>$vo['id']))}" class="alink" title="{$vo.name}">{$vo.name|str_replace=$text, '<b style="color:blue;"> '.$text.'</b>', ###}</a>&nbsp;&nbsp;<span style="color:#808080;" data-toggle="tooltip" data-placement="top" title="{$vo.goutong}">[沟通]</span></td>
+													<td>{$vo.chusheng|str_replace=$text, '<b style="color:blue;"> '.$text.'</b>', ###}</td>
+													<td>
+															<switch name="vo.sex">
+																<case value="1">男</case>
+																<case value="0">女</case>
+																<default />未知
+															</switch>
+													</td>
+													<td>{:highlight($text,$vo['job'])}</td>
+													<td>{$vo.moeny}万</td>
+													<td>
+															<switch name="vo.xueli">
+																	<case value="1">大专</case>
+																	<case value="2">本科</case>
+																	<case value="3">硕士</case>
+																	<case value="4">博士</case>
+																	<default />未知
+																</switch>
+													</td>
+													<td>
+															<switch name="vo.nowstatus">
+																<case value="1"><span class="text-success">现任</span></case>
+																<case value="0"><span class="text-danger">离任</span></case>
+																<default />未知
+															</switch>
+													</td>
+													<td>{$vo.date|date='Y-m-d',###}</td>
+													<td>
+															<in name="vo.chengjieren" value='0'><span>未承接</span></in>
+															<volist name="chengjiexingming" id="chengjie">
+																<in name="chengjie.id" value="$vo.chengjieren">
+																	<b>{$chengjie.yourname|str_replace=$text, '<b style="color:blue;"> '.$text.'</b>', ###}</b>
+																	</in>
+															</volist>
+													</td>
+													<td>
+															<in name="vo.quedingchengjie" value='0'>未承接</in>
+															<in name="vo.quedingchengjie" value='1'>{$vo.chengjieriqi|date='Y-m-d',###}</in>
+													</td>
+													<td>
+																<switch name="vo.yanzheng">
+																	<case value="1"><span class="text-success">验证有效</span></case>
+																	<case value="2"><span class="text-danger">验证无效</span></case>
+																	<default />未验证
+																</switch>
+													</td>
+												</tr>
+												</volist>
+												<tr>
+													<td colspan="17" align='center'><b>{$show}{$kong}</b></td>
+												</tr>
+											</table>									
+										  </div>
+										</div>
+									  </div>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

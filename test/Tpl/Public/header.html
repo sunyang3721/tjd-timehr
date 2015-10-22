@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="renderer" content="webkit">
+<meta name="baidu-site-verification" content="YSJ9mJB7HA" />
+<Meta name="Keywords" Content="腾驹达,猎头顾问,景素奇,万达,合作">
+<Meta name="Description" Content="腾驹达猎头公司由知名人力资源专家景素奇先生于2003年创办，自成立之始，一改传统的猎头销售服务模式，走出了一条与众不同的成长发展之路。">
+<Meta name="Robots" Content="All">
+<title>[title]_【腾驹达猎头】</title>
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-body.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/css/header.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/css/footer.css" type="text/css" media="screen" />
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="__PUBLIC__/test/css/H-ui.reset.css">
+<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	function logout(){
+		if (confirm("您确定要退出吗？"))
+		top.location = "__APP__/Login/loginout";
+		return false;
+	}
+/*
+//防止复制
+document.oncontextmenu=new Function('event.returnValue=false;');
+document.onselectstart=new Function('event.returnValue=false;');
+  document.onkeydown = function(event){
+   if ((event.ctrlKey)&&(event.keyCode==115 || event.keyCode==83)){
+    event.returnValue=false;
+    return;
+   } 
+  }
+  */
+</script>
+<body>
+<NOSCRIPT><IFRAME SRC=nono.htm></IFRAME></NOSCRIPT><!--防止保存网页-->
+<!--[if lt IE 8]>
+        <div class="alert alert-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验，也可以升级IE到最新版本，技术支持电话：57280942</div>
+    <![endif]-->
+<div id="nav-h26" class="w960 margin font">
+		<span>腾驹达网站群： 
+				 <a href="{$Think.config.Index}">腾驹达猎头网</a> | <a href="http://www.timehr.com"  target="_blank">国际人力资本网</a> | <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253888613'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1253888613%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+		</span>
+		 <span class="align-right header-top"><i class="glyphicon glyphicon-user"></i> <notempty name="Think.session.yourname">欢迎！{$Think.session.yourname}&nbsp;<!-- &nbsp;&nbsp;<i class="glyphicon glyphicon-off"></i> <a href="#" onClick="logout();">流动工作站</a>&nbsp;&nbsp; | --> &nbsp;&nbsp;<i class="glyphicon glyphicon-off"></i> <a href="#" onClick="logout();">退出登录</a>&nbsp;&nbsp;</notempty> <!-- | <img src="__PUBLIC__/images/text.png" width="15" height="15" border="0" alt=""><a href="#"  data-reveal-id="myModal">留言反馈</a> --></span><span class="clear"></span>
+</div>
+<div id="nav-h82">
+		<div class="w960 margin font">
+				<a href="{$Think.config.Index}/test.php/Kehu/index.html"><img src="__PUBLIC__/images/logo.png" width="135" height="82" border="0" alt="首页"></a>
+				<div class="align-right" id="nav-bottom">
+						<ul>
+								
+								<li><a href="{:U('Kehu/index')}">职位管理</a></li>
+								<li><a href="{:U('Lsku/index')}">人才信息库</a></li>
+								<!--<li><a href="{:U('Mopai/index')}">人才摸排库</a></li>-->
+								<li><a href="{:U('Bopai/index')}">寻访中心</a></li>
+								<li><a href="{:U('List/index',array('pid'=>6))}">猎头资料</a></li>
+								<!-- <li><a href="__APP__/Ihone">通讯录</a></li> -->
+								<li><a href="{:U('Company/lists')}">公司资料</a></li>
+								<!-- <li><a href="{:U('Move/index')}">培训视频</a></li> -->																
+								<li><a href="{:U('User/nav')}">个人信息</a></li>
+								<li><a href="{:U('Flow/index')}">流动工作站</a></li>
+								<li><a href="{:U('Xunfang/user_xunfang')}">寻访需求</a></li>
+						</ul>
+				</div>
+		</div>
+</div>
+  <!-- <script type="text/javascript">
+   
+$(function(){
+    showimg();//加载第一屏
+    $(window).scroll(function(){
+        showimg();//显示当前滚动位置一下两屏且没有被加载的图片
+    });
+});
+function showimg(){
+    var vtop=$(document).scrollTop();//滚动条滚动的距离
+    var wheight=$(window).height();//窗口高度　
+    $("img").each(function(){var truesrc=$(this).attr("truesrc");
+        if(truesrc&&$(this).offset().top<=(wheight+vtop)){			//如果truesrc存在且有值的时候加载。
+            $(this).attr("src",truesrc).removeAttr("truesrc"),
+			$(this).fadeOut(0).fadeIn(1000);			//赋值真实图片地址并移除truesrc属性防止重复加载。
+        }
+    });
+}
+
+</script> -->

@@ -1,0 +1,40 @@
+<include file="Public:header" />
+
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<include file="Public:test-nav"/>
+		</div>
+		<style type="text/css">
+		blockquote i{font-size: 14px;color:#ccc;}
+		</style>
+		<div id="right" class="align-right">
+			<div id="right-warp" >
+				<div  class="dialog" id="userjob" tabindex="-1" role="dialog" aria-labelledby="myuserjob">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h4 class="modal-title" id="myuserjob"><span class="text-info">人才信息表</span></h4>
+				  </div>
+				  <div class="modal-body">
+				  	<volist name="list" id="vo">
+						<blockquote>
+							<b>编号NO.{$vo.id}</b>
+							 <p>人才姓名：{$vo.name} <small style="display:inline-block;">看中的职位：{$vo.jobname}</small></p>
+							 <p>手机：{$vo.ihone}</p>
+							 <p>QQ ：{$vo.qq|default='<i>未填写</i>'}</p>
+						     <p>邮箱：{$vo.mail|default='<i>未填写</i>'}</p>
+						     <p>留言：{$vo.liuyan|default='<i>未填写</i>'}</p>
+						  <footer>提交日期：{$vo.date|date='Y-m-s H:i:s',###}</footer>
+						</blockquote>
+					</volist>
+					<blockquote>
+					{$page}{$kong}
+					</blockquote>
+				</div>
+		  </div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+</body>
+</html>

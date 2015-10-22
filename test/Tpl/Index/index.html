@@ -1,0 +1,198 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<include file="Public:test-nav"/>
+		</div>
+<STYLE type="text/css">
+	table{font-size:14px;border:1px solid #888;}
+	table tr:hover{background-color:#ccc;}
+	table tr button:hover{cursor: pointer;}
+	.none-back:hover{background-color:#fff;}
+	table tr th{padding:3px;border:1px solid #888;}
+	button{width:80px;height:30px;}
+	/* tipfloat */
+	.tipfloat,.tipfloat .close{background:url(__PUBLIC__/test/images/tiprights.png) no-repeat;}
+	.tipfloat{display:none;z-index:999;position:fixed;_position:absolute;right:0px;bottom:0;width:582px;height:298px;overflow:hidden;}
+	.tipfloat .tiphead{height:28px;line-height:28px;overflow:hidden;padding:0 5px;}
+	.tipfloat .tiphead strong{float:left;color:#fff;font-size:12px;padding-left:10px;} 
+	.tipfloat .tiphead .close{display:block;float:right;margin:5px 0 0 0;width:18px;height:18px;line-height:999em;overflow:hidden;cursor:pointer;background-position:-582px 0;}
+	/* ranklist */
+	.ranklist{padding:10px 10px 0 10px;font-size:12px;}
+	.ranklist p{padding:2px 0px;}
+</STYLE>
+<script type="text/javascript">
+$(function(){
+	var titHeight=$(".tiphead").height();
+	$(".tipfloat").animate({height:"show"},400);
+	$(".close").click(function(){
+		$(".tipfloat").animate({height:titHeight-50},1000,function(){
+			$(".tipfloat").hide();
+		});
+	});
+});
+</script>
+<div class="tipfloat">
+	<h2 class="tiphead"><strong>职位更新提示</strong><span title="关闭" class="close">关闭</span></h2>
+	<div class="ranklist">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr class="none-back">
+		    <th>更新日期</th>
+		    <th>客户名称</th>
+			<th>编号</th>
+			<th>职位名称</th>
+			<th>操作</th>
+		  </tr>
+		  <tr>
+		    <th>2014-09-07</th>
+		    <th>xxxxxxxxx房地产</th>
+			<th>252563</th>
+			<th>成本总监</th>
+			<th><a href="__URL__/kehu"  target="_blank"><button>查看</button></a></th>
+		  </tr>
+		<tr>
+		    <th>2014-09-07</th>
+		    <th>xxxxxxxxx房地产</th>
+			<th>252563</th>
+			<th>成本总监</th>
+			<th><a href="#"  target="_blank"><button>查看</button></a></th>
+		  </tr>
+		  <tr>
+		    <th>2014-09-07</th>
+		    <th>xxxxxxxxx房地产</th>
+			<th>252563</th>
+			<th>成本总监</th>
+			<th><a href="#"  target="_blank"><button>查看</button></a></th>
+		  </tr>
+		  <tr>
+		    <th>2014-09-07</th>
+		    <th>xxxxxxxxx房地产</th>
+			<th>252563</th>
+			<th>成本总监</th>
+			<th><a href="#"  target="_blank"><button>查看</button></a></th>
+		  </tr>
+		  <tr>
+		    <th>2014-09-07</th>
+		    <th>xxxxxxxxx房地产</th>
+			<th>252563</th>
+			<th>成本总监</th>
+			<th><a href="#"  target="_blank"><button>查看</button></a></th>
+		  </tr>
+		  <tr>
+		    <th>2014-09-07</th>
+		    <th>xxxxxxxxx房地产</th>
+			<th>252563</th>
+			<th>成本总监</th>
+			<th><a href="#"  target="_blank"><button>查看</button></a></th>
+		  </tr>
+		</table>
+	</div>
+</div>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+							<div class="list">
+								<div style="font-size:14px;padding-left:20px;border:solid 5px #888;background-color:#888;"><span class="align-left">最新公告</span><span class="align-right"><a href="__URL__/notice">查看更多&nbsp;&nbsp;&nbsp;</a></span><div class="clear"></div></div>
+								<ul style="padding-left:30px;">
+									<volist name="list" id="vo" offset="0" length="5">
+										<li>{$vo.title}<span class="date">发布日期：{$vo.date|date='Y-m-d',###}</span><span class="align-right"></span></li>
+									</volist>
+								</ul>
+							</div>
+							<div class="list">
+								<div style="font-size:14px;padding-left:20px;border:solid 5px #ccc;background-color:#ccc;"><span >客户信息列表</span></div>
+									<div>
+										<table width="100%"  cellspacing="0" cellpadding="0">
+											<tr class="none-back">
+												<th>客户名称</th>
+												<th>更新日期</th>
+												<th>状态</th>
+												<th>操作</th>
+											</tr>
+											<tr>
+												<th>xxxxxx地产有限公司</th>
+												<th>2014-09-07</th>
+												<th>进行中</th>
+												<th><a href="__URL__/kehu"><button>查看</button></a></th>
+											</tr>
+											<tr>
+												<th>xxxxxx地产有限公司</th>
+												<th>2014-09-07</th>
+												<th>进行中</th>
+												<th><a href="#"><button>查看</button></a></th>
+											</tr>
+											<tr>
+												<th>xxxxxx地产有限公司</th>
+												<th>2014-09-07</th>
+												<th>进行中</th>
+												<th><a href="#"><button>查看</button></a></th>
+											</tr>
+											<tr>
+												<th>xxxxxx地产有限公司</th>
+												<th>2014-09-07</th>
+												<th>进行中</th>
+												<th><a href="#"><button>查看</button></a></th>
+											</tr>
+											</table>	
+									</div>
+									<BR><BR><BR><BR><BR>
+									
+									<div style="padding:0 20px;">
+										{$lists.title}
+									</div>
+							</div>
+							<div class="list">
+								<!-- <div style="font-size:14px;padding-left:20px;border:solid 5px #ccc;background-color:#ccc;"><span >最近评论更新</span></div> -->
+								<!-- 多说最新评论 start -->
+									<!-- <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div> -->
+								<!-- 多说最新评论 end -->
+								<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+								<script type="text/javascript">
+								/*
+								var duoshuoQuery = {short_name:"timehr"};
+									(function() {
+										var ds = document.createElement('script');
+										ds.type = 'text/javascript';ds.async = true;
+										ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+										ds.charset = 'UTF-8';
+										(document.getElementsByTagName('head')[0] 
+										 || document.getElementsByTagName('body')[0]).appendChild(ds);
+									})();
+									*/
+									</script>
+								<!-- 多说公共JS代码 end -->
+
+							</div>
+						
+							<!-- <div class="list">
+								<div style="font-size:14px;padding-left:20px;border-bottom:solid 1px #ccc;"><span class="align-left">最新视频</span><span class="align-right"><a href="__APP__/Move">查看更多&nbsp;&nbsp;&nbsp;</a></span><div class="clear"></div></div>
+								<ul style="padding-left:30px;">
+									<volist name="mlist" id="vo" offset="0" length="5">
+										<li>[
+											<switch name="vo.status">
+											<case value="1">沙龙视频</case>
+											<case value="2">培训视频</case>
+											<case value="3">季度会视频</case>
+											<case value="4">活动视频</case>
+											<case value="5">其他视频</case>
+											<case value="6">音频</case>
+											<default />未知
+										</switch>
+										]&nbsp;&nbsp;
+					   <a href="__APP__/Move/show/{$vo.id}"  target="_blank">{$vo.title}</a><span class="date">发布日期：{$vo.date|date='Y-m-d',###}</span><span class="align-right"></span></li>
+									</volist>
+								</ul>
+							</div> -->
+
+							<!-- <div class="list">
+								<div style="font-size:14px;padding-left:20px;border-bottom:solid 1px #ccc;"><span class="align-left">最新资料</span><span class="align-right"><a href="__APP__/List">查看更多&nbsp;&nbsp;&nbsp;</a></span><div class="clear"></div></div>
+								<ul style="padding-left:30px;">
+									<volist name="plist" id="vo" offset="0" length="5">
+										<li><a href="__APP__/List/show/{$vo.id}"  target="_blank">{$vo.title}</a><span class="date">发布日期：{$vo.date|date='Y-m-d',###}</span><span class="align-right"></span></li>
+									</volist>
+								</ul>
+							</div> -->
+						
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>

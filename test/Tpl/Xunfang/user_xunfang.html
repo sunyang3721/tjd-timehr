@@ -1,0 +1,294 @@
+<include file="Public:header" title="寻访需求信息"/>
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;padding-bottom:10px;}
+	.table{margin-bottom:0px;}
+	.table-hover tr{cursor: pointer;}
+	.bopai-right{margin-right:50px;}
+	.border,.border td{border:1px solid #c0c0c0;}
+	.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{vertical-align: middle;}
+	.xunfang .table>tbody>tr>td.info{width: 25%;}
+</STYLE>
+<script type="text/javascript">
+			$(document).ready(function(){
+
+			});
+</script>
+<div class="container-fluid">
+  <div class="row">
+		 <div class="col-md-10 col-md-offset-1" >
+			 <div class="col-md-8">
+				<!-- Single button -->
+					<div class="btn-group">
+						  <a  href="{:U('Xunfang/user_xunfang')}"class="btn btn-default " >
+							所有寻访需求
+						  </a>
+						  <a  href="{:U('Xunfang/my_xunfang')}"class="btn btn-default " >
+							我的寻访需求
+						  </a>
+						  <in name="Think.session.username" value='$Think.config.XUNFANG_ADMIN'>
+						  <a  href="{:U('Xunfang/admin_shenhe_xunfang')}"class="btn btn-default " >
+							管理员待审核
+						  </a>
+						  <a  href="{:U('Xunfang/no_xunfang')}"class="btn btn-default " >
+							审核未通过
+						  </a>
+						  </in>
+						 
+					</div>
+			 </div>
+		</div>
+					<div class="col-md-12">
+									<div class="panel-group" id="accordion" >
+									  <div class="panel panel-default">
+										<div class="panel-heading">
+										  <h4 class="panel-title">
+												所有寻访需求列表 <!-- <b>全部企业</b> <i class="glyphicon glyphicon-plus"></i> <b>北京</b> <i class="glyphicon glyphicon-plus"></i> <b>万达</b> -->
+										  </h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in" >
+										  <div class="panel-body">
+											<table class="table table-hover table-condensed">
+												<tr class="info border">
+													<td>
+															序号
+													</td>
+													<td>
+															公司名称
+													</td>
+													<td>
+															所属行业
+													</td>
+													<td>
+															客户职位
+													</td>
+													<td>
+															招聘人数
+													</td>
+													<td>
+															学历要求
+													</td>
+													<td>
+															专业要求
+													</td>
+													<td>
+															工作年限
+													</td>
+													<td>
+															年薪范围
+													</td>
+													<td>
+															候选人籍贯
+													</td>
+													<td>
+															候选人目标企业名称
+													</td>
+													<td>
+															职位开放时间
+													</td>
+													<td>
+															职位关闭时间
+													</td>
+													<td>
+															职位紧急
+													</td>
+													<td>
+															客户提交顾问
+													</td>
+													<td>
+															提交时间
+													</td>
+													<td>操作</td>										
+												</tr>
+												<volist name="list" id="vo">
+												<tr class="border">
+													<td>{$vo.id}</td>
+													<td>{$vo.gongsiname}</td>
+													<td>{$vo.gongsihangye}</td>
+													<td>{$vo.gongsijob}</td>
+													<td>{$vo.jobnum}</td>
+													<td>{$vo.xueli}</td>
+													<td>{$vo.zhuanye}</td>
+													<td>{$vo.jobage}年以上</td>
+													<td>{$vo.moeny_a}万~{$vo.moeny_b}万</td>
+													<td>{$vo.guanji}</td>
+													<td>{$vo.mubiaogongsi}</td>
+													<td>{$vo.opendate}</td>
+													<td>{$vo.offdate}</td>
+													<td>{$vo.jinji}</td>
+													<td>{$vo.yourname}</td>
+													<td>{$vo.date|date='Y-m-d H:i:s',###}</td>
+													<td><button class="btn btn-info btn-xs" data-toggle="modal" data-target="#xunfang-{$vo.id}">查看更多详细</button></td>
+												</tr>
+												</volist>
+												<tr>
+													<td colspan="17" align='center'><b>{$show}{$kong}</b></td>
+												</tr>
+									</table>									
+										  </div>
+										</div>
+									  </div>
+							<!-- model -->
+							<volist name="list" id="vo">
+							<div class="modal fade talent xunfang" id="xunfang-{$vo.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog modal-lg">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									<h4 class="modal-title" id="myModalLabel"><span class="text-info">公司名称:{$vo.gongsiname}</span></h4>
+								  </div>
+								  <div class="modal-body">																				
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
+										  <tr>
+										    <td class="info" width="100" align="right"><b>公司所属行业</b></td>
+										    <td>{$vo.gongsihangye}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>所属职能线</b></td>
+										    <td>{$vo.gongsizhineng}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>客户职位</b></td>
+										    <td>{$vo.gongsijob}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>需要人数</b></td>
+										    <td>{$vo.gongsineed}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>职位性质</b></td>
+										    <td>{$vo.jobxingzhi}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>所在部门</b></td>
+										    <td>{$vo.bumen}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>招聘人数</b></td>
+										    <td>{$vo.jobnum}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>学历要求</b></td>
+										    <td>{$vo.xueli}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>专业要求</b></td>
+										    <td>{$vo.zhuanye}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>年龄范围</b></td>
+										    <td>{$vo.age_a}~{$vo.age_b}岁</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>证书要求</b></td>
+										    <td>{$vo.zhengshuneed}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>招聘人数</b></td>
+										    <td>{$vo.jobnum}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>工作岗位或年限</b></td>
+										    <td>{$vo.jobage}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>项目经验要求</b></td>
+										    <td>{$vo.xiangmujingyan}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>特殊技术,技能要求</b></td>
+										    <td>{$vo.jinengneed}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>候选人贯籍</b></td>
+										    <td>{$vo.guanji}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>候选人目标企业名称</b></td>
+										    <td>{$vo.mubiaogongsi}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>是否提供候选人目标企业架构</b></td>
+										    <td>{$vo.mubiaojiagou}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>是否提供候选人对标部门名称</b></td>
+										    <td>{$vo.mubiaobumen}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>候选人工作风格以及性格</b></td>
+										    <td>{$vo.jobfengge}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>汇报对象的职称或职级</b></td>
+										    <td>{$vo.zhicheng}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>部属人数</b></td>
+										    <td>{$vo.bushurenshu}人</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>平行配合部门</b></td>
+										    <td>{$vo.peihe}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>职位开放日期</b></td>
+										    <td>{$vo.opendate}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>职位紧急程度</b></td>
+										    <td>{$vo.jinji}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>职位关闭日期</b></td>
+										    <td>{$vo.offdate}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>流程中候选人情况</b></td>
+										    <td>{$vo.liucheng}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>之前有offer过人吗?</b></td>
+										    <td>{$vo.offer}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>年薪范围</b></td>
+										    <td>{$vo.moeny_a}~{$vo.moeny_b}万</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>客户最近市场业绩</b></td>
+										    <td>{$vo.yeji}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>企业三个卖点</b></td>
+										    <td>{$vo.maidian}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>职位晋升空间</b></td>
+										    <td>{$vo.jinsheng}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>候选人到岗后3个月达成目标</b></td>
+										    <td>{$vo.daogang}</td>
+										  </tr>
+										  <tr>
+										    <td class="info" width="100" align="right"><b>其它</b></td>
+										    <td>{$vo.qita}</td>
+										  </tr>
+										</table>													
+								  </div>
+								  <div class="modal-footer">
+								  <div class="show pull-left"></div>
+									<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+								  </div>
+								</div>
+							  </div>
+						</div>
+						</volist>
+						<!-- model end -->
+			</div>	
+	  </div>
+</div>
+</div>

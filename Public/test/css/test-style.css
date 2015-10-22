@@ -1,0 +1,6 @@
+#body-center{border:0px solid red;padding-top:5px;}
+#left{width:15%;}
+#left ul li{background:url('../images/sidelibg.jpg') no-repeat;padding:5px;text-align:center;}
+#left ul li a{color:#fff;}
+#left ul li a:hover{color:#aab9f8;}
+#right{width:83%;border:1px solid #99ceff;margin-right:3px;padding:5px;margin-bottom:30px;}

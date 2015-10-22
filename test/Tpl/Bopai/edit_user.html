@@ -1,0 +1,58 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+									<!-- model -->
+										  <div class="modal-dialog">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<h4 class="modal-title" id="myModalLabel"><span class="text-info">修改人才信息</span></h4>
+											  </div>
+											  <div class="modal-body">
+												<form method='post' action="{:U('Bopai/save_user')}">
+												<input type="hidden" name="id" value="{$list.id}">
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">人才姓名</span>
+															<input  type="text" class="form-control" placeholder="请输入姓名" autocomplete="off" name="name" value="{$list.name}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">单位名称</span>
+															<input type="text" class="form-control" placeholder="请输入所在单位名称" autocomplete="off" name="gongsiname" value="{$list.gongsiname}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">工作地点</span>
+															<input type="text" class="form-control" placeholder="工作地点" autocomplete="off" name="jobaddress" value="{$list.jobaddress}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">目前年薪</span>
+															<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="moeny" value="{$list.moeny}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">手机号码</span>
+															<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="iphone" value="{$list.iphone}">
+													</div>
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">沟通内容</span>
+															<input type="text" class="form-control" placeholder="填写内容" autocomplete="off" name="goutong" value="{$list.goutong}">
+													</div>
+													<!--
+													<p>&nbsp;</p>
+													<div class="input-group">
+															<span class="input-group-addon">日均客流量(万)</span>
+															<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="liuliang" value="{$list.liuliang}">
+													</div>
+													-->
+											  </div>
+											  <div class="modal-footer">
+												<input type="submit" class="btn btn-primary" value="提交保存">
+											  </div>
+											  </form>
+											</div>
+										  </div>
+									<!-- model end -->
+										  

@@ -1,0 +1,101 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+</STYLE>
+<div class="container-fluid">
+  <div class="row">
+		<!-- <div class="col-md-10 col-md-offset-1">
+				<div class="col-md-6">
+				<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input id="soso" type="text" class="form-control" placeholder="请输入关键字" data-provide="typeahead"  autocomplete="off">
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="button">开始搜索</button>
+					  </span>
+				</div>
+			 </div>
+		</div> -->
+		<!-- <div class="col-md-12">
+				<div class="jumbotron">
+				  <p>最新公告：发金飞达；啊就分开打啦借款方；大姐哎；浪费的空间啊；了</p>
+				</div>
+		</div> -->
+		<eq name="user.openjob" value="1">
+		<div class="col-md-10 col-md-offset-1" style="margin-bottom:10px;">
+				<div class="btn-group">
+					  <a href="__URL__/add"  class="btn btn-default">发布新职位</a>
+					  <a href="__URL__/userList" class="btn btn-default">查看我的发布</a>
+				</div>
+		</div>
+	</eq>
+		<div class="col-md-4 col-md-offset-1 none-padding">
+			<div class="panel panel-primary">
+				<div class="panel-heading">最新客户更新</div>
+					<div class="panel-body">
+							<table class="table table-hover table-condensed">
+								<thead>
+									<tr class="active info">
+										<th><b>客户名称</b></th>										
+										<th><b>目前状态</b></th>
+										<th><b>更新时间</b></th>
+									 </tr>
+								</thead>
+								<foreach name="list" item="vo" >
+									<tr>
+										<td><a href="{:U('Kehu/lists',array('id'=>$vo['id']))}" class="alink">{$vo.title}</a></td>
+										<td>
+												<switch name="vo.status">
+													<case value="1"><span class="label label-success">正在进行中</span></case>
+													<case value="2"><span class="label label-default">已结束或关闭</span></case>
+												</switch>
+										</td>
+										<td>{$vo.date|date='Y-m-d',###}</td>
+									</tr>
+								</foreach>
+							</table>
+					</div>
+			</div>	
+	  </div>
+	  <div class="col-md-6 none-padding">
+			<div class="panel panel-primary">
+				<div class="panel-heading">最新职位更新</div>
+					<div class="panel-body">
+							<table class="table table-hover table-condensed">
+								<thead>
+									<tr class="active info">
+										<th><b>客户名称</b></th>
+										<th><b>编号</b></th>
+										<th><b>职位名称</b></th>
+										<th><b>职位更新时间</b></th>
+										<th><b>目前状态</b></th>
+									 </tr>
+								</thead>
+								<foreach name="kelist" item="vo" >
+									<in name="vo.status" value="1,2">
+									<tr>
+										<td>{$vo.title}</td>
+										<td>{$vo.sid}</td>
+										<td><in name="vo.jinji" value="1"><b style="color:red;">【急】</b></in><a href="{:U('Kehu/show',array('id'=>$vo['sid']))}"  target="_blank" class="alink">{$vo.jobname}</a></td>
+										<td>{$vo.newdate|date='Y-m-d',###}</td>
+										<td>
+												<switch name="vo.status">
+													<case value="1"><span class="label label-success">正在进行中</span></case>
+													<case value="2"><span class="label label-info">即将开始</span></case>
+												</switch>
+										</td>
+									</tr>
+									</in>
+								</foreach>
+							</table>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

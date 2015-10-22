@@ -1,0 +1,174 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	#nav-h26 span img{position:relative;top:-2px;}
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+	.border{border:1px solid #c0c0c0;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		 <div class="col-md-10 col-md-offset-1">
+			 <div class="col-md-2">
+				<!-- Single button -->
+					<div class="btn-group">
+							<div class="btn-group">
+							  <a  href="__URL__/index"class="btn btn-default " >
+								返回到人才信息库 
+							  </a>
+							</div>
+					</div>
+			 </div>
+		</div>
+		<div class="col-md-10 col-md-offset-1 none-padding">
+			<div class="panel panel-primary">
+				<div class="panel-heading">人才信息列表</div>
+					<div class="panel-body">
+							<table class="table  table-condensed" width="100%">
+								<volist name="lists" id="vo">
+											<script type="text/javascript">
+														$(document).ready(function(){
+																//remark
+																$('.addremark-{$vo.id}').click(function(){
+																			$(this).hide();
+																			$('.remark-{$vo.id}').show();
+																		}
+																);
+																$('.quxiao-{$vo.id}').click(function(){
+																			$('.remark-{$vo.id}').hide();
+																			$('.addremark-{$vo.id}').show();
+																});
+																$('.save-{$vo.id}').bind('click',function(){
+																	var conter = $("input[name='conter-{$vo.id}']").val();
+																	var yourname = "{$Think.session.yourname}";
+																	var mid = "{$vo.id}";
+																	var date = "<?php echo time();?>";
+																			$.ajax({
+																				url:'__URL__/addRemark',
+																				type:'POST',
+																				data:{conter:conter,
+																							username:yourname,
+																							mid:mid,
+																							date:date,
+																							},
+																				dataType:'JSON',
+																				timeout:1000,
+																				error:function(){
+																												alert('数据错误!');
+																											},
+																				success:function(jdata){
+																									if(jdata.status == 1){
+																										 $('.post-{$vo.id}').show('3000').html("<b class='text-success'>"+jdata.info+"</b>").delay('1000').hide('200');
+																										 $(".remark-{$vo.id}").hide();
+																										 $('.addremark-{$vo.id}').show();
+																										 $('.post-{$vo.id}').after('<p class="alert-success" style="padding:3px;border-bottom:1px solid #c0c0c0;">'+jdata.data+'</p></hr>');
+																									}else if(jdata.status == 0){
+																										$('.post-{$vo.id}').show('3000').html("<b class='text-danger'>"+jdata.info+"</b>");
+																									}
+																								}
+																			});
+																})
+														});
+											</script>
+											<tr class="active info">
+												<th class="border"><b>序号</b></th>
+												<th class="border"><b>姓名</b></th>
+												<th class="border"><b>职务</b></th>
+												<th class="border" colspan="2"><b>公司</b></th>
+												<th class="border"><b>地点</b></th>
+												<th class="border"style="word-wrap:word-break;" width="30%"><b>备注</b></th>
+												<th class="border"><b>所在公司分类</b></th>
+											 </tr>
+											 <tr>
+												<td rowspan="5" align="center" class="border" style="vertical-align:middle;"><b>{$vo.id}</b></td>
+												<td class="border">{$vo.name}</td>
+												<td class="border">{$vo.job}</td>
+												<td class="border" colspan="2">{$vo.gongsi}</td>
+												<td class="border">{$vo.address}</td>
+												<td class="border" rowspan="5">												
+												<b class="btn btn-success btn-xs addremark-{$vo.id}">新增备注</b>&nbsp;&nbsp;<b class="text-success post-{$vo.id}" style="display:none;"></b>
+												<p><div class="input-group remark-{$vo.id}" style="display:none;">
+														  <input type="text" class="form-control" name="conter-{$vo.id}">
+														  <span class="input-group-addon btn btn-{$vo.id}"><a class="save-{$vo.id}">[保存]</a>&nbsp;<a class="quxiao-{$vo.id}">[取消]</a></span>
+														</div>
+												</p>
+												<p class="text hide"></p>
+												<volist name="listremark" id="ke">
+													<in name="ke.mid" value="$vo.id">
+														<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">[{$ke.date|date='Y-m-d',###}]{$ke.username}:{$ke.conter}</p>		
+														<hr/>
+													</in>
+												</volist>
+												<p style="width:100%;padding:3px;border-bottom:1px solid #c0c0c0;" class="alert-success">{$vo.remark}</p>												
+												</td>
+												<td class="border">{$vo.title}</td>
+											 </tr>
+											 <tr class="active info">
+												<th class="border"><b>手机号码</b></th>
+												<th class="border"><b>QQ或邮箱</b></th>
+												<th class="border"><b>联系顾问</b></th>
+												<th class="border"><b>最后联系时间</b></th>
+												<th class="border"><b>是否跟踪</b></th>
+												<th class="border"><b>上传日期</b></th>
+											 </tr>
+											 <tr>
+												<td class="border">{$vo.ihone}</td>
+												<td class="border">{$vo.mail}</td>
+												<td class="border">{$vo.guwen}</td>
+												<td class="border">{$vo.guwendate}</td>
+												<td class="border">是</td>
+												<td class="border">{$vo.date|date='Y-m-d',###}</td>
+											 </tr>
+											 <tr class="active info">
+												<th class="border" colspan="4" width="40%"><b>电话沟通信息情况</b></th>
+												<th class="border"><b>系统ID</b></th>
+												<th class="border"><b>所属导师组</b></th>
+											 </tr>
+											 <tr>
+												<td class="border" colspan="4">{$vo.goutong}</td>
+												<td class="border">{$vo.xitongid}</td>
+												<td class="border">
+														<switch name="vo.listid">
+															<case value="0">{$Think.config.listid.0}</case>
+															<case value="1">{$Think.config.listid.1}</case>
+															<case value="2">{$Think.config.listid.2}</case>
+															<case value="3">{$Think.config.listid.3}</case>
+															<case value="4">{$Think.config.listid.4}</case>
+															<case value="5">{$Think.config.listid.5}</case>
+															<case value="6">{$Think.config.listid.6}</case>
+															<case value="7">{$Think.config.listid.7}</case>
+															<case value="8">{$Think.config.listid.8}</case>
+															<case value="9">{$Think.config.listid.9}</case>
+															<case value="10">{$Think.config.listid.10}</case>
+															<case value="11">{$Think.config.listid.11}</case>
+															<case value="12">{$Think.config.listid.12}</case>
+															<case value="13">{$Think.config.listid.13}</case>
+															<case value="14">{$Think.config.listid.14}</case>
+															<case value="15">{$Think.config.listid.15}</case>
+															<case value="16">{$Think.config.listid.16}</case>
+															<case value="17">{$Think.config.listid.17}</case>
+															<case value="18">{$Think.config.listid.18}</case>
+															<case value="19">{$Think.config.listid.19}</case>
+															<default />{$Think.config.listid.20}
+														</switch>
+												</td>
+											 </tr>
+											 <tr>
+												<td colspan="8"><hr/ style="border:3px solid #808080;"></td>
+											 </tr>
+											 </volist>
+												<tr>
+													<td colspan="8" align="center">{$page}{$empty}</td>
+												</tr>
+									</table>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

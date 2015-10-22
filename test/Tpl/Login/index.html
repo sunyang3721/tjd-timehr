@@ -1,0 +1,49 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-login.css" type="text/css" media="screen" />
+<BR>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+		  <form class="form-signin" role="form" action="__APP__/Login/login" method="post">
+			<h4 class="form-signin-heading"><i class="glyphicon glyphicon-user"></i> 腾驹达猎头登陆</h4>
+			<input type="text" class="form-control" placeholder="员工编号" name="username" autofocus="">
+			<p></p>
+			<input type="password" class="form-control" placeholder="员工密码" name="password" >
+			<!-- <div class="checkbox">
+				<label>
+				<input type="checkbox" value="remember-me"> Remember me
+			  </label>
+			</div> -->
+			<p></p>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">开始登陆</button><input type="hidden" name="last_ip" value="{$getIP}">
+		  </form>
+		</div>
+	</div>
+    </div>
+<!-- <div id="body-center" class="margin w960">
+		<div class="margin" id="login">
+			<form action="__APP__/Login/login" method="post">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td colspan="3" align="center"><b>腾驹达猎头登录</b></td>
+					</tr>
+					<tr>
+						<td align="right" width="200">员工编号：</td>
+						<td><input type="text" name="username" value="" /></td>
+					</tr>
+					<tr>
+						<td align="right">员工密码：</td>
+						<td><input type="password" name="password" value="" /></td>
+					</tr> -->
+					<!-- <tr>
+						<td align="right">验证码：</td>
+						<td><input type="text" name="verify" size="5" value=""/><img src='__APP__/Login/verify/' onclick="this.src=this.src+'/'+Math.random()"/><span>看不清请单击它</span>
+	</td>
+					</tr> -->
+					<!-- <tr>
+						<td colspan="2" align="center"><input type="submit" name="" value="开始登录" /><input type="hidden" name="last_ip" value="{$getIP}"></td>
+					</tr>
+				</table> -->
+			</form>
+		</div>
+</div>

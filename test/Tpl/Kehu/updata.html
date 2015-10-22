@@ -1,0 +1,169 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;}
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.panel-primary{margin-bottom:200px;}
+	.form-horizontal .form-group{margin-left:0px;}
+</STYLE>
+<script type="text/javascript">
+			$(document).ready(function(){
+					$('[name=pid]').val('{$list.pid}');
+					$('[name=jinji]').val('{$list.jinji}');
+					$('[name=status]').val('{$list.status}');
+			});
+</script>
+<BR>
+<div class="container">
+	<div class="row">
+		<!-- <div class="col-md-10 col-md-offset-1">
+				<div class="col-md-6">
+				<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+						<input id="soso" type="text" class="form-control" placeholder="请输入关键字" data-provide="typeahead"  autocomplete="off">
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="button">开始搜索</button>
+					  </span>
+				</div>
+			 </div>
+		</div> -->
+		<div class="col-md-10 col-md-offset-1" style="margin-bottom:10px;">
+				<div class="panel panel-primary">
+					<div class="panel-heading">修改职位信息</div>
+					<div class="panel-body">
+						<div class="col-md-12">
+								<form class="form-horizontal" method="post" action="{:U('Kehu/modify')}">
+									<input type="hidden" name="newdate" value="<?php echo time()?>">
+									<input type="hidden" name="tid" value="{$list.tid}">
+									   <div class="form-group">
+										<label  class="col-sm-2 control-label">职位编号</label>
+										<div class="col-sm-2">
+										  <input type="text" class="form-control" name="id"  value="{$list.id}"  disabled>
+										  <input type="hidden" class="form-control" name="id"  value="{$list.id}" >
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">职位名称</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control" name="jobname"  value="{$list.jobname}">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">是否紧急</label>
+										<div class="col-sm-2">
+										  <select class="form-control" name="jinji">
+											  <option value="0">否</option>
+											  <option value="1">是</option>
+											</select>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">客户名称</label>
+										<div class="col-sm-5">
+										  <select class="form-control" name="pid">
+											  <option value="0">请选择</option>
+											<foreach name="kehu" item="vo">
+											  <option value="{$vo.id}">{$vo.title}</option>
+											</foreach>
+											</select>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">年薪</label>
+										<div class="col-sm-2">
+										  <div class="form-group">
+											<div class="input-group">											  
+											  <input class="form-control" type="text" value="{$list.moeny}" name="moeny">
+											  <div class="input-group-addon">万</div>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">招聘人数</label>
+										<div class="col-sm-2">
+										  <div class="form-group">
+											<div class="input-group">											  
+											  <input class="form-control" type="text" value="{$list.num}" name="num">
+											  <div class="input-group-addon">人</div>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">工作地点</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control"  value="{$list.address}" name="address">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">面试要点</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" value="{$list.msneed}" name="msneed">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">参考人方向</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" value="{$list.cankao}" name="cankao">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">其它</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" value="{$list.other}" name="other">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">客户招聘对接人</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control" value="{$list.kehuname}" name="kehuname">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">面试流程</label>
+										<div class="col-sm-10">
+										  <input type="text" class="form-control" value="{$list.msliucheng}" name="msliucheng">
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">职位要点</label>
+										<div class="col-sm-10">
+										  <textarea class="form-control" rows="6" name="jobneed">{$list.jobneed}</textarea>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<label  class="col-sm-2 control-label">预计截止时间</label>
+										<div class="col-sm-5">
+										  <input type="text" class="form-control"  value="{$list.enddate|default='未填写'}" name="enddate">
+										</div>
+									  </div>
+									   <div class="form-group">
+										<label  class="col-sm-2 control-label">目前状态</label>
+										<div class="col-sm-3">
+										   <div class="form-group">
+													<select class="form-control" name="status">
+													  <option value="0">请选择</option>
+													  <option value="1">正在进行中</option>
+													  <option value="2">即将开始</option>
+													  <option value="3">已关闭或结束</option>
+													</select>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									  <div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+										  <button type="submit" class="btn btn-primary">保存发布</button>
+										</div>
+									  </div>
+								</form>
+						</div>
+					</div>
+			</div>	
+		</div>
+		
+	</div>
+</div>

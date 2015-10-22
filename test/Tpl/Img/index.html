@@ -1,0 +1,43 @@
+<include file="Public:header" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/test/css/pubu/default.css" />
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/test/css/pubu/component.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/test/css/jquery.lightbox-0.5.css" />
+
+<script src="__PUBLIC__/test/js/pubu/modernizr.custom.js"></script>
+<script type="text/javascript" src="__PUBLIC__/test/js/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript">
+		$(function () {
+          $('#grid li a').lightBox();
+		});
+		$(window).load(function(){$("#loading").hide();})
+</script>
+<STYLE type="text/css">
+	#loading{position:fixed;_position:absolute;top:50%;left:50%;width:124px;height:124px;overflow:hidden;background:url(http://www.mb-wx.com/skins/Nuvola/loaderc.gif) no-repeat;z-index:7; margin:-62px 0 0 -62px;}
+</STYLE>
+ <div id="loading"></div>
+<!-- <a href="#"><div id="top"></div></a> -->
+<ul class="grid effect-2" id="grid">
+	<foreach item="vo" name="list">
+		<li><a href="__UPLOAD__/m_{$vo.imgpath}"><img src="__UPLOAD__/m_{$vo.imgpath}" width="400"></a>
+			<p>{$vo.imgtitle}</p>
+			<p class="align-right">上传日期：{$vo.date|date='Y-m-d',###}</p>
+		</li>
+	</foreach>
+</ul>
+
+<div style="width:30%;margin:0 auto;font-size:18px;color:#005bac;padding:20px;"><b>{$page}</b></div>
+<script src="__PUBLIC__/test/js/pubu/masonry.pkgd.min.js"></script>
+<script src="__PUBLIC__/test/js/pubu/imagesloaded.js"></script>
+<script src="__PUBLIC__/test/js/pubu/classie.js"></script>
+<script src="__PUBLIC__/test/js/pubu/AnimOnScroll.js"></script>
+<script>
+new AnimOnScroll( document.getElementById( 'grid' ), {
+	minDuration : 0.4,
+	maxDuration : 0.7,
+	viewportFactor : 0.2
+});
+</script>
+
+</body>
+</html>

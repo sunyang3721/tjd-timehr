@@ -1,0 +1,69 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-user.css" type="text/css" media="screen" />
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<include file="Public:test-nav"/>
+		</div>
+		<div id="right" class="align-right font">
+			<div id="right-warp" class="font-14">
+				<div  class="dialog" id="userjob" tabindex="-1" role="dialog" aria-labelledby="myuserjob">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h4 class="modal-title" id="myuserjob"><span class="text-info">修改职位信息</span></h4>
+				  </div>
+				  <div class="modal-body">
+					<form method="post" action="{:U('Weixin/edit_job_save')}">
+					<input type="hidden" name="id" value="{$list.id}">
+					<input type="hidden" name="pid" value="{$Think.session.id}">
+					<input type="hidden" name="date" value="<?php echo time();?>">
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">职位名称</span>
+								<input type="text" class="form-control" placeholder="请输入姓名" autocomplete="off" name="jobtitle" value="{$list.jobtitle}">
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">年薪范围</span>
+								<input type="text" class="form-control" placeholder="例如:30-70万" autocomplete="off" name="moeny" value="{$list.moeny}">
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">公司地点</span>
+								<input type="text" class="form-control" placeholder="例如:北京某知名房地产集团" autocomplete="off" name="gongsi" value="{$list.gongsi}">
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">职位描述<br/>和<br/>职位要求</span>
+								<textarea class="form-control" rows="30" name="jobcontent">{$list.jobcontent}</textarea>
+						</div>
+						<p>&nbsp;</p>
+						<div class="input-group" style="padding-left:10%;">
+								<label class="radio-inline">
+								  <input type="radio" name="status"  value="0"> 不公开
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="status" value="1" checked="checked"> 公开
+								</label><br/>
+								<small>注意：若选择不公开的话，微信里将不会显示职位信息</small>
+						</div>
+						<!--
+						<p>&nbsp;</p>
+						<div class="input-group">
+								<span class="input-group-addon">日均客流量(万)</span>
+								<input type="text" class="form-control" placeholder="请输入数字" autocomplete="off" name="liuliang" value="">
+						</div>
+						-->
+				  </div>
+				  <div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="提交保存">
+				  </div>
+				 </form> 
+				</div>
+		  </div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+		<!-- <a href="__APP__/List/index" class="btn btn-primary btn-block">所有资料</a> -->
+		<a href="__APP__/List/index" class="btn btn-primary btn-block">人力资源报告</a>
+		<a href="__APP__/List/kehu_index" class="btn btn-primary btn-block">客户信息资料</a>
+		<a href="__APP__/Move/yinpin_index" class="btn btn-primary btn-block">客户培训音频</a>
+				<!-- <ul>
+						<li><a href="__APP__/List/index">所有资料</a></li>
+						<li><a href="__APP__/List/index/pid/2">list表</a></li>
+						<li><a href="__APP__/List/index/pid/6">人力资源报告</a></li>
+						<li><a href="__APP__/List/index/pid/1">内部期刊</a></li>
+						<li><a href="__APP__/List/index/pid/3">客户信息资料</a></li>
+						<li><a href="__APP__/List/index/pid/4">公司制度</a></li>
+						<li><a href="__APP__/List/index/pid/5">客户培训</a></li>
+				</ul> -->
+		</div>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+				<!-- <span class="align-right" style="padding:5px 15px;background-color:#005bac;margin-right:15px;"><a href="__URL__/uppdf" style="color:#fff;">上传List表</a></span>
+					<span class="clear"></span> -->
+					<BR>
+					<div class="row">
+						<div class="col-md-12">
+							<form class="form-inline" role="form" style="margin-left:5%;" method="get" action="__URL__/kehu_index">
+								  <div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon"><i class="glyphicon glyphicon-search"></i> {$soso_text}</div>
+									  <input class="form-control" type="text"  name="title" value="{$text}" placeholder="输入关键字" style="width:300px;">
+									  <!-- <span class="input-group-addon">开始搜索</span> -->
+									</div>
+								  </div>
+								  <button type="submit" class="btn btn-default">开始搜索</button>
+							</form>
+						</div>
+					</div>
+				<!-- <FORM method="get" action="__URL__">
+					<b>搜索关键字：</b><input type="text" name="title" value="{$text}" /><input type="submit" value="开始搜索" />&nbsp;
+				</FORM> -->					
+					<hr/>
+					<ul class="margin">
+					<foreach name="list" item="vo">
+							<li>
+								<switch name="vo.pid">
+								<case value="1">内部期刊</case>
+								<case value="2">list表</case>
+								<case value="3">[客户信息资料]</case>
+								<case value="4">公司制度</case>
+								<case value="6">[人力资源报告]</case>
+								<case value="5">其它</case>
+								<default />[客户培训音频]
+								</switch>
+								&nbsp;&nbsp;
+								<a href="__URL__/show/{$vo.id}"  target="_blank">{$vo.title} 
+									<in name="vo.pid" value="2,6">
+										[行业：{$vo.hangye|default='未填写'}]
+									</in>
+								</a>
+									<span class="date">发布日期：{$vo.date|date='Y-m-d',###}</span>
+							</li>
+					</foreach>
+					<hr/>
+						<li class="page">{$page}{$empty}</li>
+					</ul>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-move.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/move/themes/maccaco/projekktor.style.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/move/projekktor-1.3.09.min.js"></script>
+<a href="#"><div id="top"></div></a>
+<div id="body-center" class="margin w960">
+		<div id="ihonelist">
+			<div id="title" class="font"><center><b>{$list.title}</b></center></div>
+			<!-- <div id="move" class="margin">{$list.movepath}</div>
+			<p>视频密码：{$list.password}</p> -->
+			<div id="player_a" class="projekktor margin"></div>
+				<script type="text/javascript">
+				$(document).ready(function() {
+					projekktor('#player_a', {
+					poster: '__PUBLIC__/test/move/media/intro.jpg',
+					title: '腾驹达技术部制作',
+					playerFlashMP4: 'swf/StrobeMediaPlayback/StrobeMediaPlayback.swf',
+					playerFlashMP3: 'swf/StrobeMediaPlayback/StrobeMediaPlayback.swf',
+					width: 960,
+					height: 576,
+					playlist: [
+						{
+					   
+						1: {src: "<?php echo $list['movepath']?>", type: "video/mp4"}
+						
+						}
+					]    
+					}, function(player) {} // on ready 
+					);
+				});
+				</script>
+		</div>
+		<div style="margin:20px auto; width:70%">
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="{$list.id}" data-title="{$list.title}" data-url="http://tjd.timehr.com__SELF__"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"timehr"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</div>
+<BR><BR><BR>
+</div>
+</body>
+</html>

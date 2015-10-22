@@ -1,0 +1,5 @@
+smohan.fixednav.js  随着滚动固定顶层
+jquery.reveal.js  弹出向下流动窗口
+tab.js 选项卡
+jquery.seven.min.js 首页效果图
+jquery.easing.min.js 首页效果图

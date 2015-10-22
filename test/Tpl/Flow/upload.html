@@ -1,0 +1,76 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__ROOT__/ueditor/editor_config_test.js"></script>
+<script type="text/javascript" src="__ROOT__/ueditor/editor_all_min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/test/date/datepicker.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/date/bootstrap-datepicker.js"></script>
+<STYLE type="text/css">
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+
+	.btn-success{float:right;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		<!-- <div class="col-md-12">
+				<div class="jumbotron">
+				  <p>正在开发中。。。。。。</p>
+				</div>
+		</div> -->
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">腾驹达猎头</div>
+					<div class="panel-body">
+							<form method="post" action="__URL__/uploading" enctype="multipart/form-data">
+								<input type="hidden" name="id" value="{$id.id}">
+								<div style="border:0px;margin:0 auto;height:50%;">
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">上传微信群二维码</div>
+										</div>
+								    </div>
+									
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">微信群二维码</div>
+										  <input class="form-control"  type="file" name="file0" id="file0">
+										</div>
+								    </div>
+									<img src="" id="img0" width="200">
+									<div>
+											<input type="submit" value="确定保存" class="btn btn-success">
+											 <div class="clear"></div>
+									</div>
+								</div>
+							</form>
+							<script>	
+								$("#file0").change(function(){
+									var objUrl = getObjectURL(this.files[0]) ;
+									console.log("objUrl = "+objUrl) ;
+									if (objUrl) {
+										$("#img0").attr("src", objUrl) ;
+									}
+								}) ;
+								//建立一個可存取到該file的url
+								function getObjectURL(file) {
+									var url = null ; 
+									if (window.createObjectURL!=undefined) { // basic
+										url = window.createObjectURL(file) ;
+									} else if (window.URL!=undefined) { // mozilla(firefox)
+										url = window.URL.createObjectURL(file) ;
+									} else if (window.webkitURL!=undefined) { // webkit or chrome
+										url = window.webkitURL.createObjectURL(file) ;
+									}
+									return url ;
+								}
+								</script>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

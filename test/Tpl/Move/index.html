@@ -1,0 +1,43 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<ul>
+						<!-- <li><a href="__APP__/Move/index">全部视频</a></li> -->
+						<li><a href="__APP__/Move/index/1">沙龙视频</a></li>
+						<li><a href="__APP__/Move/index/2">培训视频</a></li>
+						<li><a href="__APP__/Move/index/3">季度会视频</a></li>
+						<li><a href="__APP__/Move/index/4">活动视频</a></li>
+						<li><a href="__APP__/Move/index/5">其他视频</a></li>
+						<li><a href="__APP__/Move/index/6">音频</a></li>
+				</ul>
+		</div>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+					<FORM method="post" action="__URL__">
+						<b>搜索关键字：</b><input type="text" name="text" value="{$text}" /><input type="submit" value="开始搜索" />&nbsp;
+					</FORM>
+					<hr/>
+					<ul class="margin">
+					<foreach name="list" item="vo">
+					   <li>[
+						<switch name="vo.status">
+						<case value="1">沙龙视频</case>
+						<case value="2">培训视频</case>
+						<case value="3">季度会视频</case>
+						<case value="4">活动视频</case>
+						<case value="5">其他视频</case>
+						<case value="6">音频</case>
+						<default />未知
+					</switch>
+					   ]&nbsp;&nbsp;<a href="__URL__/show/{$vo.id}"  target="_blank">{$vo.title}<span class="date">发布日期：{$vo.date|date='Y-m-d',###}</span></a></li>
+					</foreach>
+					<hr/>
+						<li class="page">{$page}{$empty}</li>
+					</ul>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__ROOT__/ueditor/editor_config_test.js"></script>
+<script type="text/javascript" src="__ROOT__/ueditor/editor_all_min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/test/date/datepicker.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/date/bootstrap-datepicker.js"></script>
+<STYLE type="text/css">
+	.table{margin-bottom:0px;}
+	.table-td tr td{padding-left:5px;}
+	.table-foot td{border:1px solid #ccc;}
+	.table-hover tr{cursor: pointer;}
+	.panel-primary{margin-bottom:200px;}
+	.none-padding{padding-right:0px;}
+	.input-group-addon:first-child{width:35%;}
+	.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn, .input-group-btn:last-child>.dropdown-toggle, .input-group-btn:first-child>.btn:not(:first-child), .input-group-btn:first-child>.btn-group:not(:first-child)>.btn{width:300%;}
+	.btn-success{float:right;}
+</STYLE>
+<BR>
+<div class="container-fluid">
+  <div class="row">
+		<!-- <div class="col-md-12">
+				<div class="jumbotron">
+				  <p>正在开发中。。。。。。</p>
+				</div>
+		</div> -->
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">修改工作流动站</div>
+					<div class="panel-body">
+							<form method="post" action="{:U('Flow/save')}" enctype="multipart/form-data">
+								<input type="hidden" name="id" value="{$list.id}">
+								<div style="border:0px;margin:0 auto;height:50%;">
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">姓名</div>
+										  <input class="form-control" name="name" placeholder="请填写真实姓名" value="{$list.name}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">职务</div>
+										  <input class="form-control" name="job" placeholder="请填写职务" value="{$list.job}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">移动电话</div>
+										  <input class="form-control" name="ihone" placeholder="请填写正确移动电话" value="{$list.ihone}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">QQ</div>
+										  <input class="form-control" name="qq" placeholder="请填写QQ号" value="{$list.qq}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">微信号</div>
+										  <input class="form-control" name="weixin" placeholder="请填写微信帐号" value="{$list.weixin}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">所在地点</div>
+										  <input class="form-control" name="address" placeholder="请填写正确地点" value="{$list.address}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">开始日期</div>
+										  <input class="form-control span2" name="godate"  value="{$list.godate|date='Y-m-d',###}">
+										</div>
+								    </div>
+									<div class="form-group">
+										<div class="input-group">
+										  <div class="input-group-addon">结束日期</div>
+											  <div class="input-append date" >
+													<input class="form-control span2" name="enddate"  value="{$list.enddate|date='Y-m-d',###}">
+											  </div>
+										</div>
+								    </div>
+									<div>
+											<div class="form-group">
+												<div class="input-group">
+												  <div class="input-group-addon">备注说明</div>
+												  <input class="form-control" name="remark" placeholder="请填写备注说明" value="{$list.remark}">
+												</div>
+											</div>
+											<input type="submit" value="确定保存" class="btn btn-success">
+											 <div class="clear"></div>
+									</div>
+								</div>
+							</form>
+							<script>	
+							$(document).ready(function(){
+								$('.span2').datepicker({
+									language:  'fr',
+									format: 'yyyy-mm-dd',
+									weekStart: 1,
+									todayBtn:  'linked',
+									autoclose: 1,
+									todayHighlight: 1,
+									startView: 2,
+									minView: 2,
+									forceParse: 0
+								});
+						});
+								</script>
+					</div>
+			</div>	
+	  </div>
+</div>
+</div>

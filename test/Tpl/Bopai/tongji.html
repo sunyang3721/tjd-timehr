@@ -1,0 +1,93 @@
+<include file="Public:header" title="查看我承接的信息"/>
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/bootstrap-formhelpers.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="__PUBLIC__/test/js/bootstrap-formhelpers-selectbox.js"></script>
+<STYLE type="text/css">
+	.col-md-10{padding-top:10px;padding-bottom:10px;}
+	.table{margin-bottom:0px;}
+	.table-hover tr{cursor: pointer;}
+	.bopai-right{margin-right:50px;}
+	.border,.border td{border:1px solid #c0c0c0;}
+</STYLE>
+<script type="text/javascript">
+			$(document).ready(function(){
+					$(function () {
+						$('.focus').focus();
+						$('[data-toggle="tooltip"]').tooltip()
+						})
+			});
+</script>
+<div class="container-fluid">
+  <div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			 <div class="col-md-8">
+				<!-- Single button -->
+					<div class="btn-group">
+						  <a  href="{:U('Bopai/index')}"class="btn btn-default " >
+							查看所有的信息
+						  </a>
+						  <!--
+						  <a  href="{:U('Bopai/my_list')}"class="btn btn-default " >
+							查看我上传的信息
+						  </a>
+						  -->
+						  <in name="guwen" value = "1,2">
+						  <a  href="{:U('Bopai/my_join')}"class="btn btn-default " >
+							查看我承接的信息
+						  </a>
+						  </in>
+						  <a  href="{:U('Bopai/my_xiangmu')}"class="btn btn-default " >
+							查看企业项目
+						  </a>
+						  <a href="{:U('Bopai/tongji')}" class="btn btn-default">
+						  	员工统计
+						  </a>
+					</div>
+			 </div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+						<h4>员工统计</h4>
+				</div>
+				<!--
+				<div class="col-md-12">
+					<div class="col-md-4" style="padding:20px;">
+						<form method="get" action="__URL__/my_join">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+								<input type="text" class="form-control focus" placeholder="请输入员工姓名" value="{$text}" name="text">
+								<span class="input-group-btn">
+								<button class="btn btn-default" type="submit">开始搜索</button>
+							  </span>
+							</div>
+						</form>
+					 </div>
+				</div>
+				-->
+				<div class="panel-body">
+					<div class="panel-group" id="accordion" >
+					  <div class="panel panel-default">
+						<div id="collapseOne" class="panel-collapse collapse in" >
+						  <div class="panel-body">
+						 	<ul class="list-group col-md-3">
+							  <li class="list-group-item disabled">
+							    <span class="badge">按上传最多排序</span>
+							    员工姓名
+							  </li>
+							  <volist name='username' id='vo'>
+							  <li class="list-group-item">
+							    <span class="badge">共有{$vo['num']}条</span>
+							   NO.{$i} {$vo['yourname']}<in name="vo.status" value='2'><b>(已离职)</b></in>
+							  </li>
+							  </volist>
+							 
+							</ul>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>	
+	  		</div>
+</div>
+</div>

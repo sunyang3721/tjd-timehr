@@ -1,0 +1,3 @@
+masonry.pkgd.min.js   是用来瀑布流整齐布局排序
+jquery.Jcrop.min.js  是用来画布上定位截图 
+uploadify-v3.1文件夹 是用来上传照片 

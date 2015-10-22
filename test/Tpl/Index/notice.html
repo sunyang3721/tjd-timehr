@@ -1,0 +1,19 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__PUBLIC__/test/css/test-index.css" type="text/css" media="screen" />
+<div id="body-center" class="margin w960">
+		<div id="left" class="font font-14 align-left">
+				<include file="Public:test-nav"/>
+		</div>
+		<div id="right" class="align-right font">
+				<div id="right-warp" class="font-14">
+					<br/>
+					<ul class="margin">
+					<foreach name="list" item="vo">
+						<li>{$vo.title}<span class="date">发布日期：{$vo.date|date='Y-m-d H:i:s',###}</span></li>
+					</foreach>
+						<li class="page"><a href="#">{$page}{$empty}</a></li>
+					</ul>
+				</div>
+		</div>
+		<div class="clear"></div>
+</div>
